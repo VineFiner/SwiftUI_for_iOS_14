@@ -1,0 +1,678 @@
+﻿1
+00:00:00,790 --> 00:00:03,457
+(intense music)
+
+2
+00:00:12,590 --> 00:00:16,230
+- [Meng] Hi and welcome to
+section 10 of my SwiftUI course.
+
+3
+00:00:16,230 --> 00:00:18,820
+So we're gonna start
+working with static data,
+
+4
+00:00:18,820 --> 00:00:21,310
+meaning that our cards are
+gonna look more interesting,
+
+5
+00:00:21,310 --> 00:00:22,820
+we're gonna have more cards,
+
+6
+00:00:22,820 --> 00:00:26,180
+and we're gonna make them work
+with match geometry effect.
+
+7
+00:00:26,180 --> 00:00:29,620
+First of all, we're going to
+create a new data model file.
+
+8
+00:00:29,620 --> 00:00:30,883
+So command N.
+
+9
+00:00:31,760 --> 00:00:33,233
+Select SwiftUI View.
+
+10
+00:00:34,270 --> 00:00:36,270
+We're gonna call this Course.
+
+11
+00:00:36,270 --> 00:00:39,450
+Make sure to target both macOS and iOS,
+
+12
+00:00:39,450 --> 00:00:40,950
+and that's because data should be
+
+13
+00:00:40,950 --> 00:00:43,120
+the same for all platforms.
+
+14
+00:00:43,120 --> 00:00:46,980
+To create our data model we
+don't need the UI aspect.
+
+15
+00:00:46,980 --> 00:00:49,410
+We're gonna type struct,
+
+16
+00:00:49,410 --> 00:00:50,243
+Course
+
+17
+00:00:51,160 --> 00:00:54,970
+of type Identifiable, curly braces.
+
+18
+00:00:54,970 --> 00:00:56,970
+We're gonna start with a variable ID,
+
+19
+00:00:56,970 --> 00:01:01,970
+so var id is equal to
+you UUID parentheses.
+
+20
+00:01:02,620 --> 00:01:05,410
+So this will auto generate a unique ID
+
+21
+00:01:05,410 --> 00:01:07,440
+for every single item
+
+22
+00:01:07,440 --> 00:01:11,050
+so that we can actually use
+this for match geometry effect.
+
+23
+00:01:11,050 --> 00:01:13,290
+Each card is going to have a title.
+
+24
+00:01:13,290 --> 00:01:16,670
+So var title of type String.
+
+25
+00:01:16,670 --> 00:01:21,010
+Next var subtitle of type String as well,
+
+26
+00:01:21,010 --> 00:01:23,970
+var image of type String,
+
+27
+00:01:23,970 --> 00:01:27,860
+and then finally var color of type Color.
+
+28
+00:01:27,860 --> 00:01:30,060
+Now we're gonna need some sample data.
+
+29
+00:01:30,060 --> 00:01:35,060
+So var courses is equal to
+array, so square brackets.
+
+30
+00:01:36,170 --> 00:01:38,030
+Let's put it in its own line,
+
+31
+00:01:38,030 --> 00:01:42,760
+and in the middle we're gonna
+set Course, parentheses.
+
+32
+00:01:42,760 --> 00:01:45,760
+And so this is going to
+detect the data model,
+
+33
+00:01:45,760 --> 00:01:48,380
+and we can select the one without the id
+
+34
+00:01:48,380 --> 00:01:51,060
+because the id is auto-generated.
+
+35
+00:01:51,060 --> 00:01:52,990
+So double click,
+
+36
+00:01:52,990 --> 00:01:55,920
+and now you can populate the
+data based on the data type.
+
+37
+00:01:55,920 --> 00:02:00,660
+So String is quotes, the same for image.
+
+38
+00:02:00,660 --> 00:02:03,910
+As for the color, we're gonna use Color
+
+39
+00:02:03,910 --> 00:02:06,310
+parentheses color lit.
+
+40
+00:02:06,310 --> 00:02:08,760
+We're gonna use colorLiteral
+in order to be able to
+
+41
+00:02:08,760 --> 00:02:12,110
+change the colors really easily.
+
+42
+00:02:12,110 --> 00:02:14,810
+So here I'm gonna paste a bunch of data
+
+43
+00:02:14,810 --> 00:02:17,030
+because it would be a lot of time
+
+44
+00:02:17,030 --> 00:02:19,190
+to type all of them manually.
+
+45
+00:02:19,190 --> 00:02:21,900
+So I'm just gonna paste the whole thing,
+
+46
+00:02:21,900 --> 00:02:25,760
+and feel free to use the text
+content from this section,
+
+47
+00:02:25,760 --> 00:02:27,450
+or to use your own data,
+
+48
+00:02:27,450 --> 00:02:30,520
+as long as it respects the data model.
+
+49
+00:02:30,520 --> 00:02:33,300
+So you can see we have
+a title for each card
+
+50
+00:02:33,300 --> 00:02:38,060
+and then the subtitle, the image
+name, as well as the color.
+
+51
+00:02:38,060 --> 00:02:40,743
+Let's save this and head
+back to CoursesView.
+
+52
+00:02:42,083 --> 00:02:44,500
+We have one card here and
+then we have a second card,
+
+53
+00:02:44,500 --> 00:02:46,070
+which is entered manually.
+
+54
+00:02:46,070 --> 00:02:48,203
+The second card can be deleted.
+
+55
+00:02:49,150 --> 00:02:52,790
+And for the first card, we're
+gonna command click on it
+
+56
+00:02:52,790 --> 00:02:55,480
+and then click on repeat.
+
+57
+00:02:55,480 --> 00:02:58,780
+So normally it just repeats
+for a number of times.
+
+58
+00:02:58,780 --> 00:03:00,970
+It does not get any data.
+
+59
+00:03:00,970 --> 00:03:03,480
+Instead, we're gonna use the data model.
+
+60
+00:03:03,480 --> 00:03:06,770
+So from the sample data, courses,
+
+61
+00:03:06,770 --> 00:03:10,890
+which means this item is for each card.
+
+62
+00:03:10,890 --> 00:03:13,120
+So let's resume this.
+
+63
+00:03:13,120 --> 00:03:15,180
+Now you can see that we have a problem
+
+64
+00:03:15,180 --> 00:03:19,370
+because every single card is being matched
+
+65
+00:03:19,370 --> 00:03:23,370
+to the full screen because
+all of them have the same ID.
+
+66
+00:03:23,370 --> 00:03:25,810
+So instead, we're going to replace
+
+67
+00:03:25,810 --> 00:03:30,243
+this ID that was entered
+manually by item.id,
+
+68
+00:03:31,290 --> 00:03:35,130
+because in our data model, we
+have the ID that is unique.
+
+69
+00:03:35,130 --> 00:03:38,580
+But the problem now is
+how do we match this ID
+
+70
+00:03:38,580 --> 00:03:40,240
+to the full screen card?
+
+71
+00:03:40,240 --> 00:03:41,830
+Because if you click on it,
+
+72
+00:03:41,830 --> 00:03:44,290
+there is no shared element transition.
+
+73
+00:03:44,290 --> 00:03:46,790
+So for now, we're gonna do it manually,
+
+74
+00:03:46,790 --> 00:03:49,960
+meaning that instead of having this,
+
+75
+00:03:49,960 --> 00:03:52,540
+that does not match with the item.id
+
+76
+00:03:52,540 --> 00:03:55,500
+we're gonna get from the array courses,
+
+77
+00:03:55,500 --> 00:03:58,160
+and then using an index value,
+
+78
+00:03:58,160 --> 00:04:01,100
+we're going to pick the first card.
+
+79
+00:04:01,100 --> 00:04:05,507
+So square brackets,
+zero, and at the end .id.
+
+80
+00:04:07,440 --> 00:04:10,010
+What this means is that
+the full screen card
+
+81
+00:04:10,010 --> 00:04:12,510
+is going to be matched to the first card.
+
+82
+00:04:12,510 --> 00:04:15,420
+So only the first card
+will be transitioning.
+
+83
+00:04:15,420 --> 00:04:19,680
+If I was to set, let's say
+two, that means the third card,
+
+84
+00:04:19,680 --> 00:04:23,030
+then this card will be transitioning.
+
+85
+00:04:23,030 --> 00:04:24,180
+That's pretty cool.
+
+86
+00:04:24,180 --> 00:04:26,580
+So let's set it back to zero for now,
+
+87
+00:04:26,580 --> 00:04:29,800
+and let's pass the data to each card.
+
+88
+00:04:29,800 --> 00:04:34,110
+Let's command click on
+CourseItem, jump to definition.
+
+89
+00:04:34,110 --> 00:04:36,000
+So we're gonna make sure that the data
+
+90
+00:04:36,000 --> 00:04:39,630
+in the CourseItem component
+is going to be customizable.
+
+91
+00:04:39,630 --> 00:04:42,080
+So right before body,
+
+92
+00:04:42,080 --> 00:04:46,040
+we're gonna set a var
+course of type Course,
+
+93
+00:04:46,040 --> 00:04:47,610
+which is the data model.
+
+94
+00:04:47,610 --> 00:04:50,240
+And we're gonna have some default value.
+
+95
+00:04:50,240 --> 00:04:55,240
+courses using the index value,
+so square brackets, zero.
+
+96
+00:04:55,250 --> 00:04:58,770
+Now we're gonna replace
+each hard-coded values
+
+97
+00:04:58,770 --> 00:04:59,610
+by the data.
+
+98
+00:04:59,610 --> 00:05:04,010
+So course.image for the image.
+
+99
+00:05:04,010 --> 00:05:08,550
+And then for the first text
+is going to be course.title.
+
+100
+00:05:08,550 --> 00:05:12,728
+The second text, course.subtitle.
+
+101
+00:05:12,728 --> 00:05:15,570
+Then for the background, color.blue,
+
+102
+00:05:15,570 --> 00:05:19,290
+replace it with course.color.
+
+103
+00:05:19,290 --> 00:05:20,400
+And while we're here,
+
+104
+00:05:20,400 --> 00:05:22,990
+let's make the cornerRadius and the shadow
+
+105
+00:05:22,990 --> 00:05:24,240
+a little bit more interesting.
+
+106
+00:05:24,240 --> 00:05:27,400
+For cornerRadius I'm gonna
+use the smooth corners
+
+107
+00:05:27,400 --> 00:05:30,050
+that you see a lot on iOS.
+
+108
+00:05:30,050 --> 00:05:32,980
+Let's select the whole .cornerRadius
+
+109
+00:05:32,980 --> 00:05:34,713
+and replace it with .clipShape.
+
+110
+00:05:37,290 --> 00:05:41,200
+Inside it RoundedRectangle, parentheses.
+
+111
+00:05:41,200 --> 00:05:43,070
+Select the first option.
+
+112
+00:05:43,070 --> 00:05:45,500
+It's gonna give you cornerRadius.
+
+113
+00:05:45,500 --> 00:05:50,460
+We're gonna set to 22,
+and the style.continuous.
+
+114
+00:05:50,460 --> 00:05:51,293
+If you resume,
+
+115
+00:05:51,293 --> 00:05:52,750
+you're gonna see that the data
+
+116
+00:05:52,750 --> 00:05:55,180
+has been replaced by your data.
+
+117
+00:05:55,180 --> 00:05:59,260
+And the cornerRadius is
+now the smooth corners.
+
+118
+00:05:59,260 --> 00:06:01,860
+Finally, we're going to
+customize our shadow.
+
+119
+00:06:01,860 --> 00:06:04,370
+So right before radius,
+
+120
+00:06:04,370 --> 00:06:08,380
+we're gonna set space and then set color,
+
+121
+00:06:08,380 --> 00:06:11,940
+colon, course.color.
+
+122
+00:06:11,940 --> 00:06:16,520
+And for that color, we're
+gonna use .opacity parentheses.
+
+123
+00:06:16,520 --> 00:06:17,353
+Set it to 0.3.
+
+124
+00:06:18,780 --> 00:06:22,620
+After the parentheses, add a comma.
+
+125
+00:06:22,620 --> 00:06:25,300
+For the radius, I'm gonna set it to 20,
+
+126
+00:06:25,300 --> 00:06:29,120
+and then X position is going to be zero.
+
+127
+00:06:29,120 --> 00:06:32,510
+Y position is going to be 10.
+
+128
+00:06:32,510 --> 00:06:35,250
+Great, so now I have a
+contextual drop shadow
+
+129
+00:06:35,250 --> 00:06:40,250
+that is using the background
+color with a 30% opacity.
+
+130
+00:06:41,546 --> 00:06:43,550
+Now I can go back to CoursesView,
+
+131
+00:06:43,550 --> 00:06:46,630
+and then I can pass to
+the courseItem component.
+
+132
+00:06:46,630 --> 00:06:51,630
+So inside the parentheses course:item,
+
+133
+00:06:52,860 --> 00:06:57,060
+which is what I'm receiving
+from this ForEach loop
+
+134
+00:06:57,060 --> 00:06:59,790
+using my array call courses.
+
+135
+00:06:59,790 --> 00:07:01,453
+As for the full screen,
+
+136
+00:07:02,540 --> 00:07:05,707
+inside the parentheses for CourseItem,
+
+137
+00:07:05,707 --> 00:07:09,920
+course: courses, which is the array,
+
+138
+00:07:09,920 --> 00:07:11,100
+square brackets.
+
+139
+00:07:11,100 --> 00:07:14,630
+And I'm only targeting the first card.
+
+140
+00:07:14,630 --> 00:07:18,430
+So now you can see that the
+data is being populated,
+
+141
+00:07:18,430 --> 00:07:23,430
+including the title, subtitle,
+illustration, and colors.
+
+142
+00:07:23,560 --> 00:07:25,100
+And on top of that,
+
+143
+00:07:25,100 --> 00:07:27,560
+the transition will work.
+
+144
+00:07:27,560 --> 00:07:29,540
+If you change the index value,
+
+145
+00:07:29,540 --> 00:07:33,410
+so let's say three,
+which is the fourth card.
+
+146
+00:07:33,410 --> 00:07:36,590
+So one, two, three, and four,
+
+147
+00:07:36,590 --> 00:07:40,410
+you click on it and it
+has a beautiful transition
+
+148
+00:07:40,410 --> 00:07:41,323
+for that card.
+
+149
+00:07:43,210 --> 00:07:45,093
+Let's put it back to zero for now.
+
+150
+00:07:46,490 --> 00:07:47,340
+In the next session,
+
+151
+00:07:47,340 --> 00:07:50,090
+I wanna show you how to
+set up a selection state,
+
+152
+00:07:50,090 --> 00:07:54,040
+which means that we will
+be transitioning every card
+
+153
+00:07:54,040 --> 00:07:55,810
+to the full view card
+
+154
+00:07:55,810 --> 00:07:58,040
+without having to
+manually select which one
+
+155
+00:07:58,040 --> 00:07:59,660
+we want to transition.
+
+156
+00:07:59,660 --> 00:08:01,270
+I think you're gonna find it interesting,
+
+157
+00:08:01,270 --> 00:08:03,103
+so I'll see you in the next session.
+

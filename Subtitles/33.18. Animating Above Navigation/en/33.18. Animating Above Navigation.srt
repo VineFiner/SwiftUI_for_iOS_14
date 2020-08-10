@@ -1,0 +1,571 @@
+﻿1
+00:00:00,745 --> 00:00:03,412
+(logo whizzing)
+
+2
+00:00:06,044 --> 00:00:08,794
+(soothing music)
+
+3
+00:00:12,640 --> 00:00:14,810
+- [Meng] Hi, and welcome to session 18
+
+4
+00:00:14,810 --> 00:00:16,440
+of my swiftUI course.
+
+5
+00:00:16,440 --> 00:00:19,300
+So today we're gonna learn
+how to animate this view
+
+6
+00:00:19,300 --> 00:00:23,130
+above the sidebar, and also the tab bar.
+
+7
+00:00:23,130 --> 00:00:26,550
+As a result is going to
+be also above the navbar,
+
+8
+00:00:26,550 --> 00:00:28,300
+which means that we won't have
+
+9
+00:00:28,300 --> 00:00:31,430
+to create a custom title anymore.
+
+10
+00:00:31,430 --> 00:00:35,470
+And we will be able to
+use this sidebar toggle,
+
+11
+00:00:35,470 --> 00:00:37,030
+which is on the navbar.
+
+12
+00:00:37,030 --> 00:00:40,090
+Now back to Xcode, we're
+gonna go to navigation
+
+13
+00:00:40,090 --> 00:00:42,200
+and we're gonna go to content view.
+
+14
+00:00:42,200 --> 00:00:44,390
+So right now if you're on the iPhone,
+
+15
+00:00:44,390 --> 00:00:45,780
+it's gonna use the top bar
+
+16
+00:00:45,780 --> 00:00:48,510
+otherwise on the iPad, the sidebar.
+
+17
+00:00:48,510 --> 00:00:51,780
+What we're going to do
+is to put both of them
+
+18
+00:00:51,780 --> 00:00:53,690
+to reference courses view.
+
+19
+00:00:56,930 --> 00:01:00,060
+As a result, courses view will be managing
+
+20
+00:01:00,060 --> 00:01:01,680
+the sidebar and a tab bar.
+
+21
+00:01:01,680 --> 00:01:04,090
+So let's go to courses view.
+
+22
+00:01:04,090 --> 00:01:07,020
+Now here we're going to
+create a separate instance
+
+23
+00:01:07,020 --> 00:01:09,150
+of the sidebar and the top bar,
+
+24
+00:01:09,150 --> 00:01:12,080
+and it needs to reference the content part
+
+25
+00:01:12,080 --> 00:01:13,240
+of the courses view.
+
+26
+00:01:13,240 --> 00:01:15,680
+First of all, we're going
+to click the top menu
+
+27
+00:01:15,680 --> 00:01:18,150
+to find the full content.
+
+28
+00:01:18,150 --> 00:01:21,180
+And here, let's double
+click the curly braces
+
+29
+00:01:21,180 --> 00:01:23,910
+to find the end, and right after that,
+
+30
+00:01:23,910 --> 00:01:27,990
+let's type var tab bar camel case
+
+31
+00:01:27,990 --> 00:01:30,870
+of type some view, curly braces,
+
+32
+00:01:30,870 --> 00:01:34,040
+then we're gonna go to
+the top bar dot Swift,
+
+33
+00:01:34,040 --> 00:01:38,023
+and we're going to copy
+everything, including the tab view.
+
+34
+00:01:40,070 --> 00:01:43,480
+So copy, go back to courses view
+
+35
+00:01:43,480 --> 00:01:46,830
+and paste that inside the curly braces.
+
+36
+00:01:46,830 --> 00:01:50,220
+Now for the first item,
+instead of courses view,
+
+37
+00:01:50,220 --> 00:01:54,310
+we're going to reference content, great.
+
+38
+00:01:54,310 --> 00:01:56,180
+Let's do the same for this sidebar.
+
+39
+00:01:56,180 --> 00:01:58,950
+So double click on the curly braces
+
+40
+00:01:58,950 --> 00:02:02,650
+and right after that type var sidebar
+
+41
+00:02:02,650 --> 00:02:06,030
+of type some view curly braces,
+
+42
+00:02:06,030 --> 00:02:08,290
+then we're gonna go to the sidebar,
+
+43
+00:02:08,290 --> 00:02:12,800
+and for the content, we're
+going to copy the list,
+
+44
+00:02:12,800 --> 00:02:15,260
+including the list style modifier,
+
+45
+00:02:15,260 --> 00:02:20,260
+then go back to courses view,
+paste that inside the sidebar.
+
+46
+00:02:21,130 --> 00:02:23,870
+So just like the structure in the sidebar,
+
+47
+00:02:23,870 --> 00:02:28,870
+where we have the navigation
+view, as well as the content,
+
+48
+00:02:29,180 --> 00:02:31,820
+we're going to do the
+same in courses view.
+
+49
+00:02:31,820 --> 00:02:35,830
+So come on and click on
+List, embed in v stack,
+
+50
+00:02:35,830 --> 00:02:38,563
+change v stack two navigation view.
+
+51
+00:02:39,550 --> 00:02:44,550
+Then after the list style
+modifier, we're gonna put content.
+
+52
+00:02:44,900 --> 00:02:47,740
+Now we're also missing two
+modifiers for the title
+
+53
+00:02:47,740 --> 00:02:49,470
+as well as the toolbar.
+
+54
+00:02:49,470 --> 00:02:51,650
+So we're gonna go back to the sidebar,
+
+55
+00:02:51,650 --> 00:02:55,840
+and here in the body, right after content,
+
+56
+00:02:55,840 --> 00:02:59,980
+we're gonna copy, navigation
+title and toolbar.
+
+57
+00:02:59,980 --> 00:03:01,660
+And then go back to courses view,
+
+58
+00:03:01,660 --> 00:03:05,140
+we're gonna put that after
+list style, so that's it.
+
+59
+00:03:05,140 --> 00:03:07,090
+And the reason why the
+sidebar is a little bit
+
+60
+00:03:07,090 --> 00:03:10,520
+more complicated is because
+of the platform condition.
+
+61
+00:03:10,520 --> 00:03:12,920
+Now the sidebar and the
+tab bar has to be here
+
+62
+00:03:12,920 --> 00:03:15,500
+because we are referencing the content.
+
+63
+00:03:15,500 --> 00:03:19,300
+Once we have this setup, we
+can go back to the very top.
+
+64
+00:03:19,300 --> 00:03:22,530
+And this is where we're
+managing every view.
+
+65
+00:03:22,530 --> 00:03:25,580
+So right now it's simply
+calling the content directly
+
+66
+00:03:25,580 --> 00:03:28,520
+and we're hiding the navigation bar.
+
+67
+00:03:28,520 --> 00:03:29,950
+Instead of doing that,
+
+68
+00:03:29,950 --> 00:03:32,760
+we can reference the tab bar directly.
+
+69
+00:03:32,760 --> 00:03:35,780
+Now what is interesting
+here is that the Z stack
+
+70
+00:03:35,780 --> 00:03:40,210
+is stacking the tab bar
+underneath the full content,
+
+71
+00:03:40,210 --> 00:03:43,360
+which means that the full content
+is going to animate above,
+
+72
+00:03:43,360 --> 00:03:46,030
+so, if we resume the preview,
+
+73
+00:03:46,030 --> 00:03:48,700
+you will see that when I tap on any cart,
+
+74
+00:03:48,700 --> 00:03:51,710
+the tab bar is underneath now.
+
+75
+00:03:51,710 --> 00:03:54,550
+And because of that, we can use the navbar
+
+76
+00:03:54,550 --> 00:03:58,530
+and we can also remove
+the custom large title.
+
+77
+00:03:58,530 --> 00:04:03,393
+So in content, let's
+remove the text element.
+
+78
+00:04:05,420 --> 00:04:07,670
+And right after scroll view,
+
+79
+00:04:07,670 --> 00:04:10,230
+we can put the navigation title.
+
+80
+00:04:10,230 --> 00:04:15,230
+So after z index dot navigation
+title, set it to courses.
+
+81
+00:04:17,370 --> 00:04:19,500
+And because of that, when I scroll,
+
+82
+00:04:19,500 --> 00:04:22,650
+you can see this navbar and the animation
+
+83
+00:04:22,650 --> 00:04:25,250
+is going to be on top without a problem.
+
+84
+00:04:25,250 --> 00:04:28,220
+So what's left to do at this
+point is to make it work
+
+85
+00:04:28,220 --> 00:04:30,310
+with a sidebar for the iPad.
+
+86
+00:04:30,310 --> 00:04:32,740
+In order to detect the
+largest screen on the iPad,
+
+87
+00:04:32,740 --> 00:04:37,300
+we're gonna have to set the
+environment, so at environment,
+
+88
+00:04:37,300 --> 00:04:42,200
+parentheses, backward slash
+dot, horizontal size class,
+
+89
+00:04:44,330 --> 00:04:48,640
+var horizontal size class.
+
+90
+00:04:48,640 --> 00:04:51,450
+Let's set the platform
+condition so that this code
+
+91
+00:04:51,450 --> 00:04:56,437
+only runs on iOS, type pound, if OS, iOS
+
+92
+00:04:58,890 --> 00:05:01,060
+then after that, and if.
+
+93
+00:05:01,060 --> 00:05:04,970
+Next let's go to body
+where we reference tab bar,
+
+94
+00:05:04,970 --> 00:05:08,850
+we're gonna set if horizontal size class,
+
+95
+00:05:08,850 --> 00:05:11,176
+equal equal compact, curly braces,
+
+96
+00:05:11,176 --> 00:05:15,310
+then we can put the tab bar.
+
+97
+00:05:15,310 --> 00:05:20,310
+Else, we can reference
+the sidebar, awesome.
+
+98
+00:05:20,730 --> 00:05:25,423
+So now we can test this
+on the iPad 11 inch.
+
+99
+00:05:26,600 --> 00:05:29,130
+And voila, we have exactly
+the same UI as before,
+
+100
+00:05:29,130 --> 00:05:33,200
+except now we're using
+the navbar, but also,
+
+101
+00:05:33,200 --> 00:05:36,860
+the animated fullscreen
+is above the sidebar,
+
+102
+00:05:36,860 --> 00:05:38,783
+and the tab bar as well.
+
+103
+00:05:40,340 --> 00:05:42,040
+Another big advantage is that
+
+104
+00:05:42,040 --> 00:05:44,460
+now that we're using the nav bar,
+
+105
+00:05:44,460 --> 00:05:48,370
+the sidebar toggle is now always present.
+
+106
+00:05:48,370 --> 00:05:50,900
+One last thing we need to
+do is to test for the Mac.
+
+107
+00:05:50,900 --> 00:05:55,900
+So let's select the Mac and
+try to build it Command + B.
+
+108
+00:05:55,920 --> 00:05:57,390
+Now it's giving us an error.
+
+109
+00:05:57,390 --> 00:06:00,400
+So let's look at it and here it says that
+
+110
+00:06:00,400 --> 00:06:03,330
+the navigation bar trailing
+option for the toolbar
+
+111
+00:06:03,330 --> 00:06:05,010
+is not available for the Mac.
+
+112
+00:06:05,010 --> 00:06:07,460
+So even though we're not using the sidebar
+
+113
+00:06:07,460 --> 00:06:09,730
+from the courses view for the Mac,
+
+114
+00:06:09,730 --> 00:06:11,480
+it is still running the code.
+
+115
+00:06:11,480 --> 00:06:15,120
+And that's because in
+content view for the Mac,
+
+116
+00:06:15,120 --> 00:06:18,930
+it's going to sidebar first,
+and then from sidebar,
+
+117
+00:06:18,930 --> 00:06:23,930
+it's running courses view,
+which happens to have this code.
+
+118
+00:06:24,040 --> 00:06:28,130
+So in this case, we can just
+set a platform condition,
+
+119
+00:06:28,130 --> 00:06:31,920
+pound if OS, iOS and then at the end
+
+120
+00:06:31,920 --> 00:06:36,330
+of navigation view, and if.
+
+121
+00:06:36,330 --> 00:06:40,640
+Let's not forget to add
+view builder for sidebar.
+
+122
+00:06:40,640 --> 00:06:42,730
+Great, now we can run the code.
+
+123
+00:06:42,730 --> 00:06:45,830
+And the Mac App is working
+perfectly just like before,
+
+124
+00:06:45,830 --> 00:06:49,100
+but this time without
+the custom large title.
+
+125
+00:06:49,100 --> 00:06:50,640
+In the next session, I wanna show you
+
+126
+00:06:50,640 --> 00:06:55,210
+how to add reusable components
+and modifiers to the library
+
+127
+00:06:55,210 --> 00:06:58,690
+so that you can easily
+insert them from the menu.
+
+128
+00:06:58,690 --> 00:07:00,827
+So I'll see you in the next session.
+
+129
+00:07:00,827 --> 00:07:02,669
+(logo swooshing)
+

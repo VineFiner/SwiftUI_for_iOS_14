@@ -1,0 +1,730 @@
+﻿WEBVTT
+
+1
+00:00:05.455 --> 00:00:10.455
+(soft music)
+
+2
+00:00:12.620 --> 00:00:13.453
+<v Meng>Hey there,</v>
+
+3
+00:00:13.453 --> 00:00:16.530
+welcome to Section 13 of my Swift UI course.
+
+4
+00:00:16.530 --> 00:00:18.760
+So, having a lazyGrid layout,
+
+5
+00:00:18.760 --> 00:00:21.960
+definitely introduce a bunch of issues such as;
+
+6
+00:00:21.960 --> 00:00:25.010
+the selected card being underneath the other cards
+
+7
+00:00:25.010 --> 00:00:26.400
+during transition.
+
+8
+00:00:26.400 --> 00:00:27.800
+Another thing we want to do,
+
+9
+00:00:27.800 --> 00:00:32.150
+is to animate the whole container as it grows in size
+
+10
+00:00:32.150 --> 00:00:35.550
+and show the content and go to full screen mode.
+
+11
+00:00:35.550 --> 00:00:37.670
+Right now, you can see that,
+
+12
+00:00:37.670 --> 00:00:40.023
+the content is just appearing as a whole.
+
+13
+00:00:41.000 --> 00:00:42.630
+So this time we're gonna use
+
+14
+00:00:42.630 --> 00:00:45.580
+two matchedGeometryEffect IDs.
+
+15
+00:00:45.580 --> 00:00:46.413
+First of all,
+
+16
+00:00:46.413 --> 00:00:49.840
+we're going to need to set a container for the CourseItem.
+
+17
+00:00:49.840 --> 00:00:51.510
+So Command click on CourseItem
+
+18
+00:00:52.420 --> 00:00:55.280
+and click on embed in VStack.
+
+19
+00:00:55.280 --> 00:00:56.740
+And for the VStack,
+
+20
+00:00:56.740 --> 00:01:01.740
+we're going to copy the same matchGeometryEffect modifier,
+
+21
+00:01:01.960 --> 00:01:05.110
+and paste it at the end of VStack.
+
+22
+00:01:05.110 --> 00:01:06.570
+Now the difference is,
+
+23
+00:01:06.570 --> 00:01:09.780
+this container is going to have its own ID.
+
+24
+00:01:09.780 --> 00:01:11.920
+Instead of using the item ID,
+
+25
+00:01:11.920 --> 00:01:16.480
+we're going to add a unique name, including the item ID.
+
+26
+00:01:16.480 --> 00:01:21.480
+So let's select item dot id and set double quotes,
+
+27
+00:01:22.710 --> 00:01:24.490
+and then parentheses.
+
+28
+00:01:24.490 --> 00:01:26.170
+And before the parentheses,
+
+29
+00:01:26.170 --> 00:01:28.900
+we're going to do backward slash.
+
+30
+00:01:28.900 --> 00:01:32.370
+So this allows us to mix a string and a variable.
+
+31
+00:01:32.370 --> 00:01:34.690
+So right before the backward slash,
+
+32
+00:01:34.690 --> 00:01:37.290
+we're going to type container.
+
+33
+00:01:37.290 --> 00:01:39.600
+So while keeping the item ID,
+
+34
+00:01:39.600 --> 00:01:41.800
+it's going to allow us to match
+
+35
+00:01:41.800 --> 00:01:44.320
+with the full screen container.
+
+36
+00:01:44.320 --> 00:01:46.450
+But, by adding this string,
+
+37
+00:01:46.450 --> 00:01:48.640
+this can distinguish itself
+
+38
+00:01:48.640 --> 00:01:51.740
+from the other matchedGeometryEffect ID.
+
+39
+00:01:51.740 --> 00:01:53.800
+All right, so let's add a container
+
+40
+00:01:53.800 --> 00:01:55.940
+to the full screen mode as well.
+
+41
+00:01:55.940 --> 00:01:59.200
+I'm going to wrap that around the ScrollView.
+
+42
+00:01:59.200 --> 00:02:03.500
+So, Command click on ScrollView, embed in VStack.
+
+43
+00:02:03.500 --> 00:02:07.960
+This also means that all the modifiers for the ScrollView
+
+44
+00:02:07.960 --> 00:02:10.430
+can be moved to the VStack.
+
+45
+00:02:10.430 --> 00:02:14.610
+So the background, transition, and SafeArea modifiers,
+
+46
+00:02:14.610 --> 00:02:17.330
+can be cut from the ScrollView
+
+47
+00:02:17.330 --> 00:02:20.490
+and paste that for the VStack.
+
+48
+00:02:20.490 --> 00:02:23.770
+Now make sure that you're putting it in the right place
+
+49
+00:02:23.770 --> 00:02:25.820
+by double clicking on the curly braces
+
+50
+00:02:25.820 --> 00:02:27.853
+to know where it ends.
+
+51
+00:02:29.420 --> 00:02:31.180
+And once you have that,
+
+52
+00:02:31.180 --> 00:02:35.290
+we can copy the matchedGeometryEffect modifier,
+
+53
+00:02:35.290 --> 00:02:38.563
+and paste that right after dot background.
+
+54
+00:02:39.770 --> 00:02:41.540
+Now we're going to do the same technique.
+
+55
+00:02:41.540 --> 00:02:44.583
+So selecting selectedItem dot id,
+
+56
+00:02:45.430 --> 00:02:49.550
+put quotes, parentheses, and before the parentheses,
+
+57
+00:02:49.550 --> 00:02:51.070
+backward slash.
+
+58
+00:02:51.070 --> 00:02:53.300
+Then we can type container before that.
+
+59
+00:02:53.300 --> 00:02:55.580
+So what has been causing our card
+
+60
+00:02:55.580 --> 00:03:00.180
+being below every other card, is in fact a transition.
+
+61
+00:03:00.180 --> 00:03:02.370
+Since we're now animating the container,
+
+62
+00:03:02.370 --> 00:03:05.060
+we don't need the delay transition anymore.
+
+63
+00:03:05.060 --> 00:03:09.190
+So we can just remove the dot transition modifier.
+
+64
+00:03:09.190 --> 00:03:10.680
+So if you test this,
+
+65
+00:03:10.680 --> 00:03:13.030
+you're gonna see a beautiful transition
+
+66
+00:03:13.030 --> 00:03:17.230
+of the content expanding, and then retracting.
+
+67
+00:03:17.230 --> 00:03:20.810
+The only issue is that when it retracts,
+
+68
+00:03:20.810 --> 00:03:22.970
+then the content goes underneath.
+
+69
+00:03:22.970 --> 00:03:25.200
+And that's not what we want.
+
+70
+00:03:25.200 --> 00:03:26.620
+So to solve this,
+
+71
+00:03:26.620 --> 00:03:28.820
+we can add a zIndex
+
+72
+00:03:28.820 --> 00:03:33.560
+for the ScrollView that is lower than for the full screen.
+
+73
+00:03:33.560 --> 00:03:37.100
+So let's go to zIndex for the ScrollView,
+
+74
+00:03:37.100 --> 00:03:40.930
+type dot zIndex and type one.
+
+75
+00:03:40.930 --> 00:03:44.060
+Then for the VStack for the full screen mode,
+
+76
+00:03:44.060 --> 00:03:48.420
+we're going to set dot zIndex to two,
+
+77
+00:03:48.420 --> 00:03:50.750
+right after the other modifiers.
+
+78
+00:03:50.750 --> 00:03:54.560
+So now you're gonna see, when I transition out,
+
+79
+00:03:54.560 --> 00:03:59.200
+then the content is still above the other cards.
+
+80
+00:03:59.200 --> 00:04:02.640
+I can also add a cornerRadius for my content
+
+81
+00:04:02.640 --> 00:04:05.640
+to fit more the cornerRadius of the cards.
+
+82
+00:04:05.640 --> 00:04:10.527
+So right after background, I'm going to set dot clipShape.
+
+83
+00:04:11.840 --> 00:04:16.120
+Then put rounded rectangle, parentheses,
+
+84
+00:04:16.120 --> 00:04:20.800
+with cornerRadius of 22 and style continuous.
+
+85
+00:04:20.800 --> 00:04:23.350
+Now I have a really nice transition,
+
+86
+00:04:23.350 --> 00:04:26.430
+and it works perfectly for all cards.
+
+87
+00:04:26.430 --> 00:04:30.020
+By the way, you can play with the spring animation,
+
+88
+00:04:30.020 --> 00:04:33.130
+by going to the first onTapGesture.
+
+89
+00:04:33.130 --> 00:04:37.640
+And here, if you delete dot spring and type it again,
+
+90
+00:04:37.640 --> 00:04:42.060
+you're gonna find auto-completion with more values.
+
+91
+00:04:42.060 --> 00:04:46.387
+So we can set the response to 0.4 dampingFraction to 0.8,
+
+92
+00:04:49.020 --> 00:04:50.580
+and blendDuration.
+
+93
+00:04:50.580 --> 00:04:52.170
+We can set it to zero.
+
+94
+00:04:52.170 --> 00:04:55.470
+Now you're gonna find that it's a little bit faster.
+
+95
+00:04:55.470 --> 00:05:00.470
+So, you can set the response to be lower, to make it faster.
+
+96
+00:05:01.010 --> 00:05:02.210
+And for the damping,
+
+97
+00:05:02.210 --> 00:05:05.490
+if you set the number to be lower, such as 0.5,
+
+98
+00:05:05.490 --> 00:05:08.190
+you're gonna see that it's going to bounce a lot more.
+
+99
+00:05:10.170 --> 00:05:12.130
+You can definitely play with these values.
+
+100
+00:05:12.130 --> 00:05:14.633
+For now, I'm just going to set response to 0.5.
+
+101
+00:05:15.720 --> 00:05:19.370
+For the damping, I'm gonna set it to 0.7, all right?
+
+102
+00:05:19.370 --> 00:05:21.300
+So this looks pretty good.
+
+103
+00:05:21.300 --> 00:05:24.190
+What I need to do now is to add a closeButton
+
+104
+00:05:24.190 --> 00:05:26.550
+instead of tapping on the card to close.
+
+105
+00:05:26.550 --> 00:05:29.290
+Since we're going to reuse this closeButton a lot.
+
+106
+00:05:29.290 --> 00:05:31.470
+I'm going to create a new Swift file,
+
+107
+00:05:31.470 --> 00:05:36.398
+so command N, and then enter for SwiftUI View.
+
+108
+00:05:36.398 --> 00:05:40.960
+closeButton, target iOS and Mac and then create.
+
+109
+00:05:40.960 --> 00:05:42.930
+Let's resume this.
+
+110
+00:05:42.930 --> 00:05:47.930
+And then we're going to replace the text with an image,
+
+111
+00:05:48.440 --> 00:05:51.080
+parentheses, using system names.
+
+112
+00:05:51.080 --> 00:05:56.040
+So SF symbols, quotes, "xmark".
+
+113
+00:05:56.040 --> 00:06:00.100
+I'm going to set a custom size using the dot font
+
+114
+00:06:01.270 --> 00:06:03.210
+dot system.
+
+115
+00:06:03.210 --> 00:06:07.000
+And I'm gonna use size, weight, and design.
+
+116
+00:06:07.000 --> 00:06:11.770
+For the size, 17 weight dot bold.
+
+117
+00:06:11.770 --> 00:06:14.940
+The design, I can just delete it because I don't need it.
+
+118
+00:06:14.940 --> 00:06:17.100
+Next, we're going to set a background color.
+
+119
+00:06:17.100 --> 00:06:22.100
+So background and then color dot black dot opacity,
+
+120
+00:06:22.480 --> 00:06:24.503
+parentheses, 0.6.
+
+121
+00:06:25.940 --> 00:06:28.430
+So let's make the icon to be white.
+
+122
+00:06:28.430 --> 00:06:29.660
+So before the background,
+
+123
+00:06:29.660 --> 00:06:34.020
+we're going to put dot foregroundColor to be dot white.
+
+124
+00:06:34.020 --> 00:06:36.673
+After that, we're gonna set dot padding,
+
+125
+00:06:38.420 --> 00:06:40.993
+dot all and set it to 10.
+
+126
+00:06:41.850 --> 00:06:43.240
+One thing that I found useful
+
+127
+00:06:43.240 --> 00:06:44.930
+is that you can select the image
+
+128
+00:06:44.930 --> 00:06:48.840
+and you can see roughly what is the size of your element.
+
+129
+00:06:48.840 --> 00:06:50.480
+And for the closeButton,
+
+130
+00:06:50.480 --> 00:06:54.600
+I think between 32 and 36 is a pretty good size.
+
+131
+00:06:54.600 --> 00:06:57.960
+Next, we're gonna use dot clipShape
+
+132
+00:06:57.960 --> 00:07:00.780
+and make it into a circle, all right?
+
+133
+00:07:00.780 --> 00:07:03.800
+So now that we have our closeButton component,
+
+134
+00:07:03.800 --> 00:07:05.930
+we can go back to courses view,
+
+135
+00:07:05.930 --> 00:07:09.660
+and we're going to implement it for the full screen.
+
+136
+00:07:09.660 --> 00:07:12.340
+Let's Command click on the VStack,
+
+137
+00:07:12.340 --> 00:07:14.750
+and embed in a VStack.
+
+138
+00:07:14.750 --> 00:07:18.000
+And then we're going to change the VStack into a ZStack,
+
+139
+00:07:18.000 --> 00:07:19.950
+so that we can put the closeButton
+
+140
+00:07:19.950 --> 00:07:21.700
+on top of the full screen.
+
+141
+00:07:21.700 --> 00:07:24.910
+Now we have the VStack, which is the full screen card.
+
+142
+00:07:24.910 --> 00:07:27.590
+And right after zIndex,
+
+143
+00:07:27.590 --> 00:07:32.590
+we're going to use closeButton, parentheses.
+
+144
+00:07:33.100 --> 00:07:36.230
+And then we're going to move the onTapGesture
+
+145
+00:07:36.230 --> 00:07:37.230
+from the CourseItem.
+
+146
+00:07:38.110 --> 00:07:42.930
+So select that modifier and paste that to our closeButton.
+
+147
+00:07:42.930 --> 00:07:43.763
+Great.
+
+148
+00:07:43.763 --> 00:07:44.650
+If we tap on a card,
+
+149
+00:07:44.650 --> 00:07:46.920
+you're gonna see we have a zIndex problem.
+
+150
+00:07:46.920 --> 00:07:49.960
+We're going to have to move the zIndex
+
+151
+00:07:49.960 --> 00:07:52.723
+to the parent container which is now the ZStack.
+
+152
+00:07:53.990 --> 00:07:55.970
+So, let's test the animation.
+
+153
+00:07:55.970 --> 00:07:58.010
+It works perfectly,
+
+154
+00:07:58.010 --> 00:08:02.370
+except that now the closeButton is kind of in the middle.
+
+155
+00:08:02.370 --> 00:08:05.670
+So what you can do, with the ZStack here,
+
+156
+00:08:05.670 --> 00:08:09.020
+is you can align elements inside the ZStack
+
+157
+00:08:09.020 --> 00:08:12.690
+to be at any corner you want within that frame.
+
+158
+00:08:12.690 --> 00:08:16.610
+So let's go to the ZStack, and put parentheses.
+
+159
+00:08:16.610 --> 00:08:21.343
+Alignment, colon, dot topTrailing.
+
+160
+00:08:22.740 --> 00:08:23.950
+Awesome.
+
+161
+00:08:23.950 --> 00:08:26.600
+So now you can see the closeButton is at the top right.
+
+162
+00:08:26.600 --> 00:08:28.540
+We can add a little bit of padding
+
+163
+00:08:28.540 --> 00:08:30.743
+from the right of that closeButton.
+
+164
+00:08:31.700 --> 00:08:33.610
+So, let's go to the closeButton,
+
+165
+00:08:33.610 --> 00:08:37.900
+add dot padding, dot trailing,
+
+166
+00:08:37.900 --> 00:08:40.390
+and we're gonna set it to 16.
+
+167
+00:08:40.390 --> 00:08:41.280
+Perfect.
+
+168
+00:08:41.280 --> 00:08:43.940
+Now you can see our beautiful animation
+
+169
+00:08:43.940 --> 00:08:45.980
+that works on all cards.
+
+170
+00:08:45.980 --> 00:08:48.900
+On top of that, it adapts to any layout that you want,
+
+171
+00:08:48.900 --> 00:08:50.610
+using the lazyGrid.
+
+172
+00:08:50.610 --> 00:08:54.740
+So, our courses view file is starting to get pretty heavy.
+
+173
+00:08:54.740 --> 00:08:58.210
+And we should separate the full screen view
+
+174
+00:08:58.210 --> 00:09:00.220
+to be in its own Swift file.
+
+175
+00:09:00.220 --> 00:09:02.940
+Like this, it's easier to manage the data
+
+176
+00:09:02.940 --> 00:09:05.070
+and reuse that view.
+
+177
+00:09:05.070 --> 00:09:08.230
+But we will need to learn how to pass the nameSpace
+
+178
+00:09:08.230 --> 00:09:09.480
+and the CourseData.
+
+179
+00:09:09.480 --> 00:09:10.690
+So in the next session,
+
+180
+00:09:10.690 --> 00:09:12.960
+we're going to learn how to manage that
+
+181
+00:09:12.960 --> 00:09:14.750
+and make it all work.
+
+182
+00:09:14.750 --> 00:09:16.573
+So I'll see you in the next session.
+

@@ -1,0 +1,780 @@
+﻿1
+00:00:00,761 --> 00:00:04,261
+(subtle electronic music)
+
+2
+00:00:06,079 --> 00:00:08,662
+(upbeat music)
+
+3
+00:00:12,570 --> 00:00:14,590
+- [Meng] Hi, welcome back to section 12
+
+4
+00:00:14,590 --> 00:00:16,350
+of my SwiftUI course.
+
+5
+00:00:16,350 --> 00:00:19,380
+Today we're gonna cover one
+of the most exciting updates
+
+6
+00:00:19,380 --> 00:00:20,970
+for SwiftUI this year.
+
+7
+00:00:20,970 --> 00:00:24,470
+So lazy grid for SwiftUI
+is amazingly comprehensive.
+
+8
+00:00:24,470 --> 00:00:28,040
+It's going to allow you to
+adapt your layout to any device.
+
+9
+00:00:28,040 --> 00:00:29,470
+And we have many options,
+
+10
+00:00:29,470 --> 00:00:32,790
+such as adaptive, fixed,
+repeating columns and rows,
+
+11
+00:00:32,790 --> 00:00:35,560
+and we're going to explore
+all of those things today.
+
+12
+00:00:35,560 --> 00:00:38,940
+So the best way to
+learn is to demonstrate.
+
+13
+00:00:38,940 --> 00:00:43,290
+All you need to do is to change
+from VStack to lazy grid.
+
+14
+00:00:43,290 --> 00:00:47,230
+So let me select VStack
+including parentheses,
+
+15
+00:00:47,230 --> 00:00:52,010
+then we're gonna type
+LazyVGrid parentheses.
+
+16
+00:00:52,010 --> 00:00:53,810
+So because we're using the VGrid,
+
+17
+00:00:53,810 --> 00:00:56,550
+we're gonna need to specify the columns.
+
+18
+00:00:56,550 --> 00:01:01,550
+And the columns are an array
+of GridItem parentheses.
+
+19
+00:01:01,940 --> 00:01:04,220
+Right now, nothing much have changed.
+
+20
+00:01:04,220 --> 00:01:08,310
+And that's because we manually
+set the size of the card
+
+21
+00:01:08,310 --> 00:01:12,310
+to 335 and 250 of height.
+
+22
+00:01:12,310 --> 00:01:14,133
+Let's delete the width.
+
+23
+00:01:15,010 --> 00:01:16,400
+And you're gonna see
+
+24
+00:01:16,400 --> 00:01:18,750
+that it's simply going
+to take the full width
+
+25
+00:01:18,750 --> 00:01:20,110
+that's available.
+
+26
+00:01:20,110 --> 00:01:23,300
+So if you wanna add
+spacing between the rows,
+
+27
+00:01:23,300 --> 00:01:26,170
+we're going to set a right after columns,
+
+28
+00:01:26,170 --> 00:01:28,270
+right after the square brackets,
+
+29
+00:01:28,270 --> 00:01:33,050
+comma, spacing, let's set it to 16.
+
+30
+00:01:33,050 --> 00:01:36,270
+What about the padding from the borders?
+
+31
+00:01:36,270 --> 00:01:39,510
+Well, we can set for the LazyVGrid,
+
+32
+00:01:39,510 --> 00:01:42,140
+so double click on the curly braces,
+
+33
+00:01:42,140 --> 00:01:44,820
+and here, you're gonna
+find before the frame,
+
+34
+00:01:44,820 --> 00:01:48,320
+we're going to set that
+padding parentheses,
+
+35
+00:01:48,320 --> 00:01:50,220
+and we can put 16.
+
+36
+00:01:50,220 --> 00:01:52,620
+So if you wanna set it to two columns,
+
+37
+00:01:52,620 --> 00:01:56,210
+this is where, because
+we are inside an array,
+
+38
+00:01:56,210 --> 00:01:57,830
+we can have more grid items,
+
+39
+00:01:57,830 --> 00:02:00,650
+so we can copy GridItem parentheses,
+
+40
+00:02:00,650 --> 00:02:03,930
+add a comma, and add another grid item.
+
+41
+00:02:03,930 --> 00:02:07,190
+Now we have two columns,
+and you can add more,
+
+42
+00:02:07,190 --> 00:02:11,860
+and more as long as your
+layout can accommodate.
+
+43
+00:02:11,860 --> 00:02:13,650
+But this is not the most efficient way.
+
+44
+00:02:13,650 --> 00:02:17,920
+What if we can manage to
+make it perfectly adaptive
+
+45
+00:02:17,920 --> 00:02:19,510
+depending on the size,
+
+46
+00:02:19,510 --> 00:02:22,890
+and not have to repeat
+multiple times the grid item.
+
+47
+00:02:22,890 --> 00:02:26,110
+So let's delete the last three grid item
+
+48
+00:02:26,110 --> 00:02:29,080
+and just focus on a single one.
+
+49
+00:02:29,080 --> 00:02:31,590
+Let's go inside the parentheses
+
+50
+00:02:31,590 --> 00:02:36,590
+and put dot adaptive parentheses,
+
+51
+00:02:36,660 --> 00:02:40,060
+inside parentheses, minimum column,
+
+52
+00:02:40,060 --> 00:02:42,490
+and we're gonna set it to 160.
+
+53
+00:02:42,490 --> 00:02:44,970
+So what this doing is
+that it's going to try
+
+54
+00:02:44,970 --> 00:02:47,730
+to fit as many columns as possible
+
+55
+00:02:47,730 --> 00:02:52,120
+as long as the column has
+a minimum width of 160.
+
+56
+00:02:52,120 --> 00:02:54,690
+If we were to set, let's say, 200,
+
+57
+00:02:54,690 --> 00:02:57,390
+it can only fit a single column,
+
+58
+00:02:57,390 --> 00:03:01,480
+but if it was, let's say
+100, it can fit three.
+
+59
+00:03:01,480 --> 00:03:03,340
+And this is great for adaptive layout
+
+60
+00:03:03,340 --> 00:03:08,060
+because it's going to depend
+on the size of the screen,
+
+61
+00:03:08,060 --> 00:03:11,030
+and we don't need to set how
+many columns we want manually,
+
+62
+00:03:11,030 --> 00:03:13,330
+it's simply going to automatically set
+
+63
+00:03:13,330 --> 00:03:17,430
+the number of columns for us
+based on our requirements.
+
+64
+00:03:17,430 --> 00:03:20,430
+Let me put it back to 160.
+
+65
+00:03:20,430 --> 00:03:24,910
+And then after the first
+parenthesis, comma,
+
+66
+00:03:24,910 --> 00:03:29,100
+I'm gonna set a spacing of 16.
+
+67
+00:03:29,100 --> 00:03:32,990
+So this is the gap value
+between the columns.
+
+68
+00:03:32,990 --> 00:03:37,140
+Next, what if we set the height to 200,
+
+69
+00:03:37,140 --> 00:03:39,650
+and let's see if the
+animation still works.
+
+70
+00:03:39,650 --> 00:03:41,260
+And yes, it does.
+
+71
+00:03:41,260 --> 00:03:45,120
+Everything works regardless
+of how many columns,
+
+72
+00:03:45,120 --> 00:03:46,610
+what the sizes are.
+
+73
+00:03:46,610 --> 00:03:49,190
+And why not test it on the iPad.
+
+74
+00:03:49,190 --> 00:03:54,190
+So let's go to devices and
+select on iPad Pro 11 inch.
+
+75
+00:03:54,740 --> 00:03:56,753
+Let me just zoom out a little bit,
+
+76
+00:03:57,960 --> 00:03:59,410
+and maximize this.
+
+77
+00:03:59,410 --> 00:04:00,970
+Now you can see that with the iPad,
+
+78
+00:04:00,970 --> 00:04:04,050
+we have a larger screen and four columns,
+
+79
+00:04:04,050 --> 00:04:05,530
+and we didn't have to change anything
+
+80
+00:04:05,530 --> 00:04:07,450
+because thanks to adaptive,
+
+81
+00:04:07,450 --> 00:04:11,460
+it's going to try to fit
+as many cards as possible
+
+82
+00:04:11,460 --> 00:04:14,850
+with a minimum width of 160.
+
+83
+00:04:14,850 --> 00:04:16,780
+All right, let me format
+the code a little bit
+
+84
+00:04:16,780 --> 00:04:20,370
+to make it more readable, so
+we can explore more options.
+
+85
+00:04:20,370 --> 00:04:23,080
+So I'm gonna put the
+columns on it's own line
+
+86
+00:04:23,080 --> 00:04:24,830
+the same for spacing.
+
+87
+00:04:24,830 --> 00:04:28,450
+And before the end of the parenthesis,
+
+88
+00:04:28,450 --> 00:04:30,840
+I'm going to set it as a new line.
+
+89
+00:04:30,840 --> 00:04:33,070
+For the columns, this is an array,
+
+90
+00:04:33,070 --> 00:04:37,060
+so we can actually put that
+on its own line as well.
+
+91
+00:04:37,060 --> 00:04:40,010
+Next, what if we wanna have fixed columns?
+
+92
+00:04:40,010 --> 00:04:44,530
+So we just gonna replace
+adaptive by fixed.
+
+93
+00:04:44,530 --> 00:04:48,660
+And this is where we
+can set, let's say, 250,
+
+94
+00:04:48,660 --> 00:04:51,250
+and now you can see that
+there's a single column
+
+95
+00:04:51,250 --> 00:04:52,870
+because it's not adaptive.
+
+96
+00:04:52,870 --> 00:04:54,330
+If you wanna have more columns,
+
+97
+00:04:54,330 --> 00:04:56,180
+we're going to add a comma.
+
+98
+00:04:56,180 --> 00:04:59,833
+We're just gonna copy
+and paste more columns.
+
+99
+00:05:01,110 --> 00:05:03,930
+And for each column, you
+can customize the number.
+
+100
+00:05:03,930 --> 00:05:07,060
+So for example, 160 for the second one,
+
+101
+00:05:07,060 --> 00:05:11,030
+as well as for the third and the fourth.
+
+102
+00:05:11,030 --> 00:05:12,960
+So you can really customize
+
+103
+00:05:12,960 --> 00:05:16,210
+the width of each column separately.
+
+104
+00:05:16,210 --> 00:05:19,170
+Moreover, you can customize the spacing
+
+105
+00:05:19,170 --> 00:05:21,210
+between specific columns.
+
+106
+00:05:21,210 --> 00:05:24,290
+So for example, the first one, I want 10,
+
+107
+00:05:24,290 --> 00:05:26,380
+the second one, I one zero.
+
+108
+00:05:26,380 --> 00:05:30,360
+And now you can see the gap
+after the first card is 10
+
+109
+00:05:30,360 --> 00:05:32,670
+and after the second card is zero.
+
+110
+00:05:32,670 --> 00:05:35,940
+So this is great if you wanna
+set, let's say, a table,
+
+111
+00:05:35,940 --> 00:05:39,470
+or a very custom layout, it
+doesn't have to be cards.
+
+112
+00:05:39,470 --> 00:05:41,300
+Next, I wanna show you another technique
+
+113
+00:05:41,300 --> 00:05:43,430
+that I found quite useful as well.
+
+114
+00:05:43,430 --> 00:05:45,580
+So for the columns,
+
+115
+00:05:45,580 --> 00:05:48,030
+I'm gonna replace the square brackets
+
+116
+00:05:48,030 --> 00:05:53,030
+as well as the content by array
+parentheses, type repeating.
+
+117
+00:05:54,590 --> 00:05:58,220
+And we can use the auto
+completion for repeating.
+
+118
+00:05:58,220 --> 00:06:01,150
+We're gonna set dot init, parentheses,
+
+119
+00:06:01,150 --> 00:06:06,150
+and inside parentheses,
+dot flexible, parentheses.
+
+120
+00:06:06,510 --> 00:06:08,360
+For the count, this is
+the number of columns.
+
+121
+00:06:08,360 --> 00:06:11,750
+So for example, we can
+set it to two, or three,
+
+122
+00:06:11,750 --> 00:06:14,840
+and it's going to automatically
+set those columns.
+
+123
+00:06:14,840 --> 00:06:16,330
+If you wanna set the spacing,
+
+124
+00:06:16,330 --> 00:06:21,330
+go to right after flexible
+parentheses, comma, spacing, 16.
+
+125
+00:06:22,360 --> 00:06:27,133
+It can also be useful to set a
+fixed width to let's say 200,
+
+126
+00:06:28,310 --> 00:06:31,350
+and you can see that it's going to center
+
+127
+00:06:31,350 --> 00:06:34,910
+within the flexible width of the column.
+
+128
+00:06:34,910 --> 00:06:36,700
+Okay, so the last thing I wanna show you
+
+129
+00:06:36,700 --> 00:06:39,670
+is how to set a horizontal grid.
+
+130
+00:06:39,670 --> 00:06:43,077
+So instead of LazyVGrid,
+we're gonna set LazyHGrid.
+
+131
+00:06:44,020 --> 00:06:46,993
+And instead of columns,
+we're gonna put rows.
+
+132
+00:06:48,330 --> 00:06:50,120
+If you're going to use an HGrid,
+
+133
+00:06:50,120 --> 00:06:51,840
+you should probably set the ScrollView
+
+134
+00:06:51,840 --> 00:06:54,583
+to parentheses dot horizontal.
+
+135
+00:06:56,440 --> 00:07:00,780
+Now the HGrid is going to
+try to resize your cards
+
+136
+00:07:00,780 --> 00:07:03,460
+based on the height rather than the width.
+
+137
+00:07:03,460 --> 00:07:06,613
+So you might not want
+to set a fixed height.
+
+138
+00:07:07,710 --> 00:07:11,540
+We can also set two rows instead of three,
+
+139
+00:07:11,540 --> 00:07:14,260
+and you can see that now the layout
+
+140
+00:07:14,260 --> 00:07:16,210
+is scrollable horizontally.
+
+141
+00:07:16,210 --> 00:07:17,880
+Another thing to be aware of
+
+142
+00:07:17,880 --> 00:07:19,970
+is when you go to full screen mode,
+
+143
+00:07:19,970 --> 00:07:22,120
+you're gonna have to
+deal with a safe area.
+
+144
+00:07:23,080 --> 00:07:25,600
+So you might want to set your ScrollView
+
+145
+00:07:25,600 --> 00:07:29,980
+to dot edgeIgnoringSafeArea to all.
+
+146
+00:07:29,980 --> 00:07:33,590
+And like this, the animation
+is gonna work fine.
+
+147
+00:07:33,590 --> 00:07:36,710
+All right, so let's put
+the array of grid items
+
+148
+00:07:36,710 --> 00:07:38,770
+back to adaptive.
+
+149
+00:07:38,770 --> 00:07:43,183
+So let me delete array parentheses,
+square brackets instead,
+
+150
+00:07:44,040 --> 00:07:48,670
+GridItem, parentheses dot adaptive,
+
+151
+00:07:48,670 --> 00:07:53,670
+parentheses, minimum, I'm
+gonna set it to, let's say 160.
+
+152
+00:07:53,710 --> 00:07:55,150
+Then after the parentheses,
+
+153
+00:07:55,150 --> 00:07:59,430
+I'm gonna set the spacing
+to 16 between rows.
+
+154
+00:07:59,430 --> 00:08:01,930
+Notice that when you're using HGrid,
+
+155
+00:08:01,930 --> 00:08:04,180
+it's ordering from top to bottom.
+
+156
+00:08:04,180 --> 00:08:08,380
+And when we're using VGrid,
+is from left to right.
+
+157
+00:08:08,380 --> 00:08:12,030
+All right, so let's
+test this on the iPhone.
+
+158
+00:08:12,030 --> 00:08:14,110
+So I iPhone 11 Pro.
+
+159
+00:08:14,110 --> 00:08:17,730
+Now you can see that the layout
+is scrollable horizontally
+
+160
+00:08:17,730 --> 00:08:20,340
+and the animation still works.
+
+161
+00:08:20,340 --> 00:08:23,060
+All right, so let me put it back to VGrid
+
+162
+00:08:23,060 --> 00:08:25,840
+and change it back to columns,
+
+163
+00:08:25,840 --> 00:08:28,580
+remove the horizontal scroll view.
+
+164
+00:08:28,580 --> 00:08:30,770
+So just delete the parentheses,
+
+165
+00:08:30,770 --> 00:08:35,010
+and also we don't need
+the edgeIgnoringSafeArea.
+
+166
+00:08:35,010 --> 00:08:39,800
+Now I'm going to put back
+a frame height of 200.
+
+167
+00:08:39,800 --> 00:08:41,890
+So that's about the lazy grid.
+
+168
+00:08:41,890 --> 00:08:44,920
+It's really adaptive and really powerful.
+
+169
+00:08:44,920 --> 00:08:46,690
+And I think you're gonna have a lot of fun
+
+170
+00:08:46,690 --> 00:08:49,560
+creating grid based layouts with this.
+
+171
+00:08:49,560 --> 00:08:50,970
+All right, so in the next session,
+
+172
+00:08:50,970 --> 00:08:53,900
+I wanna solve this Z index issue.
+
+173
+00:08:53,900 --> 00:08:55,560
+And also I wanna show you
+
+174
+00:08:55,560 --> 00:08:59,200
+how to create a container based transition
+
+175
+00:08:59,200 --> 00:09:02,950
+using multiple matched
+symmetry effect IDs.
+
+176
+00:09:02,950 --> 00:09:04,990
+And I think it's going to look way cooler
+
+177
+00:09:04,990 --> 00:09:06,330
+than what we have now.
+
+178
+00:09:06,330 --> 00:09:08,193
+So I'll see you in the next session.
+

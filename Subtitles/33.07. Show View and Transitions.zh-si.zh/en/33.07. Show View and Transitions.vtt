@@ -1,0 +1,614 @@
+﻿WEBVTT
+
+1
+00:00:05.937 --> 00:00:08.520
+(upbeat music)
+
+2
+00:00:12.610 --> 00:00:13.443
+<v Meng>Hey there,</v>
+
+3
+00:00:13.443 --> 00:00:16.040
+welcome to my SwiftUI course session seven.
+
+4
+00:00:16.040 --> 00:00:18.910
+Today we're gonna start a long series of videos
+
+5
+00:00:18.910 --> 00:00:21.000
+around matched geometry.
+
+6
+00:00:21.000 --> 00:00:23.370
+Along the way, we're gonna learn a bunch of new techniques
+
+7
+00:00:23.370 --> 00:00:27.230
+such as asymmetric transition, selection state,
+
+8
+00:00:27.230 --> 00:00:29.250
+lazyGrid, etcetera.
+
+9
+00:00:29.250 --> 00:00:33.710
+First of all, let's start by switching to iOS.
+
+10
+00:00:33.710 --> 00:00:36.870
+I'm gonna select iPhone 11 for preview,
+
+11
+00:00:36.870 --> 00:00:38.250
+so click on resume.
+
+12
+00:00:38.250 --> 00:00:39.700
+Instead of the text here,
+
+13
+00:00:39.700 --> 00:00:43.010
+we're gonna put CourseItem parentheses.
+
+14
+00:00:43.010 --> 00:00:45.960
+So this is the cart design that we have created earlier.
+
+15
+00:00:45.960 --> 00:00:48.350
+And now we're gonna set a fixed frame,
+
+16
+00:00:48.350 --> 00:00:53.350
+so dot frame with a width of 335 and a height of 250.
+
+17
+00:00:55.850 --> 00:00:59.080
+Now what we want to do is when we tap on this cart
+
+18
+00:00:59.080 --> 00:01:02.000
+is gonna show up full screen view.
+
+19
+00:01:02.000 --> 00:01:03.040
+In order to do that,
+
+20
+00:01:03.040 --> 00:01:06.260
+we're gonna have to place this CourseItem inside
+
+21
+00:01:06.260 --> 00:01:11.260
+a VStack first and change from VStack to ZStack.
+
+22
+00:01:11.440 --> 00:01:15.070
+This will allow us to have many carts on top of each other
+
+23
+00:01:15.070 --> 00:01:16.190
+three dimensionally,
+
+24
+00:01:16.190 --> 00:01:19.970
+instead of stacking vertically or horizontally.
+
+25
+00:01:19.970 --> 00:01:23.110
+Now we're gonna set the new view
+
+26
+00:01:23.110 --> 00:01:26.460
+CourseItem parentheses,
+
+27
+00:01:26.460 --> 00:01:28.280
+then we're gonna make sure that this new view
+
+28
+00:01:28.280 --> 00:01:30.670
+is not shown by default.
+
+29
+00:01:30.670 --> 00:01:32.420
+So we're gonna have to set a state.
+
+30
+00:01:33.290 --> 00:01:37.490
+State var show is equal to false.
+
+31
+00:01:37.490 --> 00:01:41.500
+Then we're gonna add a condition for the second course item.
+
+32
+00:01:41.500 --> 00:01:44.330
+Let's wrap it inside a VStack first,
+
+33
+00:01:44.330 --> 00:01:47.543
+and change from VStack to if show.
+
+34
+00:01:48.620 --> 00:01:50.360
+Whenever you update your variables,
+
+35
+00:01:50.360 --> 00:01:52.660
+you're gonna have to resume the preview.
+
+36
+00:01:52.660 --> 00:01:54.300
+And when you do that,
+
+37
+00:01:54.300 --> 00:01:58.720
+then the full screen will be not shown by defaults.
+
+38
+00:01:58.720 --> 00:02:00.360
+Let's add a tap gesture,
+
+39
+00:02:00.360 --> 00:02:02.570
+so that when we tap on this cart,
+
+40
+00:02:02.570 --> 00:02:05.410
+it's gonna show the full screen.
+
+41
+00:02:05.410 --> 00:02:08.323
+Let's place that for the ZStack, so everything.
+
+42
+00:02:09.240 --> 00:02:12.580
+So after ZStack dot TapGesture,
+
+43
+00:02:12.580 --> 00:02:14.350
+and this is where we're gonna type
+
+44
+00:02:14.350 --> 00:02:17.850
+show dot toggle parentheses.
+
+45
+00:02:17.850 --> 00:02:21.160
+This will ensure that every time that we tap on the cart,
+
+46
+00:02:21.160 --> 00:02:23.980
+it's gonna switch between true and false.
+
+47
+00:02:23.980 --> 00:02:25.283
+Let's click on play.
+
+48
+00:02:26.430 --> 00:02:30.000
+And now when we tap the cart, it switch to full mode.
+
+49
+00:02:30.000 --> 00:02:31.960
+And again, back and forth.
+
+50
+00:02:31.960 --> 00:02:33.940
+Of course, we're gonna need to transition,
+
+51
+00:02:33.940 --> 00:02:36.683
+so we can set dot animation,
+
+52
+00:02:37.610 --> 00:02:40.980
+and by default is gonna set to easeIn,
+
+53
+00:02:40.980 --> 00:02:45.560
+which creates a simple fade in fade out animation.
+
+54
+00:02:45.560 --> 00:02:48.470
+If you want to customize this transition,
+
+55
+00:02:48.470 --> 00:02:51.130
+you're going to need to place a modifier
+
+56
+00:02:51.130 --> 00:02:55.530
+on the first parent container inside the if show.
+
+57
+00:02:55.530 --> 00:02:59.920
+So let's put dot transition.
+
+58
+00:02:59.920 --> 00:03:02.380
+And here, if you type dot,
+
+59
+00:03:02.380 --> 00:03:03.910
+you have a bunch of options,
+
+60
+00:03:03.910 --> 00:03:06.700
+such as opacity, which is by default.
+
+61
+00:03:06.700 --> 00:03:08.723
+But otherwise, you also have slide.
+
+62
+00:03:09.570 --> 00:03:12.050
+And here, it's gonna slide from the left,
+
+63
+00:03:12.050 --> 00:03:13.670
+and then move to the right.
+
+64
+00:03:13.670 --> 00:03:15.050
+Now, what you're noticing here,
+
+65
+00:03:15.050 --> 00:03:18.160
+is that when you do the transition out,
+
+66
+00:03:18.160 --> 00:03:21.430
+then suddenly the cart goes behind the first cart,
+
+67
+00:03:21.430 --> 00:03:23.020
+and that's not what we want.
+
+68
+00:03:23.020 --> 00:03:25.600
+Normally, you would solve this using a zIndex,
+
+69
+00:03:25.600 --> 00:03:27.920
+such as dot zIndex.
+
+70
+00:03:27.920 --> 00:03:29.840
+Insert a value of one.
+
+71
+00:03:29.840 --> 00:03:31.040
+But during this beta,
+
+72
+00:03:31.040 --> 00:03:34.190
+it seems to be a little bit buggy,
+
+73
+00:03:34.190 --> 00:03:36.810
+especially when you click multiple times.
+
+74
+00:03:36.810 --> 00:03:40.240
+And don't worry, we're gonna explore zIndex more later.
+
+75
+00:03:40.240 --> 00:03:42.270
+But a quick solution that I found.
+
+76
+00:03:42.270 --> 00:03:44.803
+So I'm gonna remove the zIndex, so now its smooth.
+
+77
+00:03:45.830 --> 00:03:49.220
+Is to put the if show inside a VStack.
+
+78
+00:03:49.220 --> 00:03:53.810
+So let's put the Vstack, curly braces,
+
+79
+00:03:53.810 --> 00:03:57.370
+and I'm gonna cut everything for the if statement
+
+80
+00:03:58.320 --> 00:04:00.920
+and paste it inside the VStack.
+
+81
+00:04:00.920 --> 00:04:02.320
+If you do this,
+
+82
+00:04:02.320 --> 00:04:05.550
+then your new view is gonna always be on top.
+
+83
+00:04:05.550 --> 00:04:09.323
+And now we can explore the other transitions such as scale.
+
+84
+00:04:10.200 --> 00:04:11.863
+And this is what it looks like.
+
+85
+00:04:13.060 --> 00:04:14.730
+Then a very useful one
+
+86
+00:04:14.730 --> 00:04:18.570
+is to use move using one of the edges.
+
+87
+00:04:18.570 --> 00:04:22.150
+A common transition is from trailing,
+
+88
+00:04:22.150 --> 00:04:24.120
+which means from the right,
+
+89
+00:04:24.120 --> 00:04:27.110
+and so, it's a screen that goes from the right
+
+90
+00:04:27.110 --> 00:04:28.860
+and then that hides back.
+
+91
+00:04:28.860 --> 00:04:32.140
+If you want your full screen to not be restricted
+
+92
+00:04:32.140 --> 00:04:33.670
+by the safe area,
+
+93
+00:04:33.670 --> 00:04:36.080
+then you can add a modifier
+
+94
+00:04:36.080 --> 00:04:40.400
+dot edgeIgnoringSafeArea dot all.
+
+95
+00:04:40.400 --> 00:04:43.070
+So now you're going to see a beautiful full screen mode
+
+96
+00:04:43.070 --> 00:04:45.210
+that slide from the right.
+
+97
+00:04:45.210 --> 00:04:48.850
+And we can change from which direction it comes from.
+
+98
+00:04:48.850 --> 00:04:52.180
+Bottom is also very common, like this,
+
+99
+00:04:52.180 --> 00:04:55.030
+almost like a modal but without the stacking carts
+
+100
+00:04:55.030 --> 00:04:57.320
+as well as the gesture.
+
+101
+00:04:57.320 --> 00:04:59.420
+At the same time, unlike the modal,
+
+102
+00:04:59.420 --> 00:05:03.400
+these trends additions are very customizable.
+
+103
+00:05:03.400 --> 00:05:07.420
+I can also put it from leading, which is from the left.
+
+104
+00:05:07.420 --> 00:05:09.390
+And then in terms of animation,
+
+105
+00:05:09.390 --> 00:05:12.790
+we can change to easeIn out.
+
+106
+00:05:12.790 --> 00:05:14.710
+So that means that it's gonna be slow
+
+107
+00:05:14.710 --> 00:05:17.563
+at the beginning of the animation and at the end.
+
+108
+00:05:18.460 --> 00:05:22.130
+And a lot more options such as duration, delay, repeat,
+
+109
+00:05:22.130 --> 00:05:26.020
+which I explore quite a lot in my previous course.
+
+110
+00:05:26.020 --> 00:05:29.470
+For now, let's focus on spring, which is really neat,
+
+111
+00:05:29.470 --> 00:05:32.460
+because it's going to bounce a little bit.
+
+112
+00:05:32.460 --> 00:05:36.360
+It gives us that effect that you see a lot on iOS.
+
+113
+00:05:36.360 --> 00:05:37.660
+But I do want to point out that
+
+114
+00:05:37.660 --> 00:05:40.740
+while this is a good way to set up the animation,
+
+115
+00:05:40.740 --> 00:05:43.670
+you can also do it during the action.
+
+116
+00:05:43.670 --> 00:05:48.670
+So here I'm gonna type withAnimation curly braces,
+
+117
+00:05:49.180 --> 00:05:53.070
+and I'm gonna bring show dot toggle inside it.
+
+118
+00:05:53.070 --> 00:05:56.580
+Let's disable dot animation modifier
+
+119
+00:05:56.580 --> 00:05:59.660
+and just focus on withAnimation.
+
+120
+00:05:59.660 --> 00:06:02.640
+Now I just wanna point out that in the preview,
+
+121
+00:06:02.640 --> 00:06:05.280
+it's going to appear instantly,
+
+122
+00:06:05.280 --> 00:06:07.560
+and then disappear correctly.
+
+123
+00:06:07.560 --> 00:06:11.010
+But that's not the case when you run the app.
+
+124
+00:06:11.010 --> 00:06:12.260
+In iOS simulator,
+
+125
+00:06:12.260 --> 00:06:15.290
+you're gonna see that the animation is correct.
+
+126
+00:06:15.290 --> 00:06:17.940
+So the reason why I'm exploring both here
+
+127
+00:06:17.940 --> 00:06:19.110
+is to give you options,
+
+128
+00:06:19.110 --> 00:06:22.520
+but also because this is the correct way to do it
+
+129
+00:06:22.520 --> 00:06:24.743
+when you're using matched geometry effect.
+
+130
+00:06:25.750 --> 00:06:27.193
+Let me resume this.
+
+131
+00:06:28.260 --> 00:06:29.093
+Then again,
+
+132
+00:06:29.093 --> 00:06:31.860
+you can see that when I click first it instantly appear,
+
+133
+00:06:31.860 --> 00:06:35.150
+but when I click multiple times, it runs fine.
+
+134
+00:06:35.150 --> 00:06:39.320
+So that's just to keep in mind with withAnimation correctly.
+
+135
+00:06:39.320 --> 00:06:41.420
+If you want to add the animation timing
+
+136
+00:06:41.420 --> 00:06:44.720
+is gonna be parenthesis, after withAnimation,
+
+137
+00:06:44.720 --> 00:06:47.830
+so dot spring parentheses.
+
+138
+00:06:47.830 --> 00:06:51.210
+Another thing to note is that when you use withAnimation,
+
+139
+00:06:51.210 --> 00:06:53.900
+the timing might be a little bit different.
+
+140
+00:06:53.900 --> 00:06:55.930
+So the speed of the animation
+
+141
+00:06:55.930 --> 00:06:58.710
+versus using dot animation modifier.
+
+142
+00:06:58.710 --> 00:06:59.543
+So with this,
+
+143
+00:06:59.543 --> 00:07:02.110
+you should have a to create a preset animation
+
+144
+00:07:02.110 --> 00:07:03.700
+between screens,
+
+145
+00:07:03.700 --> 00:07:06.040
+and this is gonna work across platform
+
+146
+00:07:06.040 --> 00:07:08.420
+including the Mac and iPad.
+
+147
+00:07:08.420 --> 00:07:10.050
+In the next session,
+
+148
+00:07:10.050 --> 00:07:12.130
+we're gonna use matched geometry effect.
+
+149
+00:07:12.130 --> 00:07:14.360
+And we're gonna be able to compare the difference
+
+150
+00:07:14.360 --> 00:07:17.170
+between having a preset transition
+
+151
+00:07:17.170 --> 00:07:20.140
+versus transitioning shared elements
+
+152
+00:07:20.140 --> 00:07:22.360
+using matched geometry effect.
+
+153
+00:07:22.360 --> 00:07:24.253
+So I'll see you in the next session.
+

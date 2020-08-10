@@ -1,0 +1,802 @@
+﻿WEBVTT
+
+1
+00:00:00.715 --> 00:00:03.215
+(eerie music)
+
+2
+00:00:05.574 --> 00:00:08.157
+(upbeat music)
+
+3
+00:00:12.630 --> 00:00:14.950
+<v Meng>Hello there, welcome to section 16</v>
+
+4
+00:00:14.950 --> 00:00:16.690
+of my SwiftUI course.
+
+5
+00:00:16.690 --> 00:00:19.080
+Today we'll learn how to detect the size class
+
+6
+00:00:19.080 --> 00:00:22.170
+so that we can use a sidebar for the iPad
+
+7
+00:00:22.170 --> 00:00:24.260
+and the tab bar for the iPhone.
+
+8
+00:00:24.260 --> 00:00:26.740
+If you're not aware of what the size class is
+
+9
+00:00:26.740 --> 00:00:30.070
+you can go to the human interface guidelines by Apple
+
+10
+00:00:30.070 --> 00:00:33.300
+to visual design, adaptivity and layout
+
+11
+00:00:33.300 --> 00:00:35.250
+and here you will find which device
+
+12
+00:00:35.250 --> 00:00:39.360
+in portrait or landscape mode goes to which size class,
+
+13
+00:00:39.360 --> 00:00:43.750
+it is most common to detect the width size class,
+
+14
+00:00:43.750 --> 00:00:45.480
+and there are two of them.
+
+15
+00:00:45.480 --> 00:00:49.110
+First, the regular second the compact.
+
+16
+00:00:49.110 --> 00:00:51.680
+Now every iPad either in landscape
+
+17
+00:00:51.680 --> 00:00:55.930
+or portrait mode will be regular for both width and height.
+
+18
+00:00:55.930 --> 00:01:00.600
+Every iPhone in portrait mode will be compact for width.
+
+19
+00:01:00.600 --> 00:01:02.500
+And regular for height.
+
+20
+00:01:02.500 --> 00:01:04.050
+But in landscape mode,
+
+21
+00:01:04.050 --> 00:01:06.880
+it's compact for both width and height.
+
+22
+00:01:06.880 --> 00:01:11.880
+The only exception where in landscape the width is regular
+
+23
+00:01:12.010 --> 00:01:15.300
+is for the iPhone in max plus
+
+24
+00:01:15.300 --> 00:01:17.770
+or XR resolutions.
+
+25
+00:01:17.770 --> 00:01:19.530
+But if we focus on the width,
+
+26
+00:01:19.530 --> 00:01:22.930
+you're gonna find that the iPad will be regular,
+
+27
+00:01:22.930 --> 00:01:25.400
+and the iPhone will be compact,
+
+28
+00:01:25.400 --> 00:01:29.000
+except when you use the iPhone in landscape mode,
+
+29
+00:01:29.000 --> 00:01:31.590
+but only for the larger iPhones.
+
+30
+00:01:31.590 --> 00:01:33.080
+So back to our code,
+
+31
+00:01:33.080 --> 00:01:36.580
+we're gonna go to navigation content view.
+
+32
+00:01:36.580 --> 00:01:40.320
+Now notice that in iOS for both iPhone and iPad,
+
+33
+00:01:40.320 --> 00:01:42.350
+we're just using the sidebar.
+
+34
+00:01:42.350 --> 00:01:46.130
+What we like to do is for the compact size class
+
+35
+00:01:46.130 --> 00:01:48.270
+to use a tab bar instead.
+
+36
+00:01:48.270 --> 00:01:50.920
+In order to do that, we're going to have to declare
+
+37
+00:01:50.920 --> 00:01:52.480
+an environment variable.
+
+38
+00:01:52.480 --> 00:01:57.480
+So let's set commercially environment parentheses,
+
+39
+00:01:57.790 --> 00:02:00.760
+backward slash dot horizontal
+
+40
+00:02:01.600 --> 00:02:02.810
+size class
+
+41
+00:02:04.220 --> 00:02:07.030
+var horizontal
+
+42
+00:02:07.030 --> 00:02:08.103
+size class.
+
+43
+00:02:08.950 --> 00:02:12.600
+Now size class will only work for iOS.
+
+44
+00:02:12.600 --> 00:02:13.920
+So we're gonna have to make sure that
+
+45
+00:02:13.920 --> 00:02:16.010
+we don't run this code on a Mac.
+
+46
+00:02:16.010 --> 00:02:20.600
+So let's set the condition, pound if OS, iOS
+
+47
+00:02:22.320 --> 00:02:25.080
+and then pound end if.
+
+48
+00:02:25.080 --> 00:02:26.300
+Then in the body,
+
+49
+00:02:26.300 --> 00:02:30.410
+we're gonna set a condition if horizontal size class
+
+50
+00:02:30.410 --> 00:02:34.050
+equal equal dot compact,
+
+51
+00:02:34.050 --> 00:02:36.640
+curly braces will include the tab bar,
+
+52
+00:02:36.640 --> 00:02:38.410
+which we haven't created yet.
+
+53
+00:02:38.410 --> 00:02:42.293
+And then else will include the sidebar.
+
+54
+00:02:43.640 --> 00:02:46.650
+Next, let's go ahead and create that top bar.
+
+55
+00:02:46.650 --> 00:02:49.490
+So Command N swift UI view
+
+56
+00:02:51.270 --> 00:02:53.520
+tab bar.
+
+57
+00:02:53.520 --> 00:02:56.120
+And here, we're going to include that
+
+58
+00:02:56.120 --> 00:02:57.370
+only for iOS
+
+59
+00:02:59.380 --> 00:03:02.410
+to create a task bar, it's fairly simple.
+
+60
+00:03:02.410 --> 00:03:04.810
+First, we're going to replace the text
+
+61
+00:03:04.810 --> 00:03:07.760
+by tab, view,
+
+62
+00:03:07.760 --> 00:03:09.110
+curly braces.
+
+63
+00:03:09.110 --> 00:03:11.420
+Then you can see the tab bar here,
+
+64
+00:03:11.420 --> 00:03:14.940
+we're just gonna add each tab for each view.
+
+65
+00:03:14.940 --> 00:03:17.830
+So in this case, we're gonna start with the courses view
+
+66
+00:03:18.670 --> 00:03:19.583
+parentheses,
+
+67
+00:03:20.550 --> 00:03:24.453
+then use the modifier dot tap item.
+
+68
+00:03:25.470 --> 00:03:28.010
+And then for the content, we can set an icon.
+
+69
+00:03:28.010 --> 00:03:32.440
+Let's type image parentheses system name.
+
+70
+00:03:32.440 --> 00:03:34.560
+And then the name of the SS symbol,
+
+71
+00:03:34.560 --> 00:03:37.870
+it's going to be book dot closed.
+
+72
+00:03:37.870 --> 00:03:38.880
+For the text,
+
+73
+00:03:38.880 --> 00:03:42.880
+it automatically detects the navigation title.
+
+74
+00:03:42.880 --> 00:03:45.460
+But otherwise, if you wanna custom text,
+
+75
+00:03:45.460 --> 00:03:48.040
+then we can add a text.
+
+76
+00:03:48.040 --> 00:03:51.960
+So text parentheses, courses.
+
+77
+00:03:51.960 --> 00:03:55.000
+Now we don't have a navigation view because
+
+78
+00:03:55.000 --> 00:03:57.500
+this was set in the sidebar.
+
+79
+00:03:57.500 --> 00:03:59.590
+So we're gonna have to set it here as well.
+
+80
+00:03:59.590 --> 00:04:01.520
+We'll have to wrap the courses view
+
+81
+00:04:01.520 --> 00:04:03.680
+inside a navigation view.
+
+82
+00:04:03.680 --> 00:04:05.423
+So navigation view,
+
+83
+00:04:06.540 --> 00:04:07.940
+curly braces,
+
+84
+00:04:07.940 --> 00:04:11.260
+and I will put courses view inside it.
+
+85
+00:04:11.260 --> 00:04:15.330
+So now the modifier is to navigation view instead
+
+86
+00:04:15.330 --> 00:04:16.950
+of the courses view.
+
+87
+00:04:16.950 --> 00:04:18.840
+Now you don't see the navigation view here
+
+88
+00:04:18.840 --> 00:04:21.540
+because we set it to hidden.
+
+89
+00:04:21.540 --> 00:04:23.830
+But we can reuse this code,
+
+90
+00:04:23.830 --> 00:04:25.170
+including the navigation view
+
+91
+00:04:25.170 --> 00:04:28.633
+and the tab item modifier for the other tabs.
+
+92
+00:04:29.980 --> 00:04:30.970
+For the second one,
+
+93
+00:04:30.970 --> 00:04:34.240
+we're gonna use let's say course list,
+
+94
+00:04:34.240 --> 00:04:39.160
+set the icon to list.bullet.rectangle.
+
+95
+00:04:39.160 --> 00:04:42.530
+And we're gonna name this one, tutorials.
+
+96
+00:04:42.530 --> 00:04:45.130
+So if you play the preview,
+
+97
+00:04:45.130 --> 00:04:47.470
+and you tap on the second tab,
+
+98
+00:04:47.470 --> 00:04:50.350
+it's going to show you the course list view.
+
+99
+00:04:50.350 --> 00:04:53.360
+And this time since the navbar is not set to hidden,
+
+100
+00:04:53.360 --> 00:04:54.520
+you see it
+
+101
+00:04:54.520 --> 00:04:58.300
+so now I'm just gonna repeat this code and add more tabs.
+
+102
+00:04:58.300 --> 00:05:01.740
+Feel free to copy and paste the code from the text content,
+
+103
+00:05:01.740 --> 00:05:05.780
+so we have TV for live streams,
+
+104
+00:05:05.780 --> 00:05:08.300
+mailed out stack for certificates,
+
+105
+00:05:08.300 --> 00:05:10.860
+magnifying glass for search.
+
+106
+00:05:10.860 --> 00:05:13.370
+All of the tabs are using the course list
+
+107
+00:05:13.370 --> 00:05:16.530
+as a placeholder until we have those screens.
+
+108
+00:05:16.530 --> 00:05:20.180
+All right, since we're not using a navigation bar,
+
+109
+00:05:20.180 --> 00:05:21.780
+in the courses view,
+
+110
+00:05:21.780 --> 00:05:25.110
+we're gonna have to add a custom large title,
+
+111
+00:05:25.110 --> 00:05:27.890
+and then we can add more content underneath.
+
+112
+00:05:27.890 --> 00:05:30.010
+Let's go to courses view.
+
+113
+00:05:30.010 --> 00:05:32.090
+Let's scroll down a little bit
+
+114
+00:05:32.090 --> 00:05:34.190
+to find the content,
+
+115
+00:05:34.190 --> 00:05:37.880
+then the scroll view and before the lazy v grid,
+
+116
+00:05:37.880 --> 00:05:39.780
+we're going to set text
+
+117
+00:05:40.840 --> 00:05:42.520
+courses.
+
+118
+00:05:42.520 --> 00:05:46.813
+Then set a font modifier .large title,
+
+119
+00:05:47.830 --> 00:05:50.130
+then .bold.
+
+120
+00:05:50.130 --> 00:05:53.050
+Then instead of using an h tag with a spacer,
+
+121
+00:05:53.050 --> 00:05:56.500
+we can also use a technique .frame
+
+122
+00:05:56.500 --> 00:05:58.550
+with a max width
+
+123
+00:05:59.490 --> 00:06:02.170
+to .infinity
+
+124
+00:06:02.170 --> 00:06:04.580
+and comma alignment
+
+125
+00:06:05.873 --> 00:06:07.393
+.leading,
+
+126
+00:06:08.500 --> 00:06:09.760
+we should add some padding.
+
+127
+00:06:09.760 --> 00:06:11.367
+So,
+
+128
+00:06:11.367 --> 00:06:12.200
+.padding
+
+129
+00:06:13.230 --> 00:06:14.740
+16.
+
+130
+00:06:14.740 --> 00:06:16.320
+Then just like the large title,
+
+131
+00:06:16.320 --> 00:06:18.890
+we have a bit more padding from the top.
+
+132
+00:06:18.890 --> 00:06:20.223
+So,
+
+133
+00:06:20.223 --> 00:06:21.370
+.padding
+
+134
+00:06:22.450 --> 00:06:24.530
+parentheses .top
+
+135
+00:06:24.530 --> 00:06:25.860
+54.
+
+136
+00:06:25.860 --> 00:06:27.980
+Now we have an issue with a spacing
+
+137
+00:06:27.980 --> 00:06:31.900
+between the large title and the items.
+
+138
+00:06:31.900 --> 00:06:36.010
+So to fix this, we're going to have to wrap the content
+
+139
+00:06:36.010 --> 00:06:37.050
+inside a v stack.
+
+140
+00:06:37.050 --> 00:06:41.020
+So Command click on the text embedded v stack.
+
+141
+00:06:41.020 --> 00:06:43.700
+And we'll have to put the lazy grid as well
+
+142
+00:06:43.700 --> 00:06:45.630
+including its modifiers
+
+143
+00:06:47.020 --> 00:06:49.163
+inside that v stack.
+
+144
+00:06:54.200 --> 00:06:55.410
+For the v stack,
+
+145
+00:06:55.410 --> 00:06:59.453
+we're going to set parentheses spacing to zero.
+
+146
+00:07:00.340 --> 00:07:02.890
+So this solves our padding issue.
+
+147
+00:07:02.890 --> 00:07:05.730
+Now the padding here is for all sides,
+
+148
+00:07:05.730 --> 00:07:08.083
+we can specify to just leading.
+
+149
+00:07:09.210 --> 00:07:13.230
+Perfect now we can add some content underneath
+
+150
+00:07:13.230 --> 00:07:14.563
+this grid of items.
+
+151
+00:07:15.420 --> 00:07:19.340
+Let's start with course row, parentheses.
+
+152
+00:07:19.340 --> 00:07:21.280
+Then we're going to loop it.
+
+153
+00:07:21.280 --> 00:07:24.023
+So Command click, select repeat.
+
+154
+00:07:25.050 --> 00:07:28.363
+Then we'll set the array to course sections,
+
+155
+00:07:29.860 --> 00:07:31.360
+and then pass the item.
+
+156
+00:07:31.360 --> 00:07:32.333
+So item,
+
+157
+00:07:33.490 --> 00:07:34.600
+item.
+
+158
+00:07:34.600 --> 00:07:38.820
+Now if we scroll down, you can see a list of course row
+
+159
+00:07:38.820 --> 00:07:40.550
+if you test on the iPad,
+
+160
+00:07:40.550 --> 00:07:44.010
+so we're gonna select the iPad 11 inch,
+
+161
+00:07:44.010 --> 00:07:47.730
+we can definitely use grid to have multiple columns
+
+162
+00:07:47.730 --> 00:07:49.530
+of those lists items.
+
+163
+00:07:49.530 --> 00:07:53.860
+Let's Command click on for each embedded v stack.
+
+164
+00:07:53.860 --> 00:07:55.330
+Replace v stack
+
+165
+00:07:55.330 --> 00:07:57.070
+by lazy
+
+166
+00:07:57.070 --> 00:07:57.903
+v grid
+
+167
+00:07:58.840 --> 00:08:00.720
+parentheses columns
+
+168
+00:08:02.320 --> 00:08:04.710
+colon, square brackets,
+
+169
+00:08:04.710 --> 00:08:06.960
+grid item
+
+170
+00:08:06.960 --> 00:08:07.893
+parentheses,
+
+171
+00:08:08.984 --> 00:08:12.230
+.adaptive parenthesis,
+
+172
+00:08:12.230 --> 00:08:13.063
+minimum
+
+173
+00:08:14.360 --> 00:08:15.860
+to 240.
+
+174
+00:08:15.860 --> 00:08:17.850
+Great this looks much better
+
+175
+00:08:17.850 --> 00:08:21.460
+and we have a better use of the space available to us.
+
+176
+00:08:21.460 --> 00:08:22.910
+Let's add a little bit of padding.
+
+177
+00:08:22.910 --> 00:08:25.050
+So .padding parethesis.
+
+178
+00:08:25.950 --> 00:08:28.630
+Then we can add a title for this list.
+
+179
+00:08:28.630 --> 00:08:30.970
+So right before the lazy grid,
+
+180
+00:08:30.970 --> 00:08:35.833
+we're gonna set text parentheses latest sections.
+
+181
+00:08:37.080 --> 00:08:41.800
+Then we're gonna set dot font weight to semi bold.
+
+182
+00:08:41.800 --> 00:08:42.647
+Let's also add
+
+183
+00:08:42.647 --> 00:08:44.907
+.frame, parenthesis,
+
+184
+00:08:45.840 --> 00:08:49.080
+max width .infinity,
+
+185
+00:08:49.080 --> 00:08:52.753
+comma, alignment .leading.
+
+186
+00:08:53.910 --> 00:08:57.970
+And after the frame, we're gonna set .padding parentheses.
+
+187
+00:08:57.970 --> 00:09:01.090
+Now let's not forget to go back to content view.
+
+188
+00:09:01.090 --> 00:09:03.950
+And for the size class compact,
+
+189
+00:09:03.950 --> 00:09:07.180
+we're going to set tab bar parenthesis.
+
+190
+00:09:07.180 --> 00:09:09.890
+So if you run your app on all three platforms,
+
+191
+00:09:09.890 --> 00:09:13.730
+you can see that the title here is roughly aligned
+
+192
+00:09:13.730 --> 00:09:16.170
+to the learn on the left side.
+
+193
+00:09:16.170 --> 00:09:19.393
+And the iPhone has the tab bar.
+
+194
+00:09:20.730 --> 00:09:23.580
+And the Mac is using the sidebar as well
+
+195
+00:09:23.580 --> 00:09:26.050
+with the extra content that we just added.
+
+196
+00:09:26.050 --> 00:09:26.950
+In the next session,
+
+197
+00:09:26.950 --> 00:09:30.130
+I wanna show you how to set two types of navigation.
+
+198
+00:09:30.130 --> 00:09:32.680
+One is using the navigation link,
+
+199
+00:09:32.680 --> 00:09:35.430
+and the second one is to use the modal.
+
+200
+00:09:35.430 --> 00:09:37.313
+So I'll see you in the next session.
+

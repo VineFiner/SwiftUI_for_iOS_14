@@ -1,0 +1,530 @@
+﻿WEBVTT
+
+1
+00:00:12.640 --> 00:00:14.970
+<v Meng>Hi, welcome back to session eight</v>
+
+2
+00:00:14.970 --> 00:00:16.850
+of my SwiftUI course.
+
+3
+00:00:16.850 --> 00:00:21.810
+So the big animation tool that we have access to for iOS 14
+
+4
+00:00:21.810 --> 00:00:23.770
+is called matched geometry effect.
+
+5
+00:00:23.770 --> 00:00:26.740
+And this is going to allow us to animate shared elements
+
+6
+00:00:26.740 --> 00:00:29.580
+between two views, seamlessly.
+
+7
+00:00:29.580 --> 00:00:30.413
+To do that,
+
+8
+00:00:30.413 --> 00:00:31.780
+you're going to need to set
+
+9
+00:00:31.780 --> 00:00:34.890
+the matched geometry effect modifier,
+
+10
+00:00:34.890 --> 00:00:37.250
+and we're going to tag the shared elements.
+
+11
+00:00:37.250 --> 00:00:38.520
+In this case,
+
+12
+00:00:38.520 --> 00:00:39.930
+we have the CourseItem,
+
+13
+00:00:39.930 --> 00:00:43.340
+which is exactly the same in the full screen mode.
+
+14
+00:00:43.340 --> 00:00:45.180
+For the first CourseItem,
+
+15
+00:00:45.180 --> 00:00:47.360
+it is very important that you put
+
+16
+00:00:47.360 --> 00:00:50.840
+matched geometry effect modifier before the frame.
+
+17
+00:00:50.840 --> 00:00:55.300
+So dot matchedGeometryEffect, Enter.
+
+18
+00:00:55.300 --> 00:00:59.300
+And here we need to enter an ID and then a NameSpace.
+
+19
+00:00:59.300 --> 00:01:02.570
+For the ID, we're simply going to put a card.
+
+20
+00:01:02.570 --> 00:01:04.710
+And for the NameSpace,
+
+21
+00:01:04.710 --> 00:01:09.710
+we're going to have to declare, Namespace var namespace.
+
+22
+00:01:11.780 --> 00:01:14.470
+So from what I understand the Namespace is where you set
+
+23
+00:01:14.470 --> 00:01:17.110
+a collection of match elements.
+
+24
+00:01:17.110 --> 00:01:21.010
+So, let's put Namespace in the modifier.
+
+25
+00:01:21.010 --> 00:01:24.440
+And then we can just copy this modifier
+
+26
+00:01:24.440 --> 00:01:28.943
+and put that on the second CourseItem in full screen mode.
+
+27
+00:01:29.820 --> 00:01:31.203
+Let's resume this.
+
+28
+00:01:32.270 --> 00:01:33.700
+Click on the card.
+
+29
+00:01:33.700 --> 00:01:37.200
+You see that only the transition out is working correctly.
+
+30
+00:01:37.200 --> 00:01:38.823
+So to solve this issue,
+
+31
+00:01:39.730 --> 00:01:43.113
+we're going to set another property called isSource.
+
+32
+00:01:44.000 --> 00:01:47.000
+And here we want to know which of the cards is the original.
+
+33
+00:01:47.000 --> 00:01:51.300
+So, you can look at the documentation by option clicking
+
+34
+00:01:51.300 --> 00:01:53.560
+and you have a little bit more explanation
+
+35
+00:01:53.560 --> 00:01:54.900
+of what's going on.
+
+36
+00:01:54.900 --> 00:01:56.860
+So we have isSource
+
+37
+00:01:56.860 --> 00:01:59.480
+and what are we going to do here,
+
+38
+00:01:59.480 --> 00:02:01.473
+is to use the show state.
+
+39
+00:02:02.500 --> 00:02:04.210
+So show.
+
+40
+00:02:04.210 --> 00:02:06.460
+And then we want this to be true.
+
+41
+00:02:06.460 --> 00:02:11.140
+So we're going to add exclamation point in front.
+
+42
+00:02:11.140 --> 00:02:12.530
+Now when you click on it,
+
+43
+00:02:12.530 --> 00:02:15.090
+it does that beautiful transition.
+
+44
+00:02:15.090 --> 00:02:19.370
+We just have a bit of an issue with the transition move.
+
+45
+00:02:19.370 --> 00:02:24.370
+So we can change from move to the default opacity instead.
+
+46
+00:02:25.470 --> 00:02:29.190
+And voila, now we have a perfect transition.
+
+47
+00:02:29.190 --> 00:02:32.080
+So from what I understand show is false.
+
+48
+00:02:32.080 --> 00:02:35.260
+So we use an exclamation point to make it true.
+
+49
+00:02:35.260 --> 00:02:36.140
+But at the same time,
+
+50
+00:02:36.140 --> 00:02:39.440
+this has to be the state because in full screen mode,
+
+51
+00:02:39.440 --> 00:02:42.890
+this first card is no longer the source.
+
+52
+00:02:42.890 --> 00:02:45.440
+So therefore this becomes false.
+
+53
+00:02:45.440 --> 00:02:47.900
+And the full screen card becomes the source,
+
+54
+00:02:47.900 --> 00:02:50.930
+which means that now we can switch back and forth,
+
+55
+00:02:50.930 --> 00:02:53.160
+and it transitions beautifully.
+
+56
+00:02:53.160 --> 00:02:56.270
+So this animation is very customizable.
+
+57
+00:02:56.270 --> 00:02:57.103
+So for example,
+
+58
+00:02:57.103 --> 00:02:59.740
+for Course Item in the full screen mode,
+
+59
+00:02:59.740 --> 00:03:04.470
+we're gonna set dot frame after the matched geometry effect,
+
+60
+00:03:04.470 --> 00:03:08.760
+parentheses height of 300.
+
+61
+00:03:08.760 --> 00:03:09.960
+When I do that,
+
+62
+00:03:09.960 --> 00:03:12.560
+it's not gonna take the full height.
+
+63
+00:03:12.560 --> 00:03:13.810
+And what is interesting here
+
+64
+00:03:13.810 --> 00:03:17.030
+is that I can set any type of content that I want
+
+65
+00:03:17.030 --> 00:03:18.780
+in my full screen mode,
+
+66
+00:03:18.780 --> 00:03:22.070
+and matched geometry is going to take care of transitioning
+
+67
+00:03:22.070 --> 00:03:24.560
+between the two CourseItem views.
+
+68
+00:03:24.560 --> 00:03:25.700
+So for example,
+
+69
+00:03:25.700 --> 00:03:28.260
+I can make my full screen to be scrollable.
+
+70
+00:03:28.260 --> 00:03:30.620
+So Command click on CourseItem,
+
+71
+00:03:30.620 --> 00:03:32.650
+let's put this into a Vstack
+
+72
+00:03:32.650 --> 00:03:35.653
+and change from VStack to scroll view.
+
+73
+00:03:36.670 --> 00:03:37.920
+So when you do that,
+
+74
+00:03:37.920 --> 00:03:40.000
+you can see that I'm transitioning,
+
+75
+00:03:40.000 --> 00:03:42.570
+and now I can scroll my content.
+
+76
+00:03:42.570 --> 00:03:46.670
+Just make sure that the edgeIgnoringSafeArea
+
+77
+00:03:46.670 --> 00:03:49.530
+is placed on the scroll view instead.
+
+78
+00:03:49.530 --> 00:03:51.960
+and the same for the transition.
+
+79
+00:03:51.960 --> 00:03:53.890
+So the transition will only work
+
+80
+00:03:53.890 --> 00:03:58.130
+on the first parent container inside the if show statement.
+
+81
+00:03:58.130 --> 00:04:01.690
+Let's add some more content right after the cover,
+
+82
+00:04:01.690 --> 00:04:03.090
+so the CourseItem.
+
+83
+00:04:03.090 --> 00:04:06.383
+We're gonna put CourseRow parentheses,
+
+84
+00:04:07.270 --> 00:04:08.840
+and now it's right here.
+
+85
+00:04:08.840 --> 00:04:11.400
+You can see that the CourseRow is using
+
+86
+00:04:11.400 --> 00:04:13.230
+the opacity transition,
+
+87
+00:04:13.230 --> 00:04:16.810
+while the CourseItem is using matched geometry effect.
+
+88
+00:04:16.810 --> 00:04:20.810
+To make the content scrollable, we're gonna set this repeat.
+
+89
+00:04:20.810 --> 00:04:23.760
+So, Command click, click on Repeat.
+
+90
+00:04:23.760 --> 00:04:25.910
+And instead of maximum five,
+
+91
+00:04:25.910 --> 00:04:28.110
+we're going to set to 20.
+
+92
+00:04:28.110 --> 00:04:31.760
+Now our content is scrollable, which is really awesome.
+
+93
+00:04:31.760 --> 00:04:33.860
+And why don't we add some padding as well.
+
+94
+00:04:33.860 --> 00:04:36.200
+So, Command click for each,
+
+95
+00:04:36.200 --> 00:04:38.020
+put this inside a VStack,
+
+96
+00:04:38.020 --> 00:04:42.030
+and right after the VStack, set dot padding parentheses,
+
+97
+00:04:42.030 --> 00:04:42.900
+awesome.
+
+98
+00:04:42.900 --> 00:04:44.850
+So it's starting to look like a real UI.
+
+99
+00:04:44.850 --> 00:04:48.173
+The animation is cancelable and the content is scrollable.
+
+100
+00:04:49.560 --> 00:04:54.560
+Now back to the topic of animation versus withAnimation.
+
+101
+00:04:54.620 --> 00:04:58.260
+So if I disable withAnimation by commenting
+
+102
+00:04:59.250 --> 00:05:02.870
+and putting back the animation modifier,
+
+103
+00:05:02.870 --> 00:05:06.290
+you're gonna see that the animation is much slower,
+
+104
+00:05:06.290 --> 00:05:07.200
+but at least it works.
+
+105
+00:05:07.200 --> 00:05:10.440
+It doesn't instantly show the transition.
+
+106
+00:05:10.440 --> 00:05:13.200
+But why I said withAnimation is better
+
+107
+00:05:13.200 --> 00:05:15.610
+is because there's a lag.
+
+108
+00:05:15.610 --> 00:05:17.930
+So you can see that when I scroll,
+
+109
+00:05:17.930 --> 00:05:21.670
+the card that is behind is trying to catch up.
+
+110
+00:05:21.670 --> 00:05:23.910
+And so that is less than ideal.
+
+111
+00:05:23.910 --> 00:05:26.800
+When it comes to using marched geometry effect,
+
+112
+00:05:26.800 --> 00:05:28.400
+I believe that for now,
+
+113
+00:05:28.400 --> 00:05:30.720
+it's better to use withAnimation.
+
+114
+00:05:30.720 --> 00:05:34.610
+So I can just delete the dot animation modifier.
+
+115
+00:05:34.610 --> 00:05:36.620
+I know it looks really easy right now,
+
+116
+00:05:36.620 --> 00:05:38.980
+but yes, it's going to get a lot more interesting,
+
+117
+00:05:38.980 --> 00:05:41.650
+especially when you deal with a lot of cards
+
+118
+00:05:41.650 --> 00:05:44.430
+that have to match different elements.
+
+119
+00:05:44.430 --> 00:05:46.130
+Before we move to the next session,
+
+120
+00:05:46.130 --> 00:05:48.100
+we can remove this VStack container
+
+121
+00:05:48.100 --> 00:05:51.290
+because we don't have a back hard problem anymore.
+
+122
+00:05:51.290 --> 00:05:54.660
+So make sure to double click on the curly braces
+
+123
+00:05:54.660 --> 00:05:57.170
+and you know where you can delete it.
+
+124
+00:05:57.170 --> 00:06:00.340
+So, I'm going to delete the end first,
+
+125
+00:06:00.340 --> 00:06:01.883
+and then the beginning after.
+
+126
+00:06:02.730 --> 00:06:06.900
+Let me fix my indentation by selecting the whole thing
+
+127
+00:06:06.900 --> 00:06:09.480
+and control I.
+
+128
+00:06:09.480 --> 00:06:10.460
+In the next session,
+
+129
+00:06:10.460 --> 00:06:13.830
+I want to show you how to create a delay transition
+
+130
+00:06:13.830 --> 00:06:16.700
+so that we have the card showing first,
+
+131
+00:06:16.700 --> 00:06:18.990
+and then the content showing second.
+
+132
+00:06:18.990 --> 00:06:20.863
+So I'll see you in our next session.
+

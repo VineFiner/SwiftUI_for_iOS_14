@@ -1,0 +1,1009 @@
+﻿1
+00:00:01,280 --> 00:00:03,947
+(ominous music)
+
+2
+00:00:06,283 --> 00:00:09,450
+(upbeat techno music)
+
+3
+00:00:12,610 --> 00:00:16,370
+- [Meng] Hi, welcome to
+Swift UI course, section 15.
+
+4
+00:00:16,370 --> 00:00:19,800
+Up until now, we have created
+a really cool transition
+
+5
+00:00:19,800 --> 00:00:21,680
+between two screens.
+
+6
+00:00:21,680 --> 00:00:24,460
+All of this works great on a preview,
+
+7
+00:00:24,460 --> 00:00:27,570
+but when you run the app to iPhone 11,
+
+8
+00:00:27,570 --> 00:00:32,570
+as well as iPad pro 11 inch,
+you'll notice that by default,
+
+9
+00:00:32,690 --> 00:00:37,690
+we have the navigation bar that
+exists here without a title.
+
+10
+00:00:37,780 --> 00:00:40,800
+And that's why we have this big gap here.
+
+11
+00:00:40,800 --> 00:00:42,670
+On top of that, as a rule,
+
+12
+00:00:42,670 --> 00:00:46,950
+we should never have the
+content bigger than 712,
+
+13
+00:00:46,950 --> 00:00:50,650
+which is the standard that
+Apple has set for their model.
+
+14
+00:00:50,650 --> 00:00:52,040
+So what we can do here
+
+15
+00:00:52,040 --> 00:00:56,910
+is to set the max width of
+our container to be 712,
+
+16
+00:00:56,910 --> 00:01:00,020
+and then add a background blur behind it.
+
+17
+00:01:00,020 --> 00:01:03,200
+To make the background blur
+work for iOS and Mac iOS,
+
+18
+00:01:03,200 --> 00:01:04,880
+we're gonna need two files.
+
+19
+00:01:04,880 --> 00:01:07,420
+So let's go to project files.
+
+20
+00:01:07,420 --> 00:01:11,360
+And in the iOS folder, as
+well as the macOS folder,
+
+21
+00:01:11,360 --> 00:01:14,570
+we have these files
+that we have to import.
+
+22
+00:01:14,570 --> 00:01:16,900
+For iOS, we're gonna drag and drop
+
+23
+00:01:16,900 --> 00:01:19,553
+VisualEffectBlur to iOS.
+
+24
+00:01:20,720 --> 00:01:22,953
+Here, we're gonna check iOS.
+
+25
+00:01:23,990 --> 00:01:27,690
+Make sure to have copy items
+if needed and create groups,
+
+26
+00:01:27,690 --> 00:01:29,080
+and then Finish.
+
+27
+00:01:29,080 --> 00:01:31,690
+Let's do the same for macOS.
+
+28
+00:01:31,690 --> 00:01:34,560
+So drag and drop VisualEffectBlur.swift
+
+29
+00:01:34,560 --> 00:01:36,053
+and drop it to macOS.
+
+30
+00:01:37,810 --> 00:01:41,560
+This time we're gonna
+check target for macOS.
+
+31
+00:01:41,560 --> 00:01:44,463
+Again, copy items if
+needed and create groups.
+
+32
+00:01:45,380 --> 00:01:48,190
+Now, the target is very important.
+
+33
+00:01:48,190 --> 00:01:50,520
+If you go to the inspector,
+
+34
+00:01:50,520 --> 00:01:53,340
+you will see here in the first tab,
+
+35
+00:01:53,340 --> 00:01:56,620
+which target this file is available to.
+
+36
+00:01:56,620 --> 00:01:59,900
+And notice that we have
+the same name for the file,
+
+37
+00:01:59,900 --> 00:02:04,900
+but the content of the file
+is different for Mac and iOS.
+
+38
+00:02:04,970 --> 00:02:07,670
+So when you build your
+app for each platform,
+
+39
+00:02:07,670 --> 00:02:10,690
+the project will know
+exactly which file to use
+
+40
+00:02:10,690 --> 00:02:12,900
+depending on the target.
+
+41
+00:02:12,900 --> 00:02:14,990
+Now, I do want to mention that this code
+
+42
+00:02:14,990 --> 00:02:18,000
+for VisualEffectBlur is made by Apple.
+
+43
+00:02:18,000 --> 00:02:20,570
+You can find the code in the Fruta app
+
+44
+00:02:20,570 --> 00:02:21,780
+that they have shared,
+
+45
+00:02:21,780 --> 00:02:26,230
+and also their license allows
+for anyone to use their code.
+
+46
+00:02:26,230 --> 00:02:27,750
+So back to Xcode,
+
+47
+00:02:27,750 --> 00:02:31,000
+we're going to preview
+on the iPad 11 inch.
+
+48
+00:02:31,000 --> 00:02:34,310
+You can see here that the
+width of the container
+
+49
+00:02:34,310 --> 00:02:38,040
+is more than 712, so
+we're gonna restrict that.
+
+50
+00:02:38,040 --> 00:02:41,260
+In CoursesView.swift,
+we're gonna scroll down
+
+51
+00:02:41,260 --> 00:02:43,140
+and we're gonna find the z stack
+
+52
+00:02:43,140 --> 00:02:44,650
+for the full screen mode.
+
+53
+00:02:44,650 --> 00:02:46,600
+And right after zIndex,
+
+54
+00:02:46,600 --> 00:02:50,973
+we're going to put .frame,
+parentheses, maxWidth: 712.
+
+55
+00:02:52,840 --> 00:02:55,780
+If you do that, you're gonna
+see that your container
+
+56
+00:02:55,780 --> 00:02:58,200
+is now restricted to this width.
+
+57
+00:02:58,200 --> 00:03:01,100
+But what we would like to do
+is to add another background
+
+58
+00:03:01,100 --> 00:03:04,230
+and using VisualEffectBlur this time.
+
+59
+00:03:04,230 --> 00:03:06,520
+First of all, we're gonna
+create another frame.
+
+60
+00:03:06,520 --> 00:03:10,973
+So .frame, maxWidth: .infinity,
+
+61
+00:03:11,920 --> 00:03:14,850
+this will use all available space.
+
+62
+00:03:14,850 --> 00:03:17,910
+And afterwards we're gonna
+add a background modifier.
+
+63
+00:03:17,910 --> 00:03:19,383
+So .background.
+
+64
+00:03:20,220 --> 00:03:23,283
+And now we can use VisualEffectBlur.
+
+65
+00:03:23,283 --> 00:03:27,130
+So, VisualEffectBlur, parentheses.
+
+66
+00:03:27,130 --> 00:03:27,990
+And that's it.
+
+67
+00:03:27,990 --> 00:03:32,090
+Now you can test and you can
+see that we have just added
+
+68
+00:03:32,090 --> 00:03:34,100
+a background blur.
+
+69
+00:03:34,100 --> 00:03:35,800
+If you want to fill the whole screen,
+
+70
+00:03:35,800 --> 00:03:37,360
+including the safe area,
+
+71
+00:03:37,360 --> 00:03:40,237
+we can just add after the parentheses,
+
+72
+00:03:40,237 --> 00:03:44,860
+.edgesIgnoringSafeArea to all.
+
+73
+00:03:44,860 --> 00:03:47,363
+So this will fill the safe area as well.
+
+74
+00:03:48,730 --> 00:03:51,650
+Now, please note that you
+can customize the style
+
+75
+00:03:51,650 --> 00:03:56,650
+of the blur, but that customization
+will only work for iOS.
+
+76
+00:03:56,730 --> 00:03:59,210
+So if you want to customize
+the VisualEffectBlur,
+
+77
+00:03:59,210 --> 00:04:01,630
+as well as the navigation bar,
+
+78
+00:04:01,630 --> 00:04:04,260
+we'll need to set up
+the platform conditions.
+
+79
+00:04:04,260 --> 00:04:08,130
+And we will also need to
+organize our file here.
+
+80
+00:04:08,130 --> 00:04:10,660
+So let's set mini components.
+
+81
+00:04:10,660 --> 00:04:15,210
+Here, right before the last curly brace,
+
+82
+00:04:15,210 --> 00:04:20,210
+I'm gonna add var fullContent
+of type some View.
+
+83
+00:04:23,050 --> 00:04:27,990
+Then I'm gonna cut everything
+from the if selectedItem
+
+84
+00:04:27,990 --> 00:04:29,430
+and its content.
+
+85
+00:04:29,430 --> 00:04:31,290
+So double click on this,
+
+86
+00:04:31,290 --> 00:04:35,010
+you're gonna find that this is the code.
+
+87
+00:04:35,010 --> 00:04:37,783
+And I'm gonna paste it inside fullContent.
+
+88
+00:04:38,690 --> 00:04:41,773
+For fullContent, we'll
+need to set ViewBuilder.
+
+89
+00:04:43,130 --> 00:04:45,540
+Next, let's do the same for content.
+
+90
+00:04:45,540 --> 00:04:48,320
+So right before fullContent,
+
+91
+00:04:48,320 --> 00:04:53,320
+let's set var content of
+type some View, curly braces.
+
+92
+00:04:54,340 --> 00:04:56,710
+Then I'm gonna scroll up a little bit
+
+93
+00:04:56,710 --> 00:05:00,390
+to find the ScrollView and the content,
+
+94
+00:05:00,390 --> 00:05:02,393
+plus the zIndex modifier.
+
+95
+00:05:03,770 --> 00:05:05,763
+Select all of this, cut.
+
+96
+00:05:07,170 --> 00:05:08,973
+Paste to content.
+
+97
+00:05:10,010 --> 00:05:12,780
+And then we can reference
+them from the body
+
+98
+00:05:12,780 --> 00:05:14,230
+inside the z stack.
+
+99
+00:05:14,230 --> 00:05:18,970
+So content, and then after
+content, fullContent.
+
+100
+00:05:18,970 --> 00:05:22,430
+Now we can scroll down to
+find the background modifier
+
+101
+00:05:22,430 --> 00:05:26,560
+that has the VisualEffectBlur, cut it.
+
+102
+00:05:26,560 --> 00:05:30,313
+And we're gonna paste that
+right after full content.
+
+103
+00:05:31,210 --> 00:05:33,420
+So now let's set a platform condition.
+
+104
+00:05:33,420 --> 00:05:37,383
+Right before content, pound if os, iOS.
+
+105
+00:05:38,980 --> 00:05:43,670
+And then after fullContent, pound, else.
+
+106
+00:05:43,670 --> 00:05:45,367
+And then after that, endif.
+
+107
+00:05:46,690 --> 00:05:50,290
+Now we can copy content and fullContent,
+
+108
+00:05:50,290 --> 00:05:52,520
+including the background modifier.
+
+109
+00:05:52,520 --> 00:05:57,520
+And this is where we can
+customize the blur style for iOS.
+
+110
+00:05:57,520 --> 00:06:01,470
+So for blur style, you can set blur style.
+
+111
+00:06:01,470 --> 00:06:05,570
+And for the value, we
+have a bunch of options.
+
+112
+00:06:05,570 --> 00:06:07,960
+But the auto-completion
+might not work correctly
+
+113
+00:06:07,960 --> 00:06:09,080
+at this point.
+
+114
+00:06:09,080 --> 00:06:12,313
+So what we can do is to Command
++ click on VisualEffectBlur,
+
+115
+00:06:13,430 --> 00:06:17,930
+jump to definition, this
+will open the Swift file.
+
+116
+00:06:17,930 --> 00:06:20,900
+And you'll find that
+we have a default style
+
+117
+00:06:20,900 --> 00:06:23,090
+that is system material.
+
+118
+00:06:23,090 --> 00:06:25,380
+So that's the standard blur strength,
+
+119
+00:06:25,380 --> 00:06:28,270
+and it also adapts to
+dark mode automatically.
+
+120
+00:06:28,270 --> 00:06:30,650
+You can also check the other options
+
+121
+00:06:30,650 --> 00:06:35,630
+by selecting systemMaterial,
+deleting it, press dot again,
+
+122
+00:06:35,630 --> 00:06:38,170
+and this is where you're
+gonna find a bunch of options.
+
+123
+00:06:38,170 --> 00:06:42,230
+So we have dark, extra light,
+light, prominent, et cetera.
+
+124
+00:06:42,230 --> 00:06:44,490
+Now, if you use the system ones,
+
+125
+00:06:44,490 --> 00:06:47,970
+they will adapt to dark
+mode and light mode.
+
+126
+00:06:47,970 --> 00:06:51,980
+Just to give you an idea, we
+have systemChrome, Material,
+
+127
+00:06:51,980 --> 00:06:55,320
+Thick, Thin, and UltraThin.
+
+128
+00:06:55,320 --> 00:06:59,260
+So, the thicker it is,
+the easier it is to read
+
+129
+00:06:59,260 --> 00:07:01,190
+and see the content.
+
+130
+00:07:01,190 --> 00:07:02,470
+And the thinner it is,
+
+131
+00:07:02,470 --> 00:07:04,690
+the more you're gonna see the background.
+
+132
+00:07:04,690 --> 00:07:06,340
+Now we're not gonna change anything here,
+
+133
+00:07:06,340 --> 00:07:08,290
+so I'm just gonna put back systemMaterial,
+
+134
+00:07:08,290 --> 00:07:10,870
+but I just wanted to show you the options,
+
+135
+00:07:10,870 --> 00:07:14,570
+since here the auto-completion
+might not work correctly.
+
+136
+00:07:14,570 --> 00:07:16,370
+But otherwise, if it works,
+
+137
+00:07:16,370 --> 00:07:20,140
+you're gonna be able to change
+to any of these options.
+
+138
+00:07:20,140 --> 00:07:23,980
+For example, let's try
+ultra thin material.
+
+139
+00:07:23,980 --> 00:07:26,670
+And here are you gonna
+see that the background
+
+140
+00:07:26,670 --> 00:07:28,520
+is a lot more visible.
+
+141
+00:07:28,520 --> 00:07:30,453
+If you set it to systemThickMaterial,
+
+142
+00:07:34,210 --> 00:07:37,723
+you will see that the
+background is barely visible.
+
+143
+00:07:40,200 --> 00:07:43,770
+The blur style is only available on iOS.
+
+144
+00:07:43,770 --> 00:07:46,260
+So that's why we have to keep using
+
+145
+00:07:46,260 --> 00:07:48,203
+just the parentheses for Mac.
+
+146
+00:07:49,090 --> 00:07:51,653
+Let me set back to systemMaterial.
+
+147
+00:07:53,010 --> 00:07:55,600
+And now we're gonna deal
+with the navigation bar.
+
+148
+00:07:55,600 --> 00:07:57,870
+First of all, you can set a title.
+
+149
+00:07:57,870 --> 00:08:02,870
+Right after the z stack, let's
+set .navigation bar Title,
+
+150
+00:08:03,120 --> 00:08:04,920
+set that to Courses.
+
+151
+00:08:04,920 --> 00:08:07,550
+So if you run the app,
+it's gonna look like this.
+
+152
+00:08:07,550 --> 00:08:11,160
+The problem is the navigation
+bar will be on top.
+
+153
+00:08:11,160 --> 00:08:13,020
+Just like if we had a tab bar,
+
+154
+00:08:13,020 --> 00:08:15,530
+it will also be on top of the content.
+
+155
+00:08:15,530 --> 00:08:17,850
+And that might not be ideal.
+
+156
+00:08:17,850 --> 00:08:21,200
+What we can do here is to
+hide the navigation bar,
+
+157
+00:08:21,200 --> 00:08:23,540
+but this will only work for iOS.
+
+158
+00:08:23,540 --> 00:08:26,933
+So we're gonna have to do
+it for the content for iOS.
+
+159
+00:08:27,778 --> 00:08:32,778
+.navigationBarHidden, set it to true.
+
+160
+00:08:33,350 --> 00:08:36,400
+By doing this, we solve our
+problem with the spacing
+
+161
+00:08:36,400 --> 00:08:37,570
+for the Close button,
+
+162
+00:08:37,570 --> 00:08:41,423
+but also the title of the
+nav bar that was on top.
+
+163
+00:08:42,450 --> 00:08:44,683
+Now let's run this for the Mac.
+
+164
+00:08:45,800 --> 00:08:48,500
+On a Mac, you can see that
+everything works perfectly,
+
+165
+00:08:48,500 --> 00:08:50,210
+including the background blur,
+
+166
+00:08:50,210 --> 00:08:53,840
+the max width of the container
+and even the animation.
+
+167
+00:08:53,840 --> 00:08:56,490
+But we do have a problem with a safe area,
+
+168
+00:08:56,490 --> 00:08:57,810
+which we can disable.
+
+169
+00:08:57,810 --> 00:09:00,560
+To do that, we're gonna
+go to course detail.
+
+170
+00:09:00,560 --> 00:09:04,370
+And this is where we're gonna
+organize in the same way.
+
+171
+00:09:04,370 --> 00:09:09,370
+So let's create var content of
+type some View, curly braces,
+
+172
+00:09:11,840 --> 00:09:13,830
+cut and paste the VStack,
+
+173
+00:09:13,830 --> 00:09:18,830
+including everything except
+the safe area modifier.
+
+174
+00:09:19,010 --> 00:09:21,600
+So let me paste this to content
+
+175
+00:09:21,600 --> 00:09:24,300
+and referencing this from the body.
+
+176
+00:09:24,300 --> 00:09:26,650
+After that, we can set
+the platform condition
+
+177
+00:09:26,650 --> 00:09:31,650
+using pound, if os iOS,
+pound else, pound endiff.
+
+178
+00:09:35,420 --> 00:09:38,960
+For Mac, we're gonna set just content.
+
+179
+00:09:38,960 --> 00:09:41,330
+So this solves our
+problem with the nav bar
+
+180
+00:09:41,330 --> 00:09:43,770
+hiding part of the card,
+
+181
+00:09:43,770 --> 00:09:47,600
+but now we have some spacing
+issue with the close button.
+
+182
+00:09:47,600 --> 00:09:51,150
+But also, we want to make
+sure that the rounded corners
+
+183
+00:09:51,150 --> 00:09:53,690
+make sense for the Mac as well.
+
+184
+00:09:53,690 --> 00:09:57,350
+So on the Mac, the corner
+radius needs to fit
+
+185
+00:09:57,350 --> 00:09:59,400
+with the corner radius of the window.
+
+186
+00:09:59,400 --> 00:10:02,750
+So this needs to be
+about 10 instead of 22.
+
+187
+00:10:02,750 --> 00:10:05,030
+First of all, let's fix the corner radius.
+
+188
+00:10:05,030 --> 00:10:06,690
+Let's go to courses view.
+
+189
+00:10:06,690 --> 00:10:08,793
+We're gonna find the Close button,
+
+190
+00:10:09,720 --> 00:10:11,930
+right here for the fullContent.
+
+191
+00:10:11,930 --> 00:10:13,300
+And for the padding,
+
+192
+00:10:13,300 --> 00:10:15,580
+instead of just setting for the trailing,
+
+193
+00:10:15,580 --> 00:10:17,810
+we're gonna remove trailing
+
+194
+00:10:17,810 --> 00:10:20,970
+and just put 16 inside a parentheses.
+
+195
+00:10:20,970 --> 00:10:22,460
+Now for the corner radius,
+
+196
+00:10:22,460 --> 00:10:25,773
+we're gonna go to the folder
+call Items, CourseItem.
+
+197
+00:10:26,860 --> 00:10:29,210
+Then right after var course,
+
+198
+00:10:29,210 --> 00:10:34,123
+we're gonna set pound if os, iOS,
+
+199
+00:10:35,040 --> 00:10:40,040
+var cornerRadius of type
+CGFloat is equal to 22.
+
+200
+00:10:43,130 --> 00:10:47,373
+After that, pound else, pound endif.
+
+201
+00:10:49,210 --> 00:10:52,570
+Let's copy var cornerRadius.
+
+202
+00:10:52,570 --> 00:10:55,790
+And for the Mac, we're gonna set it to 10.
+
+203
+00:10:55,790 --> 00:10:57,300
+Then using this value,
+
+204
+00:10:57,300 --> 00:11:01,850
+we're gonna replace 22
+here for the clip shape.
+
+205
+00:11:01,850 --> 00:11:04,800
+So let's put corner radius.
+
+206
+00:11:04,800 --> 00:11:06,100
+That's much better.
+
+207
+00:11:06,100 --> 00:11:08,760
+Now what we should do is to
+deal with the corner radius
+
+208
+00:11:08,760 --> 00:11:10,440
+of the container.
+
+209
+00:11:10,440 --> 00:11:13,370
+Let's copy this code for
+the platform condition,
+
+210
+00:11:13,370 --> 00:11:15,260
+including the corner radius,
+
+211
+00:11:15,260 --> 00:11:17,680
+let's go to CourseDetail,
+
+212
+00:11:17,680 --> 00:11:21,210
+and right after namespace, paste that.
+
+213
+00:11:21,210 --> 00:11:25,350
+This time for the Mac,
+I'm gonna set it to zero.
+
+214
+00:11:25,350 --> 00:11:27,790
+And then using the corner radius value,
+
+215
+00:11:27,790 --> 00:11:30,703
+I'm going to replace the
+corner radius for clipShape.
+
+216
+00:11:31,610 --> 00:11:32,843
+So cornerRadius.
+
+217
+00:11:34,400 --> 00:11:35,690
+That's much better.
+
+218
+00:11:35,690 --> 00:11:39,140
+We can also remove the corner radius
+
+219
+00:11:39,140 --> 00:11:40,920
+when it is in full screen.
+
+220
+00:11:40,920 --> 00:11:44,610
+So in CourseDetail, for CourseItem,
+
+221
+00:11:44,610 --> 00:11:49,610
+we're gonna add comma,
+cornerRadius, set it to zero.
+
+222
+00:11:50,060 --> 00:11:52,540
+So now, testing on all platforms,
+
+223
+00:11:52,540 --> 00:11:55,350
+you can see that it looks really good.
+
+224
+00:11:55,350 --> 00:11:58,810
+The same for the iPad and for the iPhone.
+
+225
+00:11:58,810 --> 00:11:59,680
+In the next session,
+
+226
+00:11:59,680 --> 00:12:01,560
+I want to show you how to use size class
+
+227
+00:12:01,560 --> 00:12:05,390
+to detect between a big
+screen like the iPad,
+
+228
+00:12:05,390 --> 00:12:07,760
+and a smaller screen like the iPhone,
+
+229
+00:12:07,760 --> 00:12:10,750
+so that we can use a tab bar instead.
+
+230
+00:12:10,750 --> 00:12:12,673
+So I'll see you in the next session.
+

@@ -1,0 +1,926 @@
+﻿WEBVTT
+
+1
+00:00:05.855 --> 00:00:10.772
+(upbeat music)
+
+2
+00:00:12.670 --> 00:00:13.503
+<v Meng>Hey there,</v>
+
+3
+00:00:13.503 --> 00:00:16.410
+welcome to our third session of the SwiftUI course.
+
+4
+00:00:16.410 --> 00:00:19.070
+Today we're gonna to learn how to use SF symbols
+
+5
+00:00:19.070 --> 00:00:20.950
+to create these lists layouts
+
+6
+00:00:20.950 --> 00:00:23.720
+that you can see everywhere in iOS.
+
+7
+00:00:23.720 --> 00:00:25.310
+In the content of each session,
+
+8
+00:00:25.310 --> 00:00:28.860
+I'm trying to link to resources that are being discussed,
+
+9
+00:00:28.860 --> 00:00:31.640
+such as the SF Symbols app,
+
+10
+00:00:31.640 --> 00:00:34.580
+which you should download for SF Symbols 2.
+
+11
+00:00:34.580 --> 00:00:35.413
+And also,
+
+12
+00:00:35.413 --> 00:00:37.490
+there are a bunch of Dub Dub DC videos
+
+13
+00:00:37.490 --> 00:00:41.110
+that you can find the developer app by Apple.
+
+14
+00:00:41.110 --> 00:00:45.300
+And here, you can search for SF symbols for example,
+
+15
+00:00:45.300 --> 00:00:48.630
+and there, you have SF symbol two, as a video.
+
+16
+00:00:48.630 --> 00:00:53.130
+Again, these resources will be linked from the text content.
+
+17
+00:00:53.130 --> 00:00:55.530
+Now focusing on the new SF symbols
+
+18
+00:00:55.530 --> 00:00:58.900
+now we have access to multicolor symbols,
+
+19
+00:00:58.900 --> 00:01:02.810
+but also I'm going to show you how to use them in SwiftUI,
+
+20
+00:01:02.810 --> 00:01:04.950
+and how to create a list styles.
+
+21
+00:01:04.950 --> 00:01:06.310
+So back in Xcode,
+
+22
+00:01:06.310 --> 00:01:08.130
+we're going to create a new file,
+
+23
+00:01:08.130 --> 00:01:10.750
+and we're going to do Command N.
+
+24
+00:01:10.750 --> 00:01:13.770
+This is going to create a new SwiftUI view.
+
+25
+00:01:13.770 --> 00:01:16.313
+So we're gonna select this one next.
+
+26
+00:01:17.200 --> 00:01:19.203
+We're gonna name that CourseRow.
+
+27
+00:01:22.210 --> 00:01:25.280
+You can use the naming convention row
+
+28
+00:01:25.280 --> 00:01:28.880
+for any repeatable element in the list.
+
+29
+00:01:28.880 --> 00:01:32.220
+First things first, we're gonna resume the preview,
+
+30
+00:01:32.220 --> 00:01:34.200
+and then we're going to replace text
+
+31
+00:01:34.200 --> 00:01:39.200
+by image, parentheses, system name.
+
+32
+00:01:39.900 --> 00:01:42.550
+So at this point, we're just gonna go fully code,
+
+33
+00:01:42.550 --> 00:01:44.730
+because it's easier to debug,
+
+34
+00:01:44.730 --> 00:01:46.610
+it's easier to control,
+
+35
+00:01:46.610 --> 00:01:49.770
+and as you get used to it, it's just faster.
+
+36
+00:01:49.770 --> 00:01:50.860
+Now while you do that,
+
+37
+00:01:50.860 --> 00:01:54.090
+make sure that you're always using the auto-completion,
+
+38
+00:01:54.090 --> 00:01:57.190
+because names and values can be rather long,
+
+39
+00:01:57.190 --> 00:02:00.030
+but also programming is not forgiving,
+
+40
+00:02:00.030 --> 00:02:03.560
+in terms of caps, lowercase and symbols.
+
+41
+00:02:03.560 --> 00:02:04.940
+So back to our code,
+
+42
+00:02:04.940 --> 00:02:08.090
+here it is expecting a name.
+
+43
+00:02:08.090 --> 00:02:09.200
+And in this case,
+
+44
+00:02:09.200 --> 00:02:11.740
+we can use the SF symbol name.
+
+45
+00:02:11.740 --> 00:02:13.250
+If you go to SF symbols,
+
+46
+00:02:13.250 --> 00:02:15.620
+we're going to go to Multicolor.
+
+47
+00:02:15.620 --> 00:02:18.470
+And let's select this one called paperplane.
+
+48
+00:02:18.470 --> 00:02:20.540
+There's a shortcut to copy the code.
+
+49
+00:02:20.540 --> 00:02:23.680
+So in Edit, it's Copy Name,
+
+50
+00:02:23.680 --> 00:02:27.100
+and the shortcut is Shift Command and C.
+
+51
+00:02:27.100 --> 00:02:28.910
+So Shift Command C.
+
+52
+00:02:28.910 --> 00:02:30.610
+Back to Xcode,
+
+53
+00:02:30.610 --> 00:02:34.660
+we're going to paste that inside double quotes,
+
+54
+00:02:34.660 --> 00:02:35.750
+like this.
+
+55
+00:02:35.750 --> 00:02:37.960
+Now you're gonna to see the icon.
+
+56
+00:02:37.960 --> 00:02:40.940
+It's barely visible because it's very small by default.
+
+57
+00:02:40.940 --> 00:02:43.620
+But if you zoom in, you can see it more clearly.
+
+58
+00:02:43.620 --> 00:02:47.110
+You can also make it bigger, so it has three sizes.
+
+59
+00:02:47.110 --> 00:02:48.980
+And we can use a modifier.
+
+60
+00:02:48.980 --> 00:02:50.750
+So, right after image,
+
+61
+00:02:50.750 --> 00:02:55.180
+we're going to type dot imageScale.
+
+62
+00:02:55.180 --> 00:02:57.350
+And then you can have medium
+
+63
+00:02:57.350 --> 00:03:00.050
+and if you press dot you're gonna find
+
+64
+00:03:00.050 --> 00:03:03.210
+all the options available to us in this context.
+
+65
+00:03:03.210 --> 00:03:06.030
+So, you can also have large.
+
+66
+00:03:06.030 --> 00:03:09.040
+So if you want to use the multicolor option,
+
+67
+00:03:09.040 --> 00:03:12.180
+we have to add a modifier before the imageScale,
+
+68
+00:03:12.180 --> 00:03:14.563
+so, dot renderingMode,
+
+69
+00:03:15.830 --> 00:03:18.563
+then, dot original.
+
+70
+00:03:19.430 --> 00:03:20.600
+So with this technique,
+
+71
+00:03:20.600 --> 00:03:23.440
+you have access to all 2400 icons
+
+72
+00:03:23.440 --> 00:03:26.780
+without importing any asset related to it.
+
+73
+00:03:26.780 --> 00:03:28.000
+And on top of that,
+
+74
+00:03:28.000 --> 00:03:29.510
+it works for the Mac as well,
+
+75
+00:03:29.510 --> 00:03:31.820
+and you can change the font size
+
+76
+00:03:31.820 --> 00:03:35.490
+to perfectly match the text and even match the font weight,
+
+77
+00:03:35.490 --> 00:03:39.210
+which is equivalent to the stroke width of the icon.
+
+78
+00:03:39.210 --> 00:03:40.550
+Now, I do want to point out
+
+79
+00:03:40.550 --> 00:03:43.360
+that if you're using the font properties,
+
+80
+00:03:43.360 --> 00:03:46.310
+you're not going to be able to use the multicolor,
+
+81
+00:03:46.310 --> 00:03:48.990
+so the renderingMode and the imageScale
+
+82
+00:03:48.990 --> 00:03:50.310
+will not be very useful,
+
+83
+00:03:50.310 --> 00:03:54.370
+because the font size changes the size of the icon.
+
+84
+00:03:54.370 --> 00:03:57.740
+But first of all, let me add a text next to the icon.
+
+85
+00:03:57.740 --> 00:03:59.640
+So let me insert,
+
+86
+00:03:59.640 --> 00:04:02.540
+it's going To take care of the stack for me.
+
+87
+00:04:02.540 --> 00:04:05.280
+And I'm going to insert a text.
+
+88
+00:04:05.280 --> 00:04:06.660
+Selecting the text,
+
+89
+00:04:06.660 --> 00:04:10.130
+drag and drop to the right of the icon.
+
+90
+00:04:10.130 --> 00:04:12.780
+So I can change the font size individually
+
+91
+00:04:12.780 --> 00:04:14.710
+for the text and image,
+
+92
+00:04:14.710 --> 00:04:18.750
+but I can also put the modifier in the container
+
+93
+00:04:18.750 --> 00:04:21.320
+and it's going to apply to both at the same time.
+
+94
+00:04:21.320 --> 00:04:22.153
+Let me do that.
+
+95
+00:04:22.153 --> 00:04:24.290
+So right after HStack,
+
+96
+00:04:24.290 --> 00:04:28.540
+I'm going to type dot font, Enter,
+
+97
+00:04:28.540 --> 00:04:30.520
+and then set it to title.
+
+98
+00:04:30.520 --> 00:04:32.220
+So what you're noticing here,
+
+99
+00:04:32.220 --> 00:04:36.450
+is that the font is being applied to both of these elements.
+
+100
+00:04:36.450 --> 00:04:40.410
+But also, the renderingMode no longer works.
+
+101
+00:04:40.410 --> 00:04:44.850
+And if I change the font size to large title,
+
+102
+00:04:44.850 --> 00:04:48.510
+both the icon and the text will resize.
+
+103
+00:04:48.510 --> 00:04:50.730
+Now if you want to change the font weight,
+
+104
+00:04:50.730 --> 00:04:53.580
+as well as the stroke width of the icon,
+
+105
+00:04:53.580 --> 00:04:57.360
+we'll have to replace large title by system.
+
+106
+00:04:57.360 --> 00:04:59.520
+And here we have a bunch of options,
+
+107
+00:04:59.520 --> 00:05:02.090
+such as size, weight and design.
+
+108
+00:05:02.090 --> 00:05:04.080
+So we're going to select this one.
+
+109
+00:05:04.080 --> 00:05:07.210
+And now we can set a custom font size such as,
+
+110
+00:05:07.210 --> 00:05:10.610
+let's say 34, which is the size of the large title.
+
+111
+00:05:10.610 --> 00:05:14.460
+And the font weight can be, let's say bold.
+
+112
+00:05:14.460 --> 00:05:16.880
+And for the font, if you type dot,
+
+113
+00:05:16.880 --> 00:05:18.210
+you're going to find that you have
+
+114
+00:05:18.210 --> 00:05:21.020
+the choice between default which is SF Pro,
+
+115
+00:05:21.020 --> 00:05:23.460
+mono spaces, SF mono,
+
+116
+00:05:23.460 --> 00:05:27.380
+SF routed for rounded and series is New York.
+
+117
+00:05:27.380 --> 00:05:29.073
+Let's use rounded.
+
+118
+00:05:30.610 --> 00:05:34.220
+Now you're gonna see that the text is more rounded,
+
+119
+00:05:34.220 --> 00:05:37.130
+but the icon is not changed by the font.
+
+120
+00:05:37.130 --> 00:05:41.920
+It's only changed by the weight, as well as the size.
+
+121
+00:05:41.920 --> 00:05:44.453
+So if I set it to, let's say light,
+
+122
+00:05:45.300 --> 00:05:47.750
+you're gonna see that the icon is lighter.
+
+123
+00:05:47.750 --> 00:05:49.930
+And likewise for the text.
+
+124
+00:05:49.930 --> 00:05:52.670
+Now, remember about the imageScale,
+
+125
+00:05:52.670 --> 00:05:55.540
+I can use medium now or small
+
+126
+00:05:55.540 --> 00:05:58.870
+depending on the ratio that I want versus the text.
+
+127
+00:05:58.870 --> 00:06:01.680
+Okay, so this layout here is fairly common for,
+
+128
+00:06:01.680 --> 00:06:02.990
+let's say a menu.
+
+129
+00:06:02.990 --> 00:06:05.350
+But what if I want a second line of text.
+
+130
+00:06:05.350 --> 00:06:07.623
+So let's just add a new text,
+
+131
+00:06:09.490 --> 00:06:13.750
+and drag that right underneath the first text.
+
+132
+00:06:13.750 --> 00:06:17.090
+So it's going to create a VStack containing both text.
+
+133
+00:06:17.090 --> 00:06:22.040
+So now I'm just going to change back my dot system
+
+134
+00:06:22.040 --> 00:06:24.420
+to dot subheadline.
+
+135
+00:06:24.420 --> 00:06:28.380
+Now make sure that there's only one set of parentheses.
+
+136
+00:06:28.380 --> 00:06:32.840
+And instead of applying both the icon and the text,
+
+137
+00:06:32.840 --> 00:06:36.160
+I'm just going to cut it so Command X,
+
+138
+00:06:36.160 --> 00:06:39.920
+and just put it on the first title.
+
+139
+00:06:39.920 --> 00:06:43.130
+Then I'm going to paste the same modifier
+
+140
+00:06:43.130 --> 00:06:45.080
+on the second title.
+
+141
+00:06:45.080 --> 00:06:46.120
+For the second title,
+
+142
+00:06:46.120 --> 00:06:49.270
+I'm gonna set it to dot footnote.
+
+143
+00:06:49.270 --> 00:06:50.770
+Let's change the text.
+
+144
+00:06:50.770 --> 00:06:53.350
+So the first one SwiftUI,
+
+145
+00:06:53.350 --> 00:06:55.890
+the second one, we're going to change it to,
+
+146
+00:06:55.890 --> 00:06:57.183
+let's say Description.
+
+147
+00:06:58.180 --> 00:07:01.400
+I'm going to add a bold to the first text,
+
+148
+00:07:01.400 --> 00:07:03.710
+so dot bold parentheses.
+
+149
+00:07:03.710 --> 00:07:06.810
+Next, I'll make sure that within my VStack,
+
+150
+00:07:06.810 --> 00:07:09.650
+I'm going to align the text to the left.
+
+151
+00:07:09.650 --> 00:07:13.870
+So, in the inspector, click on alignment to the left.
+
+152
+00:07:13.870 --> 00:07:16.720
+Speaking of inspector versus code,
+
+153
+00:07:16.720 --> 00:07:18.870
+we're going to select the second text.
+
+154
+00:07:18.870 --> 00:07:20.640
+And here in color,
+
+155
+00:07:20.640 --> 00:07:22.210
+you're gonna see that I don't have access
+
+156
+00:07:22.210 --> 00:07:23.940
+to some of the system color.
+
+157
+00:07:23.940 --> 00:07:26.020
+And one of them is called secondary,
+
+158
+00:07:26.020 --> 00:07:29.790
+which is really useful because it adapts across devices.
+
+159
+00:07:29.790 --> 00:07:32.490
+Let's go to after dot font,
+
+160
+00:07:32.490 --> 00:07:35.960
+we're going to type dot foregroundColor,
+
+161
+00:07:35.960 --> 00:07:39.870
+and instead of blue, we're going to set dot secondary.
+
+162
+00:07:39.870 --> 00:07:41.870
+This color should not be confused
+
+163
+00:07:41.870 --> 00:07:44.210
+with the ones in the assets catalog.
+
+164
+00:07:44.210 --> 00:07:48.230
+And this is really useful because it adapts to dark mode.
+
+165
+00:07:48.230 --> 00:07:50.523
+All right, so let me select the VStack.
+
+166
+00:07:51.420 --> 00:07:54.370
+Let's set a spacing of four.
+
+167
+00:07:54.370 --> 00:07:56.787
+And then for the HStack,
+
+168
+00:07:57.670 --> 00:08:01.370
+I'm going to set the alignment to top. Great.
+
+169
+00:08:01.370 --> 00:08:05.470
+Now I'm going to make my frame of my icon bigger.
+
+170
+00:08:05.470 --> 00:08:07.940
+So, selecting image,
+
+171
+00:08:07.940 --> 00:08:12.903
+I'm going to go to frame and set it to 48 by 48.
+
+172
+00:08:14.350 --> 00:08:17.193
+Then I'm going to add a modifier called background,
+
+173
+00:08:18.200 --> 00:08:20.580
+then add another one called clip shape,
+
+174
+00:08:20.580 --> 00:08:24.620
+which allows me to mask around any shape that I want.
+
+175
+00:08:24.620 --> 00:08:27.900
+In this case, by default, it's set to a circle.
+
+176
+00:08:27.900 --> 00:08:30.680
+Since both my background and my image is blue,
+
+177
+00:08:30.680 --> 00:08:33.530
+I should probably add another one called foregroundColor
+
+178
+00:08:33.530 --> 00:08:36.720
+to change the color of the icon,
+
+179
+00:08:36.720 --> 00:08:38.663
+I'm going to set it to white.
+
+180
+00:08:39.510 --> 00:08:40.500
+This is not applying
+
+181
+00:08:40.500 --> 00:08:43.600
+because the renderingMode is set to original,
+
+182
+00:08:43.600 --> 00:08:45.940
+I might want to use template instead.
+
+183
+00:08:45.940 --> 00:08:49.620
+This allows me to color the icon as I wish.
+
+184
+00:08:49.620 --> 00:08:51.600
+And so in this case, it's set to white.
+
+185
+00:08:51.600 --> 00:08:53.810
+Okay, so we can add a spacer to the right
+
+186
+00:08:53.810 --> 00:08:57.000
+in order to push everything to take the full width.
+
+187
+00:08:57.000 --> 00:09:02.000
+Let's go to right after VStack and type Spacer parentheses.
+
+188
+00:09:02.420 --> 00:09:06.220
+Awesome. Now that I have my row, I can create a new screen.
+
+189
+00:09:06.220 --> 00:09:07.260
+So let's do that.
+
+190
+00:09:07.260 --> 00:09:10.800
+Command N, select SwiftUI View.
+
+191
+00:09:10.800 --> 00:09:12.433
+Name it CoursesView.
+
+192
+00:09:14.930 --> 00:09:16.750
+Let's resume this.
+
+193
+00:09:16.750 --> 00:09:21.750
+And then I can replace my text with CourseRow parentheses.
+
+194
+00:09:23.700 --> 00:09:26.260
+And now, you can see that I'm referencing
+
+195
+00:09:26.260 --> 00:09:29.870
+the UI element that I just created earlier.
+
+196
+00:09:29.870 --> 00:09:31.630
+And to create my list layout,
+
+197
+00:09:31.630 --> 00:09:34.820
+I can just Command click on CourseRow
+
+198
+00:09:34.820 --> 00:09:39.820
+to get to a contextual menu, and I can select embed in list.
+
+199
+00:09:40.400 --> 00:09:43.180
+Boom! Now I have my list UI,
+
+200
+00:09:43.180 --> 00:09:45.600
+and I can repeat as many times as I want,
+
+201
+00:09:45.600 --> 00:09:47.850
+such as 20,
+
+202
+00:09:47.850 --> 00:09:49.920
+and it's going to be scrollable.
+
+203
+00:09:49.920 --> 00:09:52.720
+If you want to be able to interact with the preview,
+
+204
+00:09:52.720 --> 00:09:54.373
+you need to click on play.
+
+205
+00:09:55.250 --> 00:09:59.993
+And this is where you can scroll the content like this.
+
+206
+00:10:01.720 --> 00:10:03.980
+Now talking about list styles,
+
+207
+00:10:03.980 --> 00:10:07.400
+we're gonna go to list and add a modifier called
+
+208
+00:10:07.400 --> 00:10:09.123
+dot List Style.
+
+209
+00:10:10.040 --> 00:10:11.310
+And here you don't really know
+
+210
+00:10:11.310 --> 00:10:14.120
+what list styles are available to you,
+
+211
+00:10:14.120 --> 00:10:16.690
+not even the inspector is helpful.
+
+212
+00:10:16.690 --> 00:10:18.040
+So one thing you can do,
+
+213
+00:10:18.040 --> 00:10:19.980
+which is super useful,
+
+214
+00:10:19.980 --> 00:10:22.870
+is to Option Click on any modifier
+
+215
+00:10:22.870 --> 00:10:24.550
+to get to the documentation.
+
+216
+00:10:24.550 --> 00:10:26.710
+And you can click on ListStyle.
+
+217
+00:10:26.710 --> 00:10:30.280
+This will open the built-in documentation,
+
+218
+00:10:30.280 --> 00:10:31.530
+and then you can scroll,
+
+219
+00:10:31.530 --> 00:10:34.660
+and here you have a bunch of types that you can use.
+
+220
+00:10:34.660 --> 00:10:36.973
+For example, we can use InsetGroupedListStyle,
+
+221
+00:10:39.300 --> 00:10:43.890
+and then paste that right here, at parentheses.
+
+222
+00:10:43.890 --> 00:10:45.240
+So just like that,
+
+223
+00:10:45.240 --> 00:10:47.730
+I'm able to have a beautiful new UI
+
+224
+00:10:49.210 --> 00:10:52.700
+based on my custom design, which is the CourseRow,
+
+225
+00:10:52.700 --> 00:10:57.210
+and the icon that can be changed to any of the 2400s.
+
+226
+00:10:57.210 --> 00:10:58.800
+That's really powerful.
+
+227
+00:10:58.800 --> 00:11:00.420
+So I hope you enjoyed this session.
+
+228
+00:11:00.420 --> 00:11:01.253
+In the next one,
+
+229
+00:11:01.253 --> 00:11:04.000
+we're gonna to explore how to create a sidebar
+
+230
+00:11:04.000 --> 00:11:06.240
+and how to implement the new label.
+
+231
+00:11:06.240 --> 00:11:08.073
+So I'll see you in the next session.
+

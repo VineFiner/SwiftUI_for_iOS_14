@@ -1,0 +1,664 @@
+﻿1
+00:00:00,889 --> 00:00:03,639
+(theater sounds)
+
+2
+00:00:05,856 --> 00:00:08,439
+(upbeat music)
+
+3
+00:00:12,670 --> 00:00:14,830
+[Instructor] Hello, welcome to session 11
+
+4
+00:00:14,830 --> 00:00:16,510
+of my SwiftUI course.
+
+5
+00:00:16,510 --> 00:00:17,510
+In this session,
+
+6
+00:00:17,510 --> 00:00:20,470
+we're going to learn how
+to apply the transition
+
+7
+00:00:20,470 --> 00:00:22,890
+to every single card separately.
+
+8
+00:00:22,890 --> 00:00:26,600
+Before we start, I just wanna
+organize my data model here.
+
+9
+00:00:26,600 --> 00:00:30,080
+Previously, we created
+Course.swift for our data.
+
+10
+00:00:30,080 --> 00:00:32,390
+So we're gonna right click on that file,
+
+11
+00:00:32,390 --> 00:00:35,309
+and then New Group from Selection.
+
+12
+00:00:35,309 --> 00:00:38,153
+We're going to name this one Model.
+
+13
+00:00:39,090 --> 00:00:43,510
+I'm just gonna drag it
+right after Navigation,
+
+14
+00:00:43,510 --> 00:00:46,423
+but make sure you're not
+inside the Navigation.
+
+15
+00:00:47,820 --> 00:00:50,851
+After that, let's get back to CoursesView.
+
+16
+00:00:50,851 --> 00:00:53,620
+So, what we wanna do
+here for the full screen
+
+17
+00:00:53,620 --> 00:00:56,810
+is instead of using the Boolean show,
+
+18
+00:00:56,810 --> 00:01:00,980
+we're just gonna check if
+there's a selected item.
+
+19
+00:01:00,980 --> 00:01:04,010
+In order to do that, we're gonna
+have to create a new state.
+
+20
+00:01:04,010 --> 00:01:09,010
+So, state var selected item,
+which is of type course.
+
+21
+00:01:11,590 --> 00:01:16,020
+And by default, we wanna
+set it to empty, so nil,
+
+22
+00:01:16,020 --> 00:01:18,860
+like this, if there is no item selected,
+
+23
+00:01:18,860 --> 00:01:21,610
+it's just not going to
+show the full screen.
+
+24
+00:01:21,610 --> 00:01:24,010
+Now, Swift has something called optional,
+
+25
+00:01:24,010 --> 00:01:26,640
+and optional means that if it's possible
+
+26
+00:01:26,640 --> 00:01:28,220
+that there's no value,
+
+27
+00:01:28,220 --> 00:01:32,220
+then the data needs a question
+mark to mean optional.
+
+28
+00:01:32,220 --> 00:01:33,440
+So thanks for that,
+
+29
+00:01:33,440 --> 00:01:36,390
+we're gonna be able to go
+to the if show statement,
+
+30
+00:01:36,390 --> 00:01:38,320
+which is now using a Boolean.
+
+31
+00:01:38,320 --> 00:01:39,920
+And instead, we're gonna ask
+
+32
+00:01:39,920 --> 00:01:44,920
+if the selected item is not
+nil, which means it's not empty.
+
+33
+00:01:45,740 --> 00:01:49,080
+So, we know that by default,
+it's going to be empty,
+
+34
+00:01:49,080 --> 00:01:52,700
+which means that it's not
+gonna show any full screen.
+
+35
+00:01:52,700 --> 00:01:54,750
+Right now it's not gonna do anything
+
+36
+00:01:54,750 --> 00:01:56,580
+because when we tap on a card,
+
+37
+00:01:56,580 --> 00:01:59,990
+it's only toggling the show state.
+
+38
+00:01:59,990 --> 00:02:04,000
+If we go to the tab
+gesture at the very end,
+
+39
+00:02:04,000 --> 00:02:06,860
+you can see that we're
+toggling the show state.
+
+40
+00:02:06,860 --> 00:02:08,480
+Now, in addition to doing that,
+
+41
+00:02:08,480 --> 00:02:12,050
+we should also change the selected item
+
+42
+00:02:12,050 --> 00:02:13,580
+to the one being tapped.
+
+43
+00:02:13,580 --> 00:02:15,920
+But right now because we
+are not inside the loop,
+
+44
+00:02:15,920 --> 00:02:18,540
+we don't know which one is being tapped.
+
+45
+00:02:18,540 --> 00:02:19,610
+So, what we need to do here
+
+46
+00:02:19,610 --> 00:02:23,420
+is to get the onTapGesture modifier.
+
+47
+00:02:23,420 --> 00:02:28,200
+So, all of this modifier, cut,
+
+48
+00:02:28,200 --> 00:02:31,600
+and then put that to
+the first course item,
+
+49
+00:02:31,600 --> 00:02:33,460
+right after frame.
+
+50
+00:02:33,460 --> 00:02:35,800
+Because of this, every single card
+
+51
+00:02:35,800 --> 00:02:37,990
+is going to have a tab gesture.
+
+52
+00:02:37,990 --> 00:02:42,360
+So now right after
+show.toggle parentheses,
+
+53
+00:02:42,360 --> 00:02:47,360
+we're going to set selected
+item is equal to item.
+
+54
+00:02:47,470 --> 00:02:49,960
+Item, meaning the specific data
+
+55
+00:02:49,960 --> 00:02:52,800
+that we're getting from the courses array.
+
+56
+00:02:52,800 --> 00:02:55,060
+Now for the selected item,
+
+57
+00:02:55,060 --> 00:02:58,520
+we're going to replace the
+one being entered manually
+
+58
+00:02:58,520 --> 00:02:59,967
+by the value that we're getting
+
+59
+00:02:59,967 --> 00:03:02,040
+from the selected item.
+
+60
+00:03:02,040 --> 00:03:03,283
+So, selected item,
+
+61
+00:03:04,580 --> 00:03:05,740
+and here we're getting an error
+
+62
+00:03:05,740 --> 00:03:08,400
+because the value that we need to pass
+
+63
+00:03:08,400 --> 00:03:10,950
+to the component cannot be empty.
+
+64
+00:03:10,950 --> 00:03:13,490
+So, we need to add an exclamation point
+
+65
+00:03:13,490 --> 00:03:17,490
+to mean that we know for
+sure that selected item
+
+66
+00:03:17,490 --> 00:03:19,370
+is not gonna be empty, otherwise,
+
+67
+00:03:19,370 --> 00:03:23,440
+it wouldn't have passed this
+condition in the first place.
+
+68
+00:03:23,440 --> 00:03:24,790
+And then we need to do the same
+
+69
+00:03:24,790 --> 00:03:27,560
+for the match symmetry effect ID.
+
+70
+00:03:27,560 --> 00:03:30,900
+So selected item, exclamation point.
+
+71
+00:03:30,900 --> 00:03:31,733
+And that's it.
+
+72
+00:03:31,733 --> 00:03:34,570
+Now, we can tap on any of these cards
+
+73
+00:03:34,570 --> 00:03:36,260
+to go to full screen mode.
+
+74
+00:03:36,260 --> 00:03:39,280
+But now since we have only the tap gesture
+
+75
+00:03:39,280 --> 00:03:40,890
+for going to full screen,
+
+76
+00:03:40,890 --> 00:03:44,000
+we also need the tap
+gesture for going back.
+
+77
+00:03:44,000 --> 00:03:48,040
+Otherwise, we won't be able
+to tap back to the cards.
+
+78
+00:03:48,040 --> 00:03:52,107
+So, let's select this whole
+modifier onTopGesture,
+
+79
+00:03:53,940 --> 00:03:57,260
+and then we're going to
+Command + C to copy it.
+
+80
+00:03:57,260 --> 00:03:59,660
+Then we're gonna go to
+the second course item,
+
+81
+00:03:59,660 --> 00:04:01,110
+right after to frame
+
+82
+00:04:01,110 --> 00:04:03,880
+and then paste that onTapGesture.
+
+83
+00:04:03,880 --> 00:04:08,310
+For the selected item, we
+need to put it back to nil.
+
+84
+00:04:08,310 --> 00:04:10,330
+So, let's test our UI.
+
+85
+00:04:10,330 --> 00:04:13,550
+And here you can see
+that it's working great.
+
+86
+00:04:13,550 --> 00:04:16,600
+The only issue with the
+selected item technique
+
+87
+00:04:16,600 --> 00:04:19,645
+is that if you switch
+between cards too fast,
+
+88
+00:04:19,645 --> 00:04:21,810
+it's not gonna animate well.
+
+89
+00:04:21,810 --> 00:04:24,360
+And that's because the selected item
+
+90
+00:04:24,360 --> 00:04:28,110
+is changing before the animation is over.
+
+91
+00:04:28,110 --> 00:04:32,030
+So, while this selected item
+technique is very clean,
+
+92
+00:04:32,030 --> 00:04:36,350
+we also need to make sure that
+during the transition out,
+
+93
+00:04:36,350 --> 00:04:38,560
+we're not gonna be able
+to select right away
+
+94
+00:04:38,560 --> 00:04:41,920
+to the next item before
+we finish the animation.
+
+95
+00:04:41,920 --> 00:04:43,360
+For the transition in,
+
+96
+00:04:43,360 --> 00:04:47,380
+it's fine because it's still
+focusing on a single card.
+
+97
+00:04:47,380 --> 00:04:50,880
+So, let's take care of the transition out.
+
+98
+00:04:50,880 --> 00:04:54,310
+So, we're gonna create a
+new state at the top state.
+
+99
+00:04:54,310 --> 00:04:58,617
+State var, this is going to
+be a Boolean, so isDisabled
+
+100
+00:05:00,200 --> 00:05:02,440
+is equal to false by default.
+
+101
+00:05:02,440 --> 00:05:04,090
+So, what we're going to do
+
+102
+00:05:04,090 --> 00:05:05,870
+is to disable the cards
+
+103
+00:05:05,870 --> 00:05:09,490
+while the transition out
+animation is happening.
+
+104
+00:05:09,490 --> 00:05:12,600
+So let's click resume
+after setting the state.
+
+105
+00:05:12,600 --> 00:05:15,240
+And then during the onTapGesture,
+
+106
+00:05:15,240 --> 00:05:18,130
+we're going to set isDisable to true,
+
+107
+00:05:18,130 --> 00:05:21,570
+meaning that we will be
+able to disable the cards.
+
+108
+00:05:21,570 --> 00:05:23,313
+So, using this state,
+
+109
+00:05:23,313 --> 00:05:26,943
+we can add a new modifier
+for the course item,
+
+110
+00:05:26,943 --> 00:05:31,943
+right after onTapGesture to disabled,
+
+111
+00:05:32,610 --> 00:05:33,970
+and this is a Boolean,
+
+112
+00:05:33,970 --> 00:05:36,560
+which means that we can use our state,
+
+113
+00:05:36,560 --> 00:05:38,900
+so isDisabled. Great.
+
+114
+00:05:38,900 --> 00:05:41,710
+So what should happen is
+that when we tap on a card,
+
+115
+00:05:41,710 --> 00:05:43,143
+it's going to do the animation,
+
+116
+00:05:43,143 --> 00:05:45,820
+and then we cannot have any more
+
+117
+00:05:45,820 --> 00:05:49,200
+because at this point,
+everything has been disabled.
+
+118
+00:05:49,200 --> 00:05:52,710
+We just need to enable them
+back at the right timing.
+
+119
+00:05:52,710 --> 00:05:57,190
+So, let's scroll down and
+find the auto onTapGesture.
+
+120
+00:05:57,190 --> 00:06:01,590
+Here after selected item,
+we're gonna set isDisable
+
+121
+00:06:01,590 --> 00:06:03,840
+is equal to false.
+
+122
+00:06:03,840 --> 00:06:06,340
+But you're gonna notice that
+it's going to happen too fast,
+
+123
+00:06:06,340 --> 00:06:08,840
+and it's not going to solve our issue.
+
+124
+00:06:08,840 --> 00:06:11,470
+Now, what we can do is to add a delay.
+
+125
+00:06:11,470 --> 00:06:16,470
+So, let's set
+dispatchQueue.main.asyncAfter.
+
+126
+00:06:19,970 --> 00:06:22,300
+And now we're going to set the timing,
+
+127
+00:06:22,300 --> 00:06:27,300
+which is dot now which
+means now plus 0.3 second.
+
+128
+00:06:27,620 --> 00:06:29,570
+So, this code is a little bit complicated,
+
+129
+00:06:29,570 --> 00:06:33,290
+but it just means that
+we're gonna wait 0.3 seconds
+
+130
+00:06:33,290 --> 00:06:35,280
+before running the code.
+
+131
+00:06:35,280 --> 00:06:39,260
+So, let's go to the next
+value and press Enter.
+
+132
+00:06:39,260 --> 00:06:43,510
+And this is where we can put
+isDisabled is equal to false.
+
+133
+00:06:43,510 --> 00:06:47,044
+So, let me cut that and
+paste that right here.
+
+134
+00:06:47,044 --> 00:06:50,690
+Now, what should happen
+is that when I tap here,
+
+135
+00:06:50,690 --> 00:06:52,580
+the cards are disabled.
+
+136
+00:06:52,580 --> 00:06:54,570
+And when I tap back to the cards,
+
+137
+00:06:54,570 --> 00:06:59,070
+it's still going to be disabled,
+but only for 0.3 second,
+
+138
+00:06:59,070 --> 00:07:03,210
+and again, this depends on
+the timing of your animation.
+
+139
+00:07:03,210 --> 00:07:06,360
+For me, after a lot of
+testing and clicking,
+
+140
+00:07:06,360 --> 00:07:09,690
+I noticed that 0.5 works best.
+
+141
+00:07:09,690 --> 00:07:12,593
+So, now we cannot break the UI anymore.
+
+142
+00:07:14,940 --> 00:07:17,280
+Alright, so that's what I
+wanted to show you today.
+
+143
+00:07:17,280 --> 00:07:18,160
+In the next session,
+
+144
+00:07:18,160 --> 00:07:21,320
+we're going to look
+into the new Lazy Grid.
+
+145
+00:07:21,320 --> 00:07:23,810
+We're gonna make our
+layouts so much cooler,
+
+146
+00:07:23,810 --> 00:07:25,430
+and so much more adaptive
+
+147
+00:07:25,430 --> 00:07:28,030
+while still using the same transitions.
+
+148
+00:07:28,030 --> 00:07:29,090
+So I'm pretty excited
+
+149
+00:07:29,090 --> 00:07:31,540
+to show you Lazy Grid in the next session.
+
+150
+00:07:31,540 --> 00:07:32,470
+See you then.
+

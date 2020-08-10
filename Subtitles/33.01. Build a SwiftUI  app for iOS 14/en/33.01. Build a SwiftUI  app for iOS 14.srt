@@ -1,0 +1,1036 @@
+﻿1
+00:00:00,715 --> 00:00:03,048
+(whooshing)
+
+2
+00:00:06,652 --> 00:00:09,235
+(upbeat music)
+
+3
+00:00:12,610 --> 00:00:13,760
+- [Meng] Hi, my name is Meng
+
+4
+00:00:13,760 --> 00:00:15,390
+I'm from Design+Code,
+
+5
+00:00:15,390 --> 00:00:19,620
+and welcome to my SwiftUI
+course for iOS 14.
+
+6
+00:00:19,620 --> 00:00:21,250
+For the first time ever,
+
+7
+00:00:21,250 --> 00:00:26,250
+we're going to build a
+multi-platform app for iOS, iPadOS,
+
+8
+00:00:26,680 --> 00:00:29,300
+and macOS using only SwiftUI,
+
+9
+00:00:29,300 --> 00:00:30,640
+and the same techniques
+
+10
+00:00:30,640 --> 00:00:32,410
+and minimal code change,
+
+11
+00:00:32,410 --> 00:00:33,243
+you're gonna be able
+
+12
+00:00:33,243 --> 00:00:36,420
+to make your code work across platforms.
+
+13
+00:00:36,420 --> 00:00:37,660
+Starting with iOS,
+
+14
+00:00:37,660 --> 00:00:40,600
+we're going to embrace
+the sidebar navigation,
+
+15
+00:00:40,600 --> 00:00:44,160
+which means that this
+translate well to the Mac App.
+
+16
+00:00:44,160 --> 00:00:47,380
+For the iPhone, we're
+going to use the tab bar,
+
+17
+00:00:47,380 --> 00:00:51,240
+which is really good for
+navigation and adaptive layout
+
+18
+00:00:51,240 --> 00:00:54,270
+so you can easily switch
+between landscape mode
+
+19
+00:00:54,270 --> 00:00:58,020
+and portrait mode, and your
+layout will still look great.
+
+20
+00:00:58,020 --> 00:01:01,480
+The sidebar allows you to have
+a lot of navigation items.
+
+21
+00:01:01,480 --> 00:01:04,750
+But also you can toggle
+between, on and off.
+
+22
+00:01:04,750 --> 00:01:07,830
+And because we're using the new Lazy Grid,
+
+23
+00:01:07,830 --> 00:01:10,700
+we're gonna be able to
+make our layout adaptive.
+
+24
+00:01:10,700 --> 00:01:12,040
+So the bigger the screen,
+
+25
+00:01:12,040 --> 00:01:14,290
+the more columns we can have.
+
+26
+00:01:14,290 --> 00:01:16,930
+We're also going to use the
+new Matched Geometry Effect,
+
+27
+00:01:16,930 --> 00:01:19,870
+which allows you to
+transition between views.
+
+28
+00:01:19,870 --> 00:01:21,770
+And for the new view,
+
+29
+00:01:21,770 --> 00:01:23,430
+you can have scrolling,
+
+30
+00:01:23,430 --> 00:01:25,830
+and more navigation such as the modal
+
+31
+00:01:25,830 --> 00:01:29,210
+all of these animations
+will work on all platforms,
+
+32
+00:01:29,210 --> 00:01:31,300
+such as the iPad, and in this case,
+
+33
+00:01:31,300 --> 00:01:34,480
+we're able to put it
+on top of the sidebar.
+
+34
+00:01:34,480 --> 00:01:38,340
+But if not, we can also have
+a different type of animation
+
+35
+00:01:38,340 --> 00:01:40,760
+that exists within its own container.
+
+36
+00:01:40,760 --> 00:01:42,310
+And thanks to the Lazy Grid,
+
+37
+00:01:42,310 --> 00:01:43,380
+we're gonna be able to switch
+
+38
+00:01:43,380 --> 00:01:45,440
+between modes such as this
+
+39
+00:01:45,440 --> 00:01:49,320
+and apply some 3D animation, as we scroll.
+
+40
+00:01:49,320 --> 00:01:50,360
+At the same time,
+
+41
+00:01:50,360 --> 00:01:54,440
+the transition will still work
+and you will have scrolling
+
+42
+00:01:54,440 --> 00:01:56,900
+as well as the modal behavior.
+
+43
+00:01:56,900 --> 00:02:00,080
+These animations will also
+adapt perfectly to the device.
+
+44
+00:02:00,080 --> 00:02:02,290
+So for the iPhone, we're
+gonna have a single column
+
+45
+00:02:02,290 --> 00:02:04,683
+and the cards will stack more closely.
+
+46
+00:02:06,670 --> 00:02:08,430
+Then we're gonna learn more animations.
+
+47
+00:02:08,430 --> 00:02:11,610
+So in this case, we're gonna
+stack the cards like this.
+
+48
+00:02:11,610 --> 00:02:14,222
+And you can flip the card and have
+
+49
+00:02:14,222 --> 00:02:17,033
+that animation for each of the card.
+
+50
+00:02:18,170 --> 00:02:20,640
+Again, it's going to work
+for the iPhone as well.
+
+51
+00:02:20,640 --> 00:02:22,870
+And we're gonna make it adapt
+
+52
+00:02:22,870 --> 00:02:25,350
+to the screen size with transition.
+
+53
+00:02:25,350 --> 00:02:27,940
+Using the accent color
+and the preset colors,
+
+54
+00:02:27,940 --> 00:02:30,770
+your app will automatically
+adapt for dark mode,
+
+55
+00:02:30,770 --> 00:02:32,920
+and there's no code change.
+
+56
+00:02:32,920 --> 00:02:35,720
+Likewise, for the Mac, you
+can switch to light mode,
+
+57
+00:02:35,720 --> 00:02:38,940
+and it will still look great
+with the translucent menu
+
+58
+00:02:38,940 --> 00:02:40,830
+and the accent color.
+
+59
+00:02:40,830 --> 00:02:42,646
+Since we're using dynamic type,
+
+60
+00:02:42,646 --> 00:02:46,150
+the text will translate perfectly
+depending on the platform.
+
+61
+00:02:46,150 --> 00:02:47,730
+So for example, on the Mac,
+
+62
+00:02:47,730 --> 00:02:49,810
+it's going to be slightly smaller,
+
+63
+00:02:49,810 --> 00:02:52,450
+and the modal is going to look like this.
+
+64
+00:02:52,450 --> 00:02:54,370
+It can be bigger as well.
+
+65
+00:02:54,370 --> 00:02:57,670
+And we can have multiple site navigation
+
+66
+00:02:57,670 --> 00:02:59,890
+and the grid layout as well as the padding
+
+67
+00:02:59,890 --> 00:03:02,880
+and round corners will
+adapt to the platform.
+
+68
+00:03:02,880 --> 00:03:03,713
+So in this course,
+
+69
+00:03:03,713 --> 00:03:05,070
+we're gonna look at different types
+
+70
+00:03:05,070 --> 00:03:07,470
+of navigation such as the default one,
+
+71
+00:03:07,470 --> 00:03:09,090
+which can go very deep.
+
+72
+00:03:09,090 --> 00:03:11,740
+And works across platform,
+
+73
+00:03:11,740 --> 00:03:14,710
+we can have multilevel menus,
+
+74
+00:03:14,710 --> 00:03:16,120
+or depending on content,
+
+75
+00:03:16,120 --> 00:03:18,000
+we can go with a modal route,
+
+76
+00:03:18,000 --> 00:03:20,790
+and it can go as deep as you want.
+
+77
+00:03:20,790 --> 00:03:24,250
+We will also prototype custom
+animations such as this,
+
+78
+00:03:24,250 --> 00:03:28,180
+and be able to use static
+data, so you can search
+
+79
+00:03:28,180 --> 00:03:30,100
+and easily filter.
+
+80
+00:03:30,100 --> 00:03:32,370
+We're also going to
+build a widget together
+
+81
+00:03:32,370 --> 00:03:35,950
+so that we can showcase key
+content on the home screen.
+
+82
+00:03:35,950 --> 00:03:38,390
+Finally, we're gonna learn
+how to structure our app
+
+83
+00:03:38,390 --> 00:03:41,260
+in terms of files, folders and assets.
+
+84
+00:03:41,260 --> 00:03:43,030
+So with this, I hope you're excited
+
+85
+00:03:43,030 --> 00:03:45,280
+to build your first iOS 14 app.
+
+86
+00:03:45,280 --> 00:03:47,050
+In order to follow this
+course you're going
+
+87
+00:03:47,050 --> 00:03:49,120
+to need Xcode 12.
+
+88
+00:03:49,120 --> 00:03:52,430
+So go to www.developer.apple.com
+
+89
+00:03:52,430 --> 00:03:54,420
+and then you can find Xcode 12.
+
+90
+00:03:54,420 --> 00:03:56,300
+And at the bottom of the page,
+
+91
+00:03:56,300 --> 00:03:58,270
+you will find download Xcode 12.
+
+92
+00:03:58,270 --> 00:04:00,860
+This is where you're going
+to log in with your Apple ID,
+
+93
+00:04:00,860 --> 00:04:03,320
+it doesn't have to be a paid membership
+
+94
+00:04:03,320 --> 00:04:05,270
+in the Beta download page,
+
+95
+00:04:05,270 --> 00:04:07,120
+you're gonna go to applications
+
+96
+00:04:07,120 --> 00:04:10,490
+and download Xcode 12 beta 2.
+
+97
+00:04:10,490 --> 00:04:14,490
+Now SwiftUI has been pretty
+stable over the past 10 months.
+
+98
+00:04:14,490 --> 00:04:17,930
+So even if you're on a new
+beta, it should be working fine.
+
+99
+00:04:17,930 --> 00:04:21,560
+But I will be providing the
+source files for each beta.
+
+100
+00:04:21,560 --> 00:04:22,980
+So after you download this,
+
+101
+00:04:22,980 --> 00:04:26,150
+I highly recommend that
+you download macOS Big Sur.
+
+102
+00:04:26,150 --> 00:04:28,510
+If you wanna be able to test the Mac App
+
+103
+00:04:28,510 --> 00:04:31,830
+and develop for macOS,
+you will need Big Sur.
+
+104
+00:04:31,830 --> 00:04:35,870
+But otherwise, if you only
+wanna focus on iOS and iPad,
+
+105
+00:04:35,870 --> 00:04:39,480
+the lessons provided and the
+code should be working fine.
+
+106
+00:04:39,480 --> 00:04:42,700
+However, there might be
+some inconsistencies.
+
+107
+00:04:42,700 --> 00:04:45,060
+But I do wanna point out
+that from my experience,
+
+108
+00:04:45,060 --> 00:04:46,970
+and from the comments that I've read,
+
+109
+00:04:46,970 --> 00:04:48,830
+Big Sur is very stable.
+
+110
+00:04:48,830 --> 00:04:50,480
+However, when you install it,
+
+111
+00:04:50,480 --> 00:04:52,940
+you should definitely backup, partition,
+
+112
+00:04:52,940 --> 00:04:56,200
+or simply install on the
+non production machine.
+
+113
+00:04:56,200 --> 00:04:59,580
+The source files are
+provided from section two
+
+114
+00:04:59,580 --> 00:05:03,090
+or in the download section
+of www.designcode.io.
+
+115
+00:05:03,090 --> 00:05:06,890
+Here, you will find the
+source files for the final app
+
+116
+00:05:06,890 --> 00:05:10,550
+that I've shown you and for
+each section of the course,
+
+117
+00:05:10,550 --> 00:05:13,580
+so that you can compare
+your code against mine.
+
+118
+00:05:13,580 --> 00:05:16,180
+Also, please make sure
+to re download the files
+
+119
+00:05:16,180 --> 00:05:18,390
+whenever you have a newer beta,
+
+120
+00:05:18,390 --> 00:05:20,290
+and I will do my best to update the code
+
+121
+00:05:20,290 --> 00:05:22,590
+if there is any breaking change.
+
+122
+00:05:22,590 --> 00:05:24,540
+I also provided the design template,
+
+123
+00:05:24,540 --> 00:05:28,190
+so you can definitely look
+into how I organize my design
+
+124
+00:05:28,190 --> 00:05:33,190
+for iOS for iPad, and
+as well for the icons.
+
+125
+00:05:33,480 --> 00:05:36,490
+This is also a great
+template for your app.
+
+126
+00:05:36,490 --> 00:05:39,990
+So you can put your
+app icon in a component
+
+127
+00:05:39,990 --> 00:05:43,030
+and it will automatically
+update all of these icons,
+
+128
+00:05:43,030 --> 00:05:45,560
+so that you can export
+with the correct names
+
+129
+00:05:45,560 --> 00:05:46,890
+and resolutions.
+
+130
+00:05:46,890 --> 00:05:49,280
+As you design for the Apple platforms,
+
+131
+00:05:49,280 --> 00:05:52,600
+you should download the
+SF Pro fonts for iOS,
+
+132
+00:05:52,600 --> 00:05:54,870
+iPadOS and tvOS,
+
+133
+00:05:54,870 --> 00:05:59,350
+SF Compact for watchOS,
+SF mono which is optional,
+
+134
+00:05:59,350 --> 00:06:01,460
+but great for code highlighting,
+
+135
+00:06:01,460 --> 00:06:04,020
+and New York which is a serif typeface.
+
+136
+00:06:04,020 --> 00:06:05,710
+Finally for the icons,
+
+137
+00:06:05,710 --> 00:06:09,310
+you should download the
+SF Symbols app from Apple.
+
+138
+00:06:09,310 --> 00:06:11,570
+And here you're gonna click on SF Symbols
+
+139
+00:06:11,570 --> 00:06:15,500
+to find the beta for SF Symbols 2
+
+140
+00:06:15,500 --> 00:06:20,480
+the new SF Symbols 2 has over 2400 icons
+
+141
+00:06:20,480 --> 00:06:22,560
+in different stroke width.
+
+142
+00:06:22,560 --> 00:06:25,743
+And also, you can have multicolor now,
+
+143
+00:06:26,770 --> 00:06:28,870
+to use these icons in SwiftUI,
+
+144
+00:06:28,870 --> 00:06:31,010
+you don't need to import anything,
+
+145
+00:06:31,010 --> 00:06:33,530
+you can just put the name of the icon
+
+146
+00:06:33,530 --> 00:06:35,280
+into the SwiftUI code.
+
+147
+00:06:35,280 --> 00:06:37,300
+All right, so let's get started.
+
+148
+00:06:37,300 --> 00:06:38,840
+Now we're gonna open Xcode.
+
+149
+00:06:38,840 --> 00:06:41,870
+And here we're gonna
+create a new Xcode project.
+
+150
+00:06:41,870 --> 00:06:44,810
+Here, we're gonna go to multi platform
+
+151
+00:06:44,810 --> 00:06:48,290
+click on App and click on Next.
+
+152
+00:06:48,290 --> 00:06:51,840
+We're going to name it Design Code Course.
+
+153
+00:06:51,840 --> 00:06:54,030
+And then click on Next.
+
+154
+00:06:54,030 --> 00:06:58,320
+Let's save that to downloads
+with Creating Git repository
+
+155
+00:06:58,320 --> 00:06:59,910
+on my Mac enabled.
+
+156
+00:06:59,910 --> 00:07:01,430
+Then click on Create.
+
+157
+00:07:01,430 --> 00:07:05,220
+Now you have in front of
+you a new Xcode project,
+
+158
+00:07:05,220 --> 00:07:06,840
+you can double click on the tab bar
+
+159
+00:07:06,840 --> 00:07:08,300
+to maximize it.
+
+160
+00:07:08,300 --> 00:07:12,030
+Now we have the navigator on
+the left side with shared,
+
+161
+00:07:12,030 --> 00:07:14,900
+which is for both iOS and macOS code.
+
+162
+00:07:14,900 --> 00:07:19,010
+But also you can have
+platform specific code for iOS
+
+163
+00:07:19,010 --> 00:07:21,600
+and macOS, which I will explain later.
+
+164
+00:07:21,600 --> 00:07:24,240
+But for now, we're
+going to focus on shared
+
+165
+00:07:24,240 --> 00:07:27,018
+and we will make sure
+that our code will work
+
+166
+00:07:27,018 --> 00:07:28,870
+on all platforms.
+
+167
+00:07:28,870 --> 00:07:31,320
+So in the past SwiftUI projects,
+
+168
+00:07:31,320 --> 00:07:33,710
+we had the App delegate.swift file,
+
+169
+00:07:33,710 --> 00:07:37,860
+but now this has been replaced
+by DesignCodeCourse App,
+
+170
+00:07:37,860 --> 00:07:40,410
+which is referencing to content view
+
+171
+00:07:40,410 --> 00:07:43,110
+and content view is your first screen.
+
+172
+00:07:43,110 --> 00:07:45,440
+We'll come back to this
+in the next session.
+
+173
+00:07:45,440 --> 00:07:48,260
+But for now, we're gonna set up the assets
+
+174
+00:07:48,260 --> 00:07:51,130
+in Xcode 12, we have the accent color now,
+
+175
+00:07:51,130 --> 00:07:55,260
+which is a single color that
+will tint your app text buttons
+
+176
+00:07:55,260 --> 00:07:58,390
+as well as the navigation selected states.
+
+177
+00:07:58,390 --> 00:08:01,670
+Now it is recommended
+to have have appearances
+
+178
+00:08:01,670 --> 00:08:03,840
+for both light and dark.
+
+179
+00:08:03,840 --> 00:08:04,900
+So in light mode,
+
+180
+00:08:04,900 --> 00:08:07,010
+it's going to be slightly darker,
+
+181
+00:08:07,010 --> 00:08:09,250
+which makes the contrast better.
+
+182
+00:08:09,250 --> 00:08:11,310
+And likewise for dark mode,
+
+183
+00:08:11,310 --> 00:08:14,180
+the color is going to be
+lighter for better contrast.
+
+184
+00:08:14,180 --> 00:08:15,640
+For the App Icon,
+
+185
+00:08:15,640 --> 00:08:17,330
+It's exactly as before,
+
+186
+00:08:17,330 --> 00:08:20,570
+except now we have a Mac section.
+
+187
+00:08:20,570 --> 00:08:21,740
+This part is optional,
+
+188
+00:08:21,740 --> 00:08:24,400
+since I already prepared
+the assets for you.
+
+189
+00:08:24,400 --> 00:08:26,110
+If you wanna create a custom icon,
+
+190
+00:08:26,110 --> 00:08:27,950
+I prepared this template in Figma.
+
+191
+00:08:27,950 --> 00:08:31,070
+And you can just update the component
+
+192
+00:08:31,070 --> 00:08:33,330
+and then you can export the file.
+
+193
+00:08:33,330 --> 00:08:35,360
+So we're gonna put it in downloads,
+
+194
+00:08:35,360 --> 00:08:37,890
+and then all you need to do is to select
+
+195
+00:08:37,890 --> 00:08:42,370
+all the iPhone assets and
+drag and drop right here
+
+196
+00:08:42,370 --> 00:08:44,750
+where you see all the blue squares.
+
+197
+00:08:44,750 --> 00:08:46,730
+Since this can be a bit time consuming
+
+198
+00:08:46,730 --> 00:08:48,780
+to make sure that all the
+resolutions are correct
+
+199
+00:08:48,780 --> 00:08:51,000
+and all the colors, are
+correct for both light
+
+200
+00:08:51,000 --> 00:08:51,950
+and dark mode,
+
+201
+00:08:51,950 --> 00:08:53,900
+I prepared this part for you.
+
+202
+00:08:53,900 --> 00:08:58,440
+So we're just gonna replace it
+by deleting both the App Icon
+
+203
+00:08:58,440 --> 00:09:00,360
+and the accent color.
+
+204
+00:09:00,360 --> 00:09:05,070
+We're gonna go to the assets
+folder to find assets.
+
+205
+00:09:05,070 --> 00:09:08,000
+And here on all of these folders,
+
+206
+00:09:08,000 --> 00:09:12,583
+we're just gonna drag and drop
+directly to this space here.
+
+207
+00:09:13,790 --> 00:09:15,000
+As I mentioned before,
+
+208
+00:09:15,000 --> 00:09:19,610
+we have accent color for
+light mode and dark mode.
+
+209
+00:09:19,610 --> 00:09:24,530
+And then the App Icon we have
+for iPhone, iPad, and Mac,
+
+210
+00:09:24,530 --> 00:09:26,380
+as well as the App Store.
+
+211
+00:09:26,380 --> 00:09:30,380
+Then I set up a bunch of colors
+that we can use for the app.
+
+212
+00:09:30,380 --> 00:09:32,870
+So here, you can navigate it like this,
+
+213
+00:09:32,870 --> 00:09:34,580
+or you can go to the folders
+
+214
+00:09:34,580 --> 00:09:36,610
+and you can find the different colors.
+
+215
+00:09:36,610 --> 00:09:39,800
+So background, one to
+five primary secondary
+
+216
+00:09:39,800 --> 00:09:42,031
+for both light mode and dark mode.
+
+217
+00:09:42,031 --> 00:09:44,214
+And then we have a bunch of images,
+
+218
+00:09:44,214 --> 00:09:47,080
+which can be in SVG format.
+
+219
+00:09:47,080 --> 00:09:51,610
+So previously, we could
+only use PDF as well as PNG.
+
+220
+00:09:51,610 --> 00:09:54,280
+But now we can also use SVG
+
+221
+00:09:54,280 --> 00:09:58,930
+for icons and vector
+illustrations SVG is great.
+
+222
+00:09:58,930 --> 00:10:02,960
+For images that is a mix
+of vector and bitmap,
+
+223
+00:10:02,960 --> 00:10:06,650
+as well as complex gradients or masking,
+
+224
+00:10:06,650 --> 00:10:08,320
+I recommend PDF.
+
+225
+00:10:08,320 --> 00:10:09,950
+If you want pixel perfection,
+
+226
+00:10:09,950 --> 00:10:12,630
+but at a cost of large file size,
+
+227
+00:10:12,630 --> 00:10:14,470
+you can definitely use PNG.
+
+228
+00:10:14,470 --> 00:10:16,920
+And if it doesn't have transparency,
+
+229
+00:10:16,920 --> 00:10:18,293
+then you can use JPEG.
+
+230
+00:10:19,300 --> 00:10:21,300
+Otherwise, don't worry
+too much about these
+
+231
+00:10:21,300 --> 00:10:24,100
+because these assets are
+already prepared for you.
+
+232
+00:10:24,100 --> 00:10:26,160
+And we'll learn as we go.
+
+233
+00:10:26,160 --> 00:10:27,930
+Now we're gonna to go to the Content View,
+
+234
+00:10:27,930 --> 00:10:30,840
+and we can finally
+start coding in SwiftUI.
+
+235
+00:10:30,840 --> 00:10:31,673
+So I'll see you,
+
+236
+00:10:31,673 --> 00:10:33,023
+in the next session.
+
+237
+00:10:33,023 --> 00:10:34,806
+(whooshing)
+

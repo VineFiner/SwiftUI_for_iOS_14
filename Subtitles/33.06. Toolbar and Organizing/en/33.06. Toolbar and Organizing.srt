@@ -1,0 +1,1017 @@
+﻿1
+00:00:00,725 --> 00:00:03,225
+(eerie music)
+
+2
+00:00:06,145 --> 00:00:08,728
+(upbeat music)
+
+3
+00:00:12,590 --> 00:00:14,740
+- [Meng] Hey there, so we
+are on the sixth session
+
+4
+00:00:14,740 --> 00:00:16,430
+of my SwiftUI course.
+
+5
+00:00:16,430 --> 00:00:18,670
+And we're going to discuss the toolbar
+
+6
+00:00:18,670 --> 00:00:21,000
+and how to organize our files.
+
+7
+00:00:21,000 --> 00:00:22,700
+And this is where we can
+
+8
+00:00:22,700 --> 00:00:25,883
+switch back to iOS for the iPhone 11 Pro,
+
+9
+00:00:27,130 --> 00:00:30,260
+and resume, the toolbar is new this year.
+
+10
+00:00:30,260 --> 00:00:31,580
+And it's going to allow you to
+
+11
+00:00:31,580 --> 00:00:36,290
+put a bunch of buttons
+and content in key areas
+
+12
+00:00:36,290 --> 00:00:37,610
+of the platform.
+
+13
+00:00:37,610 --> 00:00:40,670
+So for example, on iOS, you can put it
+
+14
+00:00:40,670 --> 00:00:44,880
+on the navigation bar,
+and at the bottom as well.
+
+15
+00:00:44,880 --> 00:00:47,270
+This is like the navigation bar items,
+
+16
+00:00:47,270 --> 00:00:50,530
+but for cross platform and not restricted
+
+17
+00:00:50,530 --> 00:00:51,840
+to the navbar.
+
+18
+00:00:51,840 --> 00:00:53,230
+So to use it,
+
+19
+00:00:53,230 --> 00:00:56,880
+I'm going to add a
+modifier called .toolbar.
+
+20
+00:00:56,880 --> 00:00:59,310
+Then you can use the
+first auto completion,
+
+21
+00:00:59,310 --> 00:01:02,650
+press Enter and now you
+have a toolbar item.
+
+22
+00:01:02,650 --> 00:01:04,750
+And this is where you can put your button
+
+23
+00:01:04,750 --> 00:01:07,340
+or your texts or icons,
+
+24
+00:01:07,340 --> 00:01:10,250
+you can already see in the
+top right, it says placeholder
+
+25
+00:01:10,250 --> 00:01:13,050
+so we can just replace that with
+
+26
+00:01:13,050 --> 00:01:17,290
+image parentheses system name,
+
+27
+00:01:17,290 --> 00:01:22,290
+then we're gonna put person.crop.circle.
+
+28
+00:01:22,360 --> 00:01:26,230
+So if you run this, you're
+gonna see that it's simply part
+
+29
+00:01:26,230 --> 00:01:27,063
+of the navbar.
+
+30
+00:01:28,510 --> 00:01:32,070
+And thanks to the toolbar, we
+can place it anywhere we want.
+
+31
+00:01:32,070 --> 00:01:35,580
+So for example, after toolbar item,
+
+32
+00:01:35,580 --> 00:01:37,910
+I'm gonna set parentheses and
+
+33
+00:01:38,800 --> 00:01:39,940
+put placement
+
+34
+00:01:41,320 --> 00:01:42,777
+column.bottomBar.
+
+35
+00:01:45,450 --> 00:01:49,480
+And so when I do that, it
+moved my icon to the bottom.
+
+36
+00:01:49,480 --> 00:01:51,610
+Depending on the platform and the context,
+
+37
+00:01:51,610 --> 00:01:53,410
+we have a bunch of options.
+
+38
+00:01:53,410 --> 00:01:54,580
+If you wanna know all of them,
+
+39
+00:01:54,580 --> 00:01:57,610
+you can optionally click on bottom bar,
+
+40
+00:01:57,610 --> 00:02:00,480
+open developer documentation.
+
+41
+00:02:00,480 --> 00:02:03,530
+Click on toolbar item placement.
+
+42
+00:02:03,530 --> 00:02:06,860
+And this is where you're
+gonna find a list of places
+
+43
+00:02:06,860 --> 00:02:10,110
+to use depending on platform and context.
+
+44
+00:02:10,110 --> 00:02:11,480
+So you can see here that
+
+45
+00:02:11,480 --> 00:02:14,660
+we have navigation bar
+leading and trailing.
+
+46
+00:02:14,660 --> 00:02:19,320
+So we can try that navigation bar leading,
+
+47
+00:02:19,320 --> 00:02:22,070
+and this would be to the top left,
+
+48
+00:02:22,070 --> 00:02:24,393
+then we can change to trailing.
+
+49
+00:02:25,990 --> 00:02:28,510
+And this will go to the top right,
+
+50
+00:02:28,510 --> 00:02:32,490
+and for the Mac, we cannot use
+exactly the same placement.
+
+51
+00:02:32,490 --> 00:02:35,770
+So let's copy the modifier toolbar.
+
+52
+00:02:35,770 --> 00:02:40,330
+So Command C, and put it two L's content.
+
+53
+00:02:40,330 --> 00:02:44,080
+And after dot frame, paste
+it, you won't see it here.
+
+54
+00:02:44,080 --> 00:02:46,423
+So we're gonna have to
+switch back to the Mac.
+
+55
+00:02:48,650 --> 00:02:51,320
+And now you can see that we
+have an error that says that
+
+56
+00:02:51,320 --> 00:02:54,160
+this is not available in Mac OS.
+
+57
+00:02:54,160 --> 00:02:57,110
+So we can change this to automatic
+
+58
+00:02:57,110 --> 00:02:58,710
+and this would be the same as
+
+59
+00:02:58,710 --> 00:03:00,880
+just removing it if you want to.
+
+60
+00:03:00,880 --> 00:03:02,430
+And now we're gonna click on resume.
+
+61
+00:03:02,430 --> 00:03:06,130
+So once it's run, you can
+click on bring forward.
+
+62
+00:03:06,130 --> 00:03:09,520
+And now you can see that
+this is your Xcode preview.
+
+63
+00:03:09,520 --> 00:03:10,980
+And you won't really see
+
+64
+00:03:10,980 --> 00:03:13,090
+the navbar and the
+toolbar and Xcode preview,
+
+65
+00:03:13,090 --> 00:03:15,090
+but definitely for your Mac App,
+
+66
+00:03:15,090 --> 00:03:17,080
+you're gonna see the title.
+
+67
+00:03:17,080 --> 00:03:20,660
+And thanks to the toolbar
+item, it's slightly bigger
+
+68
+00:03:20,660 --> 00:03:22,770
+and actually more beautiful in my opinion.
+
+69
+00:03:22,770 --> 00:03:24,080
+So that's really neat.
+
+70
+00:03:24,080 --> 00:03:26,810
+And now we can put any
+type of content here,
+
+71
+00:03:26,810 --> 00:03:30,340
+we can put a text, we can
+place it to the left side,
+
+72
+00:03:30,340 --> 00:03:33,450
+and we can even turn this into a button.
+
+73
+00:03:33,450 --> 00:03:36,380
+And Xcode does a pretty
+good job at knowing
+
+74
+00:03:36,380 --> 00:03:39,570
+which ones are available
+in which platform.
+
+75
+00:03:39,570 --> 00:03:41,430
+So in this case, you're not gonna see
+
+76
+00:03:41,430 --> 00:03:43,550
+the navigation bar trailing,
+
+77
+00:03:43,550 --> 00:03:46,700
+but I can definitely use
+all of these other ones.
+
+78
+00:03:46,700 --> 00:03:49,300
+And if you wanna make it as a button,
+
+79
+00:03:49,300 --> 00:03:51,960
+we're going to have to
+Command click on image.
+
+80
+00:03:51,960 --> 00:03:54,680
+Let's insert in a vstack first,
+
+81
+00:03:54,680 --> 00:03:56,990
+and change that to button
+
+82
+00:03:57,980 --> 00:04:01,050
+and then we can put some empty action.
+
+83
+00:04:01,050 --> 00:04:04,130
+Here it says it's missing
+it, so we can click on fix.
+
+84
+00:04:04,130 --> 00:04:08,370
+And for action, just put curly braces.
+
+85
+00:04:08,370 --> 00:04:10,640
+Cool, so let's click on bring forward.
+
+86
+00:04:10,640 --> 00:04:12,730
+And now you can see that
+this is now a button,
+
+87
+00:04:12,730 --> 00:04:14,220
+it has a nice frame,
+
+88
+00:04:14,220 --> 00:04:16,540
+and you can make it interactive later.
+
+89
+00:04:16,540 --> 00:04:19,550
+Awesome, so now let's clean up our project
+
+90
+00:04:19,550 --> 00:04:21,950
+and add some tweaks for the Mac.
+
+91
+00:04:21,950 --> 00:04:24,510
+So let's go to content view.
+
+92
+00:04:24,510 --> 00:04:28,020
+And so this is the UI that
+we created for course item,
+
+93
+00:04:28,020 --> 00:04:31,070
+and so we shouldn't
+put it on content view.
+
+94
+00:04:31,070 --> 00:04:33,563
+Let's create a new file, so Command N,
+
+95
+00:04:34,970 --> 00:04:37,730
+double click on SwiftUI view,
+
+96
+00:04:37,730 --> 00:04:41,160
+type course item, create,
+
+97
+00:04:41,160 --> 00:04:43,410
+and this is where we're gonna move
+
+98
+00:04:43,410 --> 00:04:47,620
+everything for the
+vstack and the modifiers.
+
+99
+00:04:47,620 --> 00:04:49,350
+So Command X,
+
+100
+00:04:49,350 --> 00:04:51,640
+we're gonna move that to course item
+
+101
+00:04:51,640 --> 00:04:53,570
+instead of the text
+
+102
+00:04:54,540 --> 00:04:55,760
+and save.
+
+103
+00:04:55,760 --> 00:04:57,910
+We're gonna go back to content view,
+
+104
+00:04:57,910 --> 00:05:02,040
+then we're going to reference
+the site bar parentheses.
+
+105
+00:05:02,040 --> 00:05:04,940
+As for the preview, we
+don't need the two previews,
+
+106
+00:05:04,940 --> 00:05:09,293
+we can just keep a single one and resume.
+
+107
+00:05:10,150 --> 00:05:12,490
+At this point, we're
+gonna use the content view
+
+108
+00:05:12,490 --> 00:05:15,490
+as the first view that's
+going to be loaded.
+
+109
+00:05:15,490 --> 00:05:17,620
+And we're going to include the sidebar
+
+110
+00:05:17,620 --> 00:05:20,580
+and later on the tab bar for iPhone,
+
+111
+00:05:20,580 --> 00:05:24,000
+and then we gonna put
+some frame for the Mac.
+
+112
+00:05:24,000 --> 00:05:25,750
+First of all, we're gonna
+need that condition.
+
+113
+00:05:25,750 --> 00:05:28,636
+So pound if
+
+114
+00:05:28,636 --> 00:05:31,610
+OS parenthesis iOS,
+
+115
+00:05:31,610 --> 00:05:33,290
+after sidebar,
+
+116
+00:05:33,290 --> 00:05:35,770
+pound, else,
+
+117
+00:05:35,770 --> 00:05:38,830
+and then pound and if
+
+118
+00:05:38,830 --> 00:05:41,863
+let's not forget the view builder before.
+
+119
+00:05:43,370 --> 00:05:45,810
+And finally for the Mac,
+
+120
+00:05:45,810 --> 00:05:48,910
+so we're gonna put sidebar parentheses,
+
+121
+00:05:48,910 --> 00:05:51,460
+and we're going to add a frame modifier,
+
+122
+00:05:51,460 --> 00:05:54,150
+and this is where I can
+recommend that you should put
+
+123
+00:05:54,150 --> 00:05:58,410
+a minimum width for your entire Mac app.
+
+124
+00:05:58,410 --> 00:06:01,450
+In this case, we can put
+it to let's say 1,000
+
+125
+00:06:01,450 --> 00:06:05,260
+and in minimum height to 600.
+
+126
+00:06:05,260 --> 00:06:07,610
+So if you resume your preview,
+
+127
+00:06:07,610 --> 00:06:11,030
+you're gonna see that because
+of the size that I have,
+
+128
+00:06:11,030 --> 00:06:15,100
+it can now accommodate and
+show me the sidebar correctly.
+
+129
+00:06:15,100 --> 00:06:18,220
+We should also go back
+to design code course app
+
+130
+00:06:18,220 --> 00:06:20,820
+where we're going directly to the sidebar.
+
+131
+00:06:20,820 --> 00:06:23,040
+And in this case, we should definitely
+
+132
+00:06:23,040 --> 00:06:25,070
+go to the content view instead.
+
+133
+00:06:25,070 --> 00:06:26,820
+So content view,
+
+134
+00:06:26,820 --> 00:06:28,990
+speaking about organizing your files
+
+135
+00:06:28,990 --> 00:06:31,230
+and learning SwiftUI in general,
+
+136
+00:06:31,230 --> 00:06:34,430
+definitely go to the WWDC website
+
+137
+00:06:34,430 --> 00:06:36,210
+and click on sample code.
+
+138
+00:06:36,210 --> 00:06:40,130
+So one way that I learned
+how to organize my project
+
+139
+00:06:40,130 --> 00:06:42,170
+is by looking at the source code
+
+140
+00:06:42,170 --> 00:06:44,330
+of the Fruta app created by Apple
+
+141
+00:06:44,330 --> 00:06:47,030
+where they're creating
+a multi platform app.
+
+142
+00:06:47,030 --> 00:06:50,260
+After you download it
+and open the project,
+
+143
+00:06:50,260 --> 00:06:52,310
+you're gonna find that they have
+
+144
+00:06:52,310 --> 00:06:57,310
+the same organization for
+shared folder, iOS, Mac OS.
+
+145
+00:06:57,600 --> 00:06:59,970
+Now where I took a lot of inspiration from
+
+146
+00:06:59,970 --> 00:07:02,820
+is how they're organizing
+let's see the data model,
+
+147
+00:07:02,820 --> 00:07:05,840
+the navigation and the components.
+
+148
+00:07:05,840 --> 00:07:10,840
+Now for the navigation, you
+can see here that if it's iOS,
+
+149
+00:07:11,930 --> 00:07:14,620
+it's detecting if it's an iPhone using
+
+150
+00:07:14,620 --> 00:07:16,630
+horizontal size class,
+
+151
+00:07:16,630 --> 00:07:18,760
+and it's showing the top bar.
+
+152
+00:07:18,760 --> 00:07:20,280
+Otherwise, for the iPad,
+
+153
+00:07:20,280 --> 00:07:23,780
+it's going to be the
+sidebar, or for the Mac,
+
+154
+00:07:23,780 --> 00:07:27,030
+you can see that it also has a frame size.
+
+155
+00:07:27,030 --> 00:07:28,580
+Since we don't have a tab bar yet,
+
+156
+00:07:28,580 --> 00:07:31,330
+we don't need to detect
+if it's an iPhone or not.
+
+157
+00:07:31,330 --> 00:07:32,740
+Back to our project,
+
+158
+00:07:32,740 --> 00:07:35,950
+let's create a folder for content view.
+
+159
+00:07:35,950 --> 00:07:39,490
+So let's select content
+view, right click on it,
+
+160
+00:07:39,490 --> 00:07:42,290
+and new group form selection.
+
+161
+00:07:42,290 --> 00:07:45,303
+This is where we're going to
+name that group navigation.
+
+162
+00:07:46,380 --> 00:07:49,250
+Then we're going to move sidebar
+
+163
+00:07:49,250 --> 00:07:51,570
+and put it inside navigation as well.
+
+164
+00:07:51,570 --> 00:07:53,330
+We don't have data model yet,
+
+165
+00:07:53,330 --> 00:07:56,000
+so we won't be making that folder yet.
+
+166
+00:07:56,000 --> 00:07:59,950
+But otherwise, let's create
+a new folder called items.
+
+167
+00:07:59,950 --> 00:08:03,100
+So let's right click on course item,
+
+168
+00:08:03,100 --> 00:08:04,980
+new group from selection,
+
+169
+00:08:04,980 --> 00:08:07,120
+we're gonna name this one items.
+
+170
+00:08:07,120 --> 00:08:08,110
+So in most project,
+
+171
+00:08:08,110 --> 00:08:10,370
+you're gonna see a
+folder called components.
+
+172
+00:08:10,370 --> 00:08:14,270
+And usually people put all
+the reusable components there,
+
+173
+00:08:14,270 --> 00:08:16,200
+and it tends to get a bit messy.
+
+174
+00:08:16,200 --> 00:08:19,140
+So what I try to do is to
+be a bit more specific.
+
+175
+00:08:19,140 --> 00:08:22,490
+And in this case, four
+items, I'm putting everything
+
+176
+00:08:22,490 --> 00:08:26,070
+that can be repeated many
+times inside a grid layout,
+
+177
+00:08:26,070 --> 00:08:27,520
+or a list layout.
+
+178
+00:08:27,520 --> 00:08:29,940
+So in this case, we have the course item.
+
+179
+00:08:29,940 --> 00:08:32,800
+And we also have the course row.
+
+180
+00:08:32,800 --> 00:08:34,870
+And then for the screens.
+
+181
+00:08:34,870 --> 00:08:38,160
+I'm just putting it here until
+it gets a little bit messy.
+
+182
+00:08:38,160 --> 00:08:40,940
+And then you can create
+a folder called screens.
+
+183
+00:08:40,940 --> 00:08:44,510
+But personally, I like my
+screens to be easy to reach
+
+184
+00:08:44,510 --> 00:08:46,460
+from the root.
+
+185
+00:08:46,460 --> 00:08:48,020
+Because you have the thing that
+
+186
+00:08:48,020 --> 00:08:50,430
+when people first land on your project,
+
+187
+00:08:50,430 --> 00:08:52,870
+that's the first thing
+that they're interested in.
+
+188
+00:08:52,870 --> 00:08:55,760
+And they want to be able
+to easily navigate between
+
+189
+00:08:55,760 --> 00:08:59,760
+the different screens and
+then explore to deeper levels.
+
+190
+00:08:59,760 --> 00:09:01,640
+All right, so before
+going to the next session,
+
+191
+00:09:01,640 --> 00:09:04,220
+I just wanna point out that
+when you make a screen,
+
+192
+00:09:04,220 --> 00:09:08,280
+this is where you typically
+will have your navigation title.
+
+193
+00:09:08,280 --> 00:09:09,710
+Also, oftentimes,
+
+194
+00:09:09,710 --> 00:09:12,400
+you don't want to repeat
+the navigation view,
+
+195
+00:09:12,400 --> 00:09:14,510
+otherwise it's going to bug.
+
+196
+00:09:14,510 --> 00:09:18,160
+And that navigation view
+has already been included
+
+197
+00:09:18,160 --> 00:09:19,670
+in the sidebar.
+
+198
+00:09:19,670 --> 00:09:23,670
+So you don't wanna do that
+also in the screen itself.
+
+199
+00:09:23,670 --> 00:09:26,370
+Anyways, a lot of this
+will come with practice,
+
+200
+00:09:26,370 --> 00:09:29,160
+and we're gonna explore more and more into
+
+201
+00:09:29,160 --> 00:09:30,950
+how we organize our files.
+
+202
+00:09:30,950 --> 00:09:32,970
+For now what I wanna do is
+
+203
+00:09:32,970 --> 00:09:36,390
+to turn this view into course row.
+
+204
+00:09:36,390 --> 00:09:39,570
+So I'm going to create
+a new file Command N
+
+205
+00:09:40,680 --> 00:09:43,130
+double click on SwiftUI view.
+
+206
+00:09:43,130 --> 00:09:44,953
+Let's name it course list.
+
+207
+00:09:46,490 --> 00:09:51,490
+And we're gonna move all the
+code inside courses view,
+
+208
+00:09:51,660 --> 00:09:53,380
+curly braces.
+
+209
+00:09:53,380 --> 00:09:56,420
+So including view builder body in content,
+
+210
+00:09:56,420 --> 00:09:59,260
+Command X, we're gonna move that
+
+211
+00:09:59,260 --> 00:10:03,530
+to replace by in course list and save.
+
+212
+00:10:03,530 --> 00:10:05,630
+Now back to courses view,
+
+213
+00:10:05,630 --> 00:10:08,090
+we're gonna put the var body
+
+214
+00:10:09,500 --> 00:10:12,880
+type some view, curly braces.
+
+215
+00:10:12,880 --> 00:10:15,480
+And this is where we're
+gonna start a new view
+
+216
+00:10:15,480 --> 00:10:18,633
+with text parentheses and
+it's going to be empty.
+
+217
+00:10:20,240 --> 00:10:23,100
+Typically a custom layout
+or a general layout
+
+218
+00:10:23,100 --> 00:10:25,730
+is going to be view at the end.
+
+219
+00:10:25,730 --> 00:10:28,800
+And if it's using a list it's going to be
+
+220
+00:10:28,800 --> 00:10:32,790
+list at the end for the items
+that you're repeating a lot.
+
+221
+00:10:32,790 --> 00:10:35,270
+It's course row or course item.
+
+222
+00:10:35,270 --> 00:10:38,300
+I do realize that reorganizing your files
+
+223
+00:10:38,300 --> 00:10:41,140
+and folders and refactoring
+some of the code
+
+224
+00:10:41,140 --> 00:10:43,400
+can be scary to a lot of beginners.
+
+225
+00:10:43,400 --> 00:10:46,140
+So feel free to download the source files
+
+226
+00:10:46,140 --> 00:10:48,000
+and start from my template
+
+227
+00:10:48,000 --> 00:10:50,330
+and that is valid for any section
+
+228
+00:10:50,330 --> 00:10:51,970
+that you have trouble with.
+
+229
+00:10:51,970 --> 00:10:56,340
+So back to courses view, we're
+ready to start a big series
+
+230
+00:10:56,340 --> 00:11:01,340
+of videos on match geometry
+effect as well as lazy grid,
+
+231
+00:11:01,490 --> 00:11:05,050
+we're also going to do a lot
+of animations, transitions.
+
+232
+00:11:05,050 --> 00:11:06,580
+It's going to be a lot of fun.
+
+233
+00:11:06,580 --> 00:11:09,038
+So I'll see you, in the next session.
+
+234
+00:11:09,038 --> 00:11:10,937
+(upbeat music)
+
